@@ -3,11 +3,12 @@ import { ScrollView, StyleSheet, View } from 'react-native';
 import { TAB_BAR_HEIGHT } from '../constants/TABBAR';
 import MyTabBarTab from './MyTabBarTab';
 import Colors from '../constants/Colors';
+import { normalizePaddingSize } from '../helpers/normalize';
 
 const MyTabBar = ({ state, descriptors, navigation, position }) => {
     return (
         <View style={styles.mainBarContainer}>
-            <ScrollView style={styles.tabBarScrollContainer} horizontal={true} showsHorizontalScrollIndicator={false}>
+            <ScrollView style={styles.tabBarScrollContainer} horizontal={true} >
                 <View style={styles.tabBarInnerContainer}>
                     {state.routes.map((route, index) => {
                         const { options } = descriptors[route.key];
@@ -55,9 +56,10 @@ const styles = StyleSheet.create({
     mainBarContainer: {
         position: 'absolute',
         top: 0,
-        backgroundColor: Colors.primary,
+        // backgroundColor: Colors.primary,
         width: '100%',
-        height: TAB_BAR_HEIGHT,
+        height: TAB_BAR_HEIGHT + normalizePaddingSize(25) ,
+        paddingBottom:normalizePaddingSize(25)
 
     },
     tabBarScrollContainer: {
