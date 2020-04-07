@@ -23,6 +23,7 @@ export default function App(props) {
           'sofia': require('./assets/Fonts/Sofia-Regular.ttf'),
           'sofia-med': require('./assets/Fonts/Sofia-Medium.ttf'),
           'sofia-bold': require('./assets/Fonts/Sofia-Bold.ttf'),
+          'verdana':require('./assets/Fonts/Verdana.ttf')
         });
       } catch (e) {
         // We might want to provide this error information to an error reporting service

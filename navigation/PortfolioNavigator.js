@@ -12,51 +12,52 @@ import MyTabBar from './MyTabBar';
 
 const TopTab = createBottomTabNavigator();
 // 
-const mainTabNavigator = () =>{
-    return(
-        <TopTab.Navigator  tabBar={props => <MyTabBar {...props} />}>
+const mainTabNavigator = () => {
+    return (
+        <TopTab.Navigator tabBar={props => <MyTabBar {...props} />}>
             <TopTab.Screen
-            name="Home"
-            component={HomeScreen}
-            options={{
-                title:'Home'
-            }}
+                name="Home"
+                component={HomeScreen}
+                options={{
+                    title: 'Home'
+                }}
             />
-             <TopTab.Screen
-            name="Contact"
-            component={ContactScreen}
-            options={{
-                title:'Contact'
-            }}
+            <TopTab.Screen
+                name="Contact"
+                component={ContactScreen}
+                options={{
+                    title: 'Contact'
+                }}
             />
-             <TopTab.Screen
-            name="GrocerEats"
-            component={GrocerEatsScreen}
-            options={{
-                title:'GrocerEats'
-            }}
+            <TopTab.Screen
+                name="GrocerEats"
+                component={GrocerEatsScreen}
+                options={{
+                    title: 'GrocerEats'
+                }}
             />
-             <TopTab.Screen
-            name="WordFishing"
-            component={WordFishingScreen}
-            options={{
-                title:'WordFishing'
-            }}
+            <TopTab.Screen
+                name="WordFishing"
+                component={WordFishingScreen}
+                options={{
+                    title: 'WordFishing'
+                }}
             />
-             <TopTab.Screen
-            name="BounceBack"
-            component={BounceBackScreen}
-            options={{
-                title:'BounceBack'
-            }}
+            <TopTab.Screen
+                name="Health Advisor"
+                component={HealthAdvisorScreen}
+                options={{
+                    title: 'Health Advisor'
+                }}
             />
-             <TopTab.Screen
-            name="Health Advisor"
-            component={HealthAdvisorScreen}
-            options={{
-                title:'Health Advisor'
-            }}
+            <TopTab.Screen
+                name="BounceBack"
+                component={BounceBackScreen}
+                options={{
+                    title: 'BounceBack'
+                }}
             />
+
         </TopTab.Navigator>
     )
 }

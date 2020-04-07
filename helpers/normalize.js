@@ -1,12 +1,14 @@
 import { Dimensions, Platform, PixelRatio } from "react-native";
 
-const BASE_PHONE_WIDTH = 393;
+const BASE_WIDTH = 1920;
 const SCREEN_WIDTH = Dimensions.get('window').width
 
-const scale = SCREEN_WIDTH / BASE_PHONE_WIDTH;
+const scale = SCREEN_WIDTH / BASE_WIDTH;
 
 export const normalizeFontSize = (size)=>{
     return size;
+    // const newSize = size * scale
+    // return Math.round(PixelRatio.roundToNearestPixel(newSize))
     // const newSize = size * scale
     // if(Platform.OS ==='android'){
     //     return Math.round(PixelRatio.roundToNearestPixel(newSize)) - 2

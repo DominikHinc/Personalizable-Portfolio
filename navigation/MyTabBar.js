@@ -59,8 +59,8 @@ const styles = StyleSheet.create({
         // backgroundColor: Colors.primary,
         width: '100%',
         height: TAB_BAR_HEIGHT + normalizePaddingSize(25) ,
-        paddingBottom:normalizePaddingSize(25)
-
+        paddingBottom:normalizePaddingSize(25),
+      
     },
     tabBarScrollContainer: {
         
