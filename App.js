@@ -1,12 +1,25 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { StyleSheet, Text, View, Dimensions } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import PortfolioNavigator from "./navigation/PortfolioNavigator"
 import * as Font from 'expo-font';
 import { SplashScreen } from 'expo';
+import { lightMode, darkMode } from './constants/Colors';
+import { ColorsContext } from './helpers/ColorsContext';
 
 export default function App(props) {
-  const [isLoadingComplete, setLoadingComplete] = React.useState(false);
+  const [isLoadingComplete, setLoadingComplete] = useState(false);
+  const [rerender, setRerender] = useState(false)
+  const [colors, setColors] = useState(darkMode)
+  const value = { colors, setColors }
+ 
+  useEffect(()=>{
+    const dimenstionsChangeListener = Dimensions.addEventListener('change', ()=>{setRerender(prev=>!prev)})
+    
+    return ()=>{
+      Dimensions.removeEventListener('change',dimenstionsChangeListener)
+    }
+  },[])
 
   // Load any resources or data that we need prior to rendering the app
   React.useEffect(() => {
@@ -23,7 +36,7 @@ export default function App(props) {
           'sofia': require('./assets/Fonts/Sofia-Regular.ttf'),
           'sofia-med': require('./assets/Fonts/Sofia-Medium.ttf'),
           'sofia-bold': require('./assets/Fonts/Sofia-Bold.ttf'),
-          'verdana':require('./assets/Fonts/Verdana.ttf')
+          'verdana': require('./assets/Fonts/Verdana.ttf')
         });
       } catch (e) {
         // We might want to provide this error information to an error reporting service
@@ -42,9 +55,11 @@ export default function App(props) {
   } else {
     return (
       <View style={styles.container}>
-        <NavigationContainer>
-          <PortfolioNavigator />
-        </NavigationContainer>
+        <ColorsContext.Provider value={value}>
+          <NavigationContainer>
+            <PortfolioNavigator />
+          </NavigationContainer>
+        </ColorsContext.Provider>
       </View>
     );
   }

@@ -1,76 +1,79 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { StyleSheet, TouchableOpacity, View, Image, Animated } from 'react-native';
 import { TAB_WIDTH, TAB_BAR_HEIGHT } from '../constants/TABBAR';
 import { normalizeFontSize, normalizeIconSize, normalizeMarginSize, normalizeWidth, normalizeHeight } from '../helpers/normalize';
 import Colors from '../constants/Colors'
 import DefaultText from '../components/DefaultText';
-// import Animated, { Easing } from 'react-native-reanimated'
 import { Entypo, MaterialIcons } from '@expo/vector-icons'
+import { ColorsContext } from '../helpers/ColorsContext';
 
-const getLabelFontStyle = (label) => {
+const getLabelFontStyle = (label, colors) => {
     switch (label) {
         case "Home":
             return {
                 fontFamily: 'sofia-bold',
-                color: Colors.secondary
+                color: colors.font
             }
 
         case "Contact":
             return {
                 fontFamily: 'sofia-bold',
-                color: Colors.secondary
+                color: colors.font
             }
 
         case "GrocerEats":
             return {
                 fontFamily: 'coiny',
-                color: Colors.blue
+                color: colors.blue
             }
 
         case "WordFishing":
             return {
                 fontFamily: 'berkshireswash',
                 fontSize: normalizeFontSize(18),
-                color: Colors.secondary
+                color: colors.font
             }
 
         case "BounceBack":
             return {
-                color: Colors.darkBlue,
+                color: colors.darkBlue,
                 fontFamily: 'gibson',
                 fontSize: normalizeFontSize(24)
             }
 
         case "Health Advisor":
             return {
-                color: Colors.lightGreen,
+                color: colors.lightGreen,
                 fontFamily: 'impact'
             }
     }
 }
 
-const getPreviewIcon = (label) => {
+const getPreviewIcon = (label, colors, isFocused) => {
     switch (label) {
         case "Home":
-            return <Entypo name="home" size={normalizeIconSize(48)} color={Colors.secondary} />
+            return <Entypo name="home" size={normalizeIconSize(48)} color={isFocused ? colors.font : colors.gray} />
         case "Contact":
-            return <MaterialIcons name='contact-mail' size={normalizeIconSize(48)} color={Colors.secondary} />
+            return <MaterialIcons name='contact-mail' size={normalizeIconSize(48)} color={isFocused ? colors.font : colors.gray} />
 
         case "GrocerEats":
-            return <Animated.Image source={require('../assets/Icons/GrocerEats.png')} style={styles.iconImage} />
+            return isFocused ? <Animated.Image source={require('../assets/Icons/GrocerEats.png')} style={styles.iconImage} />
+            : <Animated.Image source={require('../assets/Icons/GrocerEats_Gray.png')} style={styles.iconImage} />
 
         case "WordFishing":
             // return <Animated.Image source={require('../assets/Icons/W.png')} style={styles.iconImage} />
             return <DefaultText style={{
                 fontFamily: 'berkshireswash',
                 fontSize: normalizeFontSize(48),
-                color: Colors.secondary
+                color: isFocused ? colors.font : colors.gray
             }}>W</DefaultText>
         case "BounceBack":
-            return <Animated.Image source={require('../assets/Icons/BounceBack.png')} style={styles.iconImage} />
+            return isFocused ? <Animated.Image source={require('../assets/Icons/BounceBack.png')} style={styles.iconImage} />
+            :<Animated.Image source={require('../assets/Icons/BounceBack_Gray.png')} style={styles.iconImage} />
 
         case "Health Advisor":
-            return <Animated.Image source={require('../assets/Icons/Health_Advisor.png')} style={styles.iconImage} />
+            return isFocused ? <Animated.Image source={require('../assets/Icons/Health_Advisor.png')} style={styles.iconImage} />
+            :<Animated.Image source={require('../assets/Icons/Health_Advisor_Gray.png')} style={styles.iconImage} />
     }
 }
 
@@ -95,64 +98,8 @@ const getTabFullWidth = (label) => {
 }
 
 const MyTabBarTab = ({ label, isFocused, options, onPress, onLongPress }) => {
-    // const {
-    //     set,
-    //     cond,
-    //     startClock,
-    //     stopClock,
-    //     clockRunning,
-    //     block,
-    //     timing,
-    //     call,
-    //     Value,
-    //     Clock,
-    //     interpolate
-    // } = Animated;
-    // const [reanimatedValue, setReanimatedValue] = useState(new Value(isFocused ? 1 : 0))
-    // const [previousFoucusState, setPreviousFoucusState] = useState(isFocused)
-
-    // useEffect(() => {
-    //     if (isFocused !== previousFoucusState) {
-    //         setPreviousFoucusState(isFocused)
-    //         if (isFocused) {
-    //             setReanimatedValue(runTiming(new Clock(), new Value(0), new Value(1)))
-    //         } else {
-    //             setReanimatedValue(runTiming(new Clock(), new Value(1), new Value(0)))
-    //         }
-    //     }
-
-    // }, [isFocused])
-
-    // const runTiming = (clock, value, dest) => {
-    //     const state = {
-    //         finished: new Value(0),
-    //         position: value,
-    //         time: new Value(0),
-    //         frameTime: new Value(0),
-    //     };
-
-    //     const config = {
-    //         duration: 300,
-    //         toValue: dest,
-    //         easing: Easing.inOut(Easing.cubic),
-    //     };
-
-    //     return block([
-
-    //         cond(clockRunning(clock), 0, [
-    //             set(state.finished, 0),
-    //             set(state.time, 0),
-    //             set(state.position, value),
-    //             set(state.frameTime, 0),
-    //             set(config.toValue, dest),
-    //             startClock(clock),
-    //         ]),
-    //         timing(clock, state, config),
-    //         cond(state.finished, stopClock(clock)),
-    //         state.position,
-    //     ]);
-    // }
     const [animatedValue, setAnimatedValue] = useState(new Animated.Value(isFocused ? 1 : 0))
+    const {colors} = useContext(ColorsContext)
 
     useEffect(() => {
         startAnimation();
@@ -163,9 +110,6 @@ const MyTabBarTab = ({ label, isFocused, options, onPress, onLongPress }) => {
             toValue: isFocused ? 1 : 0,
 
             overshootClamping: true,
-            // restDisplacementThreshold:0.1,
-            // restSpeedThreshold:0.1,
-            // velocity:2,
             bounciness: 12
 
         }).start();
@@ -184,19 +128,6 @@ const MyTabBarTab = ({ label, isFocused, options, onPress, onLongPress }) => {
         outputRange: [0.5, 1]
     })
 
-    // const textWidth = interpolate(reanimatedValue, {
-    //     inputRange: [0, 1],
-    //     outputRange: [0, TAB_WIDTH]
-    // })
-    // const textOpacity = interpolate(reanimatedValue, {
-    //     inputRange: [0, 1],
-    //     outputRange: [0, 1]
-    // })
-    // const textScaleX = interpolate(reanimatedValue, {
-    //     inputRange: [0, 1],
-    //     outputRange: [0, 1]
-    // })
-
     return (
         <Animated.View style={[styles.mainTabContainer]}>
             <TouchableOpacity
@@ -208,11 +139,11 @@ const MyTabBarTab = ({ label, isFocused, options, onPress, onLongPress }) => {
                 style={styles.tabTouchable}
             >
                 <Animated.View style={[{opacity:iconOpacity}]}>
-                    {getPreviewIcon(label)}
+                    {getPreviewIcon(label, colors, isFocused)}
                 </Animated.View>
 
                 <Animated.View style={[{ opacity: textOpacity, marginLeft: normalizeMarginSize(10), width: textWidth }]}>
-                    <DefaultText numberOfLines={1} style={{ fontSize: normalizeFontSize(22), ...getLabelFontStyle(label), color: getLabelFontStyle(label).color }}>
+                    <DefaultText numberOfLines={1} style={{ fontSize: normalizeFontSize(22), ...getLabelFontStyle(label, colors), color: getLabelFontStyle(label, colors).color }}>
                         {label !== "WordFishing" ? label : "WORDFISHING"}
                     </DefaultText>
                 </Animated.View>

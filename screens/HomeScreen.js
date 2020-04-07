@@ -1,27 +1,123 @@
-import React from 'react'
-import { View, Text, StyleSheet, Image, ScrollView, ImageBackground, Dimensions } from 'react-native'
+import React, { useContext, useState, useEffect } from 'react'
+import { View, Text, StyleSheet, Image, ScrollView, ImageBackground, Dimensions, Animated, Easing } from 'react-native'
 import Colors from '../constants/Colors'
 import { TAB_BAR_HEIGHT, TAB_BAR_REAL_HEIGHT } from '../constants/TABBAR'
-import { normalizeHeight, normalizePaddingSize } from '../helpers/normalize'
+import { normalizeHeight, normalizePaddingSize, normalizeIconSize } from '../helpers/normalize'
 import DefaultText from '../components/DefaultText'
 import { headerMainStyle, headerSecondaryStyle } from '../constants/FontStyles'
 import MyProjectsSection from '../components/MyProjectsSection'
+import { ColorsContext } from '../helpers/ColorsContext'
+import { Ionicons } from '@expo/vector-icons'
 
-const HEADER_HEIGHT = normalizeHeight(500)
 
 const HomeScreen = (props) => {
     console.log(Dimensions.get('window').width)
-    return (
-        <View style={styles.screen}>
-            <View style={styles.headerView}>
-                <ImageBackground style={styles.headerImage} source={require("../assets/Images/HeaderGrayBackground.jpg")}>
-                    <DefaultText style={headerMainStyle}>Hey there, I'm Dominik Hinc</DefaultText>
-                    <DefaultText style={headerSecondaryStyle}>I'm mobile app developer</DefaultText>
-                </ImageBackground>
+    const { colors } = useContext(ColorsContext)
+    const currentContentOffset = new Animated.Value(0)
+    const callToActionAnimatedValue = new Animated.Value(0)
 
-            </View>
-            <ScrollView style={styles.screenScrollView} contentContainerStyle={styles.scrollViewInnerContainer}>
-                <View style={styles.screenUseableContainer}>
+    const [shouldCallToActionAnimationStop, setShouldCallToActionAnimationStop] = useState(false)
+    const [showCallToActionIcon, setShowCallToActionIcon] = useState(true)
+
+    useEffect(() => {
+        if (showCallToActionIcon) {
+            setTimeout(startCallToActionAnimation,1000)
+        }
+    }, [showCallToActionIcon])
+    useEffect(()=>{
+        if (showCallToActionIcon) {
+            callToActionAnimatedValue.setValue(0)
+            setTimeout(startCallToActionAnimation,1000)
+        }
+    },[colors])
+
+    const onScrollHandler = (e) => {
+        // if (e.nativeEvent.contentOffset.y > 20 && shouldCallToActionAnimationStop === false) {
+        //     setShouldCallToActionAnimationStop(true)
+        // }
+        // if (e.nativeEvent.contentOffset.y <= 20 && shouldCallToActionAnimationStop === true) {
+        //     console.log(e.nativeEvent.contentOffset.y)
+        //     setShouldCallToActionAnimationStop(false)
+        //     startCallToActionAnimation()
+        // }
+        // if (e.nativeEvent.contentOffset.y > Dimensions.get('window').height / 5) {
+        //     callToActionAnimatedValue.setValue(0)
+        //     setShowCallToActionIcon(false)
+        // } else {
+        //     callToActionAnimatedValue.setValue(0)
+        //     setShowCallToActionIcon(true)
+        // }
+        currentContentOffset.setValue(e.nativeEvent.contentOffset.y);
+    }
+
+    const startCallToActionAnimation = () => {
+        callToActionAnimatedValue.setValue(0)
+        Animated.spring(callToActionAnimatedValue, {
+            toValue: callToActionAnimatedValue._value === 0 ? 1 : 0,
+            damping: 20,
+            velocity: -10,
+
+        }).start(() => {
+            if (shouldCallToActionAnimationStop === false) {
+                setTimeout(startCallToActionAnimation, 1000)
+            }
+        })
+    }
+
+    const imageOpacity = currentContentOffset.interpolate({
+        inputRange: [0, Dimensions.get('window').height - TAB_BAR_HEIGHT],
+        outputRange: [1, 0],
+        extrapolate: 'clamp',
+        easing: Easing.ease,
+    })
+    const imageHeight = currentContentOffset.interpolate({
+        inputRange: [0, Dimensions.get('window').height - TAB_BAR_HEIGHT],
+        outputRange: [Dimensions.get('window').height, 0],
+        extrapolate: 'clamp',
+        easing: Easing.ease,
+    })
+    const callToActionIconMargin = currentContentOffset.interpolate({
+        inputRange: [0, Dimensions.get('window').height / 5],
+        outputRange: [0, -200],
+        extrapolate: 'clamp',
+        easing: Easing.ease,
+    })
+    const callToActionIconAnimationState = {
+        transform: [{
+            translateY: callToActionAnimatedValue.interpolate({
+                inputRange: [0, 0.5, 1],
+                outputRange: [0, -20, 0]
+            }),
+
+        }, {
+            scale: callToActionAnimatedValue.interpolate({
+                inputRange: [0, 0.5, 1],
+                outputRange: [1, 0.9, 1]
+            }),
+        },
+        {
+            rotate: callToActionAnimatedValue.interpolate({
+                inputRange: [0, 1],
+                outputRange: ['0deg', '360deg']
+            }),
+        }
+        ]
+    }
+
+    return (
+        <View style={[styles.screen, { backgroundColor: colors.background }]}>
+            <Animated.View style={[styles.headerView, { backgroundColor: colors.first, opacity: imageOpacity, height: imageHeight, }]}>
+                <ImageBackground style={styles.headerImage} source={require("../assets/Images/Desk.png")}>
+                    <DefaultText style={{ ...headerMainStyle, color: 'white' }}>Hey there, I'm Dominik Hinc</DefaultText>
+                    <DefaultText style={{ ...headerSecondaryStyle, color: 'white' }}>I'm a mobile app developer</DefaultText>
+                    <Animated.View style={[styles.callToActionIconContainer, callToActionIconAnimationState, {opacity:showCallToActionIcon ? 1 : 0, marginBottom:callToActionIconMargin}]}>
+                        <Ionicons name="ios-arrow-dropdown" size={normalizeIconSize(50)} />
+                    </Animated.View>
+                </ImageBackground>
+            </Animated.View>
+            <ScrollView style={styles.screenScrollView} contentContainerStyle={[styles.scrollViewInnerContainer, { paddingTop: Dimensions.get('window').height, }]}
+                onScroll={onScrollHandler} onMomentumScrollEnd={onScrollHandler} onScrollBeginDrag={onScrollHandler} scrollEventThrottle={1}>
+                <View style={[styles.screenUseableContainer, { backgroundColor: colors.background }]}>
                     <View style={styles.projectsSectionTitleContainer}>
                         <DefaultText style={headerSecondaryStyle}>My Projects:</DefaultText>
                     </View>
@@ -40,13 +136,12 @@ const HomeScreen = (props) => {
 const styles = StyleSheet.create({
     screen: {
         flex: 1,
-        backgroundColor: Colors.primary
+
 
     },
     headerView: {
-        height: HEADER_HEIGHT,
+
         width: '100%',
-        backgroundColor: Colors.tertiary,
         position: "absolute",
     },
     headerImage: {
@@ -60,20 +155,28 @@ const styles = StyleSheet.create({
         marginTop: TAB_BAR_HEIGHT,
     },
     scrollViewInnerContainer: {
-        paddingTop: HEADER_HEIGHT,
+
 
     },
     screenUseableContainer: {
         flex: 1,
-        backgroundColor: Colors.primary,
+
     },
-    projectsSectionContainer:{
-        flex:1,
-        paddingTop:normalizePaddingSize(20)
-    }, 
-    projectsSectionTitleContainer:{
-        width:'100%',
-        alignItems:'center'
+    projectsSectionContainer: {
+        flex: 1,
+        paddingTop: normalizePaddingSize(20),
+
+    },
+    projectsSectionTitleContainer: {
+        width: '100%',
+        alignItems: 'center'
+    },
+    callToActionIconContainer: {
+        position: 'absolute',
+        bottom: 0,
+        width: '100%',
+        alignItems: 'center',
+
     }
 })
 
