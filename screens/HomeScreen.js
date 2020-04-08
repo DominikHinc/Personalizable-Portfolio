@@ -8,6 +8,8 @@ import { headerMainStyle, headerSecondaryStyle } from '../constants/FontStyles'
 import MyProjectsSection from '../components/MyProjectsSection'
 import { ColorsContext } from '../helpers/ColorsContext'
 import { Ionicons } from '@expo/vector-icons'
+import { useSafeArea } from 'react-native-safe-area-context'
+import AboutMeSection from '../components/AboutMeSection'
 
 
 const HomeScreen = (props) => {
@@ -18,6 +20,8 @@ const HomeScreen = (props) => {
 
     const [shouldCallToActionAnimationStop, setShouldCallToActionAnimationStop] = useState(false)
     const [showCallToActionIcon, setShowCallToActionIcon] = useState(true)
+
+    const insets = useSafeArea();
 
     useEffect(() => {
         if (showCallToActionIcon) {
@@ -115,7 +119,7 @@ const HomeScreen = (props) => {
                     </Animated.View>
                 </ImageBackground>
             </Animated.View>
-            <ScrollView style={styles.screenScrollView} contentContainerStyle={[styles.scrollViewInnerContainer, { paddingTop: Dimensions.get('window').height, }]}
+            <ScrollView style={[styles.screenScrollView,{marginTop: TAB_BAR_HEIGHT + insets.top,}]} contentContainerStyle={[styles.scrollViewInnerContainer, { paddingTop: Dimensions.get('window').height, }]}
                 onScroll={onScrollHandler} onMomentumScrollEnd={onScrollHandler} onScrollBeginDrag={onScrollHandler} scrollEventThrottle={1}>
                 <View style={[styles.screenUseableContainer, { backgroundColor: colors.background }]}>
                     <View style={styles.projectsSectionTitleContainer}>
@@ -125,8 +129,10 @@ const HomeScreen = (props) => {
                         <MyProjectsSection navigation={props.navigation} />
                     </View>
 
-
-                    <View style={{ height: 1000 }}></View>
+                    <View style={styles.aboutMeSectionContainer}>
+                        <AboutMeSection/>
+                    </View>
+                    
                 </View>
             </ScrollView>
         </View>
@@ -152,7 +158,7 @@ const styles = StyleSheet.create({
     },
     screenScrollView: {
         flex: 1,
-        marginTop: TAB_BAR_HEIGHT,
+        
     },
     scrollViewInnerContainer: {
 

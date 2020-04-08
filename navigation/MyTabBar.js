@@ -1,16 +1,18 @@
 import { Entypo, MaterialIcons } from '@expo/vector-icons';
 import React, { useContext } from 'react';
-import { ScrollView, StyleSheet, TouchableOpacity, View } from 'react-native';
+import { ScrollView, StyleSheet, TouchableOpacity, View, Platform } from 'react-native';
 import { darkMode, lightMode } from '../constants/Colors';
 import { TAB_BAR_HEIGHT } from '../constants/TABBAR';
 import { ColorsContext } from '../helpers/ColorsContext';
 import { normalizeMarginSize, normalizePaddingSize } from '../helpers/normalize';
 import MyTabBarTab from './MyTabBarTab';
+import { useSafeArea } from 'react-native-safe-area-context'
 
 const MyTabBar = ({ state, descriptors, navigation, position }) => {
     const { colors, setColors } = useContext(ColorsContext)
+    const insets = useSafeArea();
     return (
-        <View style={[styles.mainBarContainer,{backgroundColor:'transparent'}]}>
+        <View style={[styles.mainBarContainer,{backgroundColor:'transparent', marginTop:insets.top}]}>
             <ScrollView style={styles.tabScrollView} contentContainerStyle={[styles.tabBarScrollContainer]} horizontal={true} >
                 <View style={[styles.tabBarInnerContainer ]}>
                     {state.routes.map((route, index) => {
@@ -45,7 +47,7 @@ const MyTabBar = ({ state, descriptors, navigation, position }) => {
 
                         return (
 
-                            <MyTabBarTab label={label} isFocused={isFocused} onLongPress={onLongPress} onPress={onPress} options={options} />
+                            <MyTabBarTab key={label} label={label} isFocused={isFocused} onLongPress={onLongPress} onPress={onPress} options={options} />
 
                         );
                     })}
@@ -73,18 +75,18 @@ const styles = StyleSheet.create({
     mainBarContainer: {
         position: 'absolute',
         top: 0,
-        // backgroundColor: Colors.primary,
+        
         width: '100%',
         height: TAB_BAR_HEIGHT ,
         
 
     },
     tabScrollView: {
-
+       
     },
     tabBarScrollContainer: {
-
-        width: '100%'
+        width:Platform.OS === 'web' ? '100%' : null
+       
     },
     tabBarInnerContainer: {
         flex: 1,

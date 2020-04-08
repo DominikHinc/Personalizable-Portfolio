@@ -17,11 +17,22 @@ export const sectionHeaderStyle={
     // fontFamily:"sofia-med",
     fontSize:normalizeFontSize(22),
     textAlign:'center',
-    fontWeight:700
+    fontWeight:'700'
 }
 export const standardText={
     // fontFamily:"verdana",
     fontSize:normalizeFontSize(18),
     textAlign:'center',
  
+}
+export const standardTextLeft={
+    // fontFamily:"verdana",
+    fontSize:normalizeFontSize(18),
+    textAlign:'left',
+ 
+}
+export const standardBoldText={
+    fontSize:normalizeFontSize(18),
+    textAlign:'center',
+    fontWeight:'700'
 }

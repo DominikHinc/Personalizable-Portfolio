@@ -1,21 +1,22 @@
 import React, { useContext } from 'react'
-import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet, Image, TouchableOpacity, Platform } from 'react-native'
 import DefaultText from './DefaultText'
-import { normalizeWidth, normalizeHeight, normalizeBorderRadiusSize, normalizePaddingSize } from '../helpers/normalize'
+import { normalizeWidth, normalizeHeight, normalizeBorderRadiusSize, normalizePaddingSize, normalizeIconSize } from '../helpers/normalize'
 import Colors from '../constants/Colors'
 import { headerMainStyle, headerSecondaryStyle, sectionHeaderStyle, standardText } from '../constants/FontStyles'
 import { Linking } from 'expo'
 import { ColorsContext } from '../helpers/ColorsContext'
 import { projectsOverview } from '../constants/ProjectsOverview'
+import {AntDesign} from "@expo/vector-icons"
 
 
 
 
 const renderProject = (navigation) => {
-    const {colors} = useContext(ColorsContext)
+    const { colors } = useContext(ColorsContext)
     return projectsOverview.map(item => {
         return (
-            <View style={[styles.tabMainContainer, {backgroundColor:colors.second}]}>
+            <View key={item.title} style={[styles.tabMainContainer, { backgroundColor: colors.second }]}>
                 <View style={styles.projectImageContainer}>
                     <Image style={styles.projectImage} source={item.image} resizeMode="contain" />
                 </View>
@@ -43,20 +44,24 @@ const renderProject = (navigation) => {
                     <DefaultText style={standardText}>{item.tools}</DefaultText>
                 </View>
                 <View style={[styles.navigationContainer]}>
-                    <View style={{ width: '40%', margin:'5%' }}>
-                        <TouchableOpacity style={{ flex: 1 }} onPress={() => { window.open(item.link)}}>
-                            <View>
-                                <DefaultText style={sectionHeaderStyle}>Go to Google Play Store</DefaultText>
-                            </View>
-                        </TouchableOpacity>
+                    <DefaultText style={sectionHeaderStyle}>Go to:</DefaultText>
+                    <View style={styles.navigationButtonsContainer}>
+                        <View style={styles.naviagtionButton}>
+                            <TouchableOpacity style={{ flex: 1 }} onPress={() => {Platform.OS === 'web' ? window.open(item.link) : Linking.openURL(item.link) }}>
+                                <View>
+                                    <DefaultText style={{...standardText, color:colors.blue}}>Play Store</DefaultText>
+                                </View>
+                            </TouchableOpacity>
+                        </View>
+                        <View style={styles.naviagtionButton}>
+                            <TouchableOpacity style={{ flex: 1 }} onPress={() => { navigation.navigate(item.title) }}>
+                                <View>
+                                    <DefaultText style={{...standardText, color:colors.blue}}>Project's page</DefaultText>
+                                </View>
+                            </TouchableOpacity>
+                        </View>
                     </View>
-                    <View style={{ width: '40%', margin:'5%' }}>
-                        <TouchableOpacity style={{ flex: 1 }} onPress={() => { navigation.navigate(item.title) }}>
-                            <View>
-                                <DefaultText style={sectionHeaderStyle}>Go to project's page 🡢  </DefaultText>
-                            </View>
-                        </TouchableOpacity>
-                    </View>
+
 
                 </View>
 
@@ -99,22 +104,33 @@ const styles = StyleSheet.create({
         width: '80%',
         height: normalizeHeight(200),
         marginTop: '8%',
-        borderRadius: normalizeBorderRadiusSize(50),
         overflow: 'hidden',
-
+        
     },
     projectImage: {
-        height: '100%',
-        width: '100%'
+        // height: '100%',
+        // width: '100%',
+        height:normalizeHeight(200),
+        width: '100%',
+        
     },
     section: {
         paddingVertical: normalizePaddingSize(20),
         paddingHorizontal: '5%'
     },
     navigationContainer: {
-        flexDirection: 'row',
+        
         width: '100%',
-        justifyContent: 'space-between'
+        
+    },
+    navigationButtonsContainer:{
+        flexDirection:'row',
+        justifyContent:'space-between'
+    },
+    naviagtionButton:{
+        width: '40%', 
+        marginHorizontal: '5%', 
+        marginBottom:'5%' 
     }
 })
 

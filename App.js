@@ -6,20 +6,22 @@ import * as Font from 'expo-font';
 import { SplashScreen } from 'expo';
 import { lightMode, darkMode } from './constants/Colors';
 import { ColorsContext } from './helpers/ColorsContext';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+
 
 export default function App(props) {
   const [isLoadingComplete, setLoadingComplete] = useState(false);
   const [rerender, setRerender] = useState(false)
   const [colors, setColors] = useState(darkMode)
   const value = { colors, setColors }
- 
-  useEffect(()=>{
-    const dimenstionsChangeListener = Dimensions.addEventListener('change', ()=>{setRerender(prev=>!prev)})
-    
-    return ()=>{
-      Dimensions.removeEventListener('change',dimenstionsChangeListener)
+  
+  useEffect(() => {
+    const dimenstionsChangeListener = Dimensions.addEventListener('change', () => { setRerender(prev => !prev) })
+
+    return () => {
+      Dimensions.removeEventListener('change', dimenstionsChangeListener)
     }
-  },[])
+  }, [])
 
   // Load any resources or data that we need prior to rendering the app
   React.useEffect(() => {
@@ -54,13 +56,16 @@ export default function App(props) {
     return null;
   } else {
     return (
-      <View style={styles.container}>
-        <ColorsContext.Provider value={value}>
-          <NavigationContainer>
-            <PortfolioNavigator />
-          </NavigationContainer>
-        </ColorsContext.Provider>
-      </View>
+      <SafeAreaProvider>
+        <View style={[styles.container]}>
+          <ColorsContext.Provider value={value}>
+            <NavigationContainer>
+              <PortfolioNavigator />
+            </NavigationContainer>
+          </ColorsContext.Provider>
+        </View>
+      </SafeAreaProvider>
+
     );
   }
 }

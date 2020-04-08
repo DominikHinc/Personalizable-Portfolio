@@ -4,6 +4,7 @@ export const darkMode = {
     second:'#232a31',
     third:'#38434f',
     font:'#ffffff',
+    linkBlue:"#0000EE",
     red:'#FA1E44',
     darkRed:'#c41835',
     yellow:'#EE782D',
@@ -23,6 +24,7 @@ export const lightMode = {
     second:'#eff0f2',
     third:'#dbdee1',
     font:'#000000',
+    linkBlue:"#0000EE",
     red:'#FA1E44',
     darkRed:'#c41835',
     yellow:'#EE782D',
@@ -34,4 +36,6 @@ export const lightMode = {
     gray:'#807b7b',
     darkGray:'#ababab',
     lighterGray:'#e6e6e6',
+    
 }
+
