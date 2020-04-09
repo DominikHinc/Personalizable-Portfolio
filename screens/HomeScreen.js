@@ -10,6 +10,7 @@ import { ColorsContext } from '../helpers/ColorsContext'
 import { Ionicons } from '@expo/vector-icons'
 import { useSafeArea } from 'react-native-safe-area-context'
 import AboutMeSection from '../components/AboutMeSection'
+import Footer from '../components/Footer'
 
 
 const HomeScreen = (props) => {
@@ -132,7 +133,9 @@ const HomeScreen = (props) => {
                     <View style={styles.aboutMeSectionContainer}>
                         <AboutMeSection/>
                     </View>
-                    
+                    <View>
+                        <Footer/>
+                    </View>
                 </View>
             </ScrollView>
         </View>

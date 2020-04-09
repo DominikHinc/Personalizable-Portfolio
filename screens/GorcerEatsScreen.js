@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, Image } from 'react-native'
 import Colors from '../constants/Colors'
 import { ColorsContext } from '../helpers/ColorsContext'
 
@@ -7,7 +7,10 @@ const GrocerEatsScreen = (props) => {
     const {colors} = useContext(ColorsContext)
     return (
         <View style={[styles.screen,{backgroundColor:colors.background}]}>
-            <Text>GrocerEats Screen</Text>
+            <View style={{borderRadius:100, overflow:'hidden'}}>
+                <Image source={require('../assets/Gifs/GrocerEats/StandardSearch.gif')} style={{height:200, width:200}} />
+            </View>
+            
         </View>
     )
 }
