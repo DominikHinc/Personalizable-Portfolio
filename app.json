@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "portfolio",
-    "slug": "portfolio",
+    "name": "Portfolio Dominik Hinc",
+    "slug": "portfolio-dominik-hinc",
     "platforms": [
       "ios",
       "android",
@@ -23,6 +23,7 @@
     ],
     "ios": {
       "supportsTablet": true
-    }
+    },
+    "description": ""
   }
 }

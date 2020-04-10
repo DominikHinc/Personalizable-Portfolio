@@ -14,7 +14,7 @@ const TopTab = createBottomTabNavigator();
 // 
 const mainTabNavigator = () => {
     return (
-        <TopTab.Navigator tabBar={props => <MyTabBar {...props} />} initialRouteName="Home">
+        <TopTab.Navigator tabBar={props => <MyTabBar {...props} />} initialRouteName="WordFishing">
             <TopTab.Screen
                 name="Home"
                 component={HomeScreen}
