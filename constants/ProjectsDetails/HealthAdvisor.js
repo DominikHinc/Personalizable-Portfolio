@@ -1,4 +1,4 @@
-export const GrocerEatsDetails = [
+export const HealthAdvisorDetails = [
     {
         title:"Genesis",
         gif:require('../../assets/Gifs/GrocerEats/StandardSearch.gif'),

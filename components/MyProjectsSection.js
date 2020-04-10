@@ -1,9 +1,9 @@
 import React, { useContext } from 'react'
 import { View, Text, StyleSheet, Image, TouchableOpacity, Platform } from 'react-native'
 import DefaultText from './DefaultText'
-import { normalizeWidth, normalizeHeight, normalizeBorderRadiusSize, normalizePaddingSize, normalizeIconSize } from '../helpers/normalize'
+import { normalizeWidth, normalizeHeight, normalizeBorderRadiusSize, normalizePaddingSize, normalizeIconSize, normalizeMarginSize } from '../helpers/normalize'
 import Colors from '../constants/Colors'
-import { headerMainStyle, headerSecondaryStyle, sectionHeaderStyle, standardText } from '../constants/FontStyles'
+import { headerMainStyle, headerSecondaryStyle, sectionHeaderStyle, standardText, standardBoldText } from '../constants/FontStyles'
 import { Linking } from 'expo'
 import { ColorsContext } from '../helpers/ColorsContext'
 import { projectsOverview } from '../constants/ProjectsOverview'
@@ -17,6 +17,8 @@ const renderProject = (navigation) => {
     return projectsOverview.map(item => {
         return (
             <View key={item.title} style={[styles.tabMainContainer, { backgroundColor: colors.second }]}>
+                {item.specialLabel !== undefined && 
+                <View style={[styles.specialLabelContainer, {backgroundColor:colors.third}]}><DefaultText style={{fontWeight:'bold', fontSize:20}}>{item.specialLabel}</DefaultText></View>}
                 <View style={styles.projectImageContainer}>
                     <Image style={styles.projectImage} source={item.image} resizeMode="contain" />
                 </View>
@@ -98,7 +100,17 @@ const styles = StyleSheet.create({
         borderRadius: normalizeBorderRadiusSize(50),
         marginHorizontal: '10%',
         marginVertical: '5%',
-        alignItems: 'center'
+        alignItems: 'center',
+        overflow:'hidden'
+    },
+    specialLabelContainer:{
+        position:'absolute',
+        top:normalizeMarginSize(20),
+        right:normalizeMarginSize(-45),
+        transform:[{rotate:'45deg'}],
+        paddingVertical:normalizePaddingSize(10),
+        width:normalizeWidth(185),
+        alignItems:'center'
     },
     projectImageContainer: {
         width: '80%',

@@ -5,17 +5,19 @@ export const languages = [
     "SQLite and SQL"
 ]
 
-export const technologies = [
-    'React Native',
-    'Expo',
-    'React',
-    'Redux',
-    'LibGDX',
+export const general = [
+    "Version control",
     'REST API',
-    'Version control'
+    "Design Patterns"
 ]
 
-export const otherLibraries = [
+export const frameworks = [
+    'React Native',
+    'React',
+    'LibGDX',
+]
+
+export const smallerLibraries = [
     'react-redux',
     'redux-thunk',
     'react-naviagtion',
@@ -23,6 +25,10 @@ export const otherLibraries = [
     'react-native-web',
     'expo-sqlite',
     'validate.js'
+]
+export const technologies = [
+    'Expo',
+    'Redux',
 ]
 export const softSkills = [
     "Communication",

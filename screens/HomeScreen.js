@@ -126,6 +126,7 @@ const HomeScreen = (props) => {
                     <View style={styles.projectsSectionTitleContainer}>
                         <DefaultText style={headerSecondaryStyle}>My Projects:</DefaultText>
                     </View>
+                    
                     <View style={styles.projectsSectionContainer}>
                         <MyProjectsSection navigation={props.navigation} />
                     </View>

@@ -5,6 +5,7 @@ import DefaultText from './DefaultText'
 import { headerMainStyle, headerSecondaryStyle, sectionHeaderStyle, standardText } from '../constants/FontStyles'
 import { TAB_BAR_HEIGHT } from '../constants/TABBAR'
 import { ColorsContext } from '../helpers/ColorsContext'
+import { useSafeArea } from 'react-native-safe-area-context'
 
 const GIF_SCALE = 1 / 4;
 const GIF_HEIGHT = normalizeHeight(2340 * GIF_SCALE);
@@ -14,6 +15,8 @@ const GIF_ASPECT_RATIO = GIF_WIDTH / GIF_HEIGHT;
 
 const TextWithGifSection = ({ gifPath, text, title, reverseOrder }) => {
     const { colors } = useContext(ColorsContext)
+    const insets = useSafeArea();
+
     //Whether the aspect ratio of the window is vertical or horizontal
     const verticalView = Dimensions.get('window').height / Dimensions.get('window').width > 1;
 
@@ -26,12 +29,13 @@ const TextWithGifSection = ({ gifPath, text, title, reverseOrder }) => {
             flexDirection: verticalView? 'column' : reverseOrder === true ? 'row-reverse' : 'row', 
             justifyContent:verticalView ? null : 'space-evenly'
         }]}>
-            <View style={[styles.gifSection, {marginTop:verticalView ? GIF_VERTICAL_MARGIN/4 : null}]}>
+            <View style={[styles.gifSection, {marginTop:verticalView ? GIF_VERTICAL_MARGIN/4 + insets.top/2 : null,paddingHorizontal:verticalView ? "5%": "10%", flex: verticalView ? null : 1/2 }]}>
                 <View style={[styles.gifContainer, { height: GIF_SCALED_HEIGHT, width: GIF_SCALED_HEIGHT * GIF_ASPECT_RATIO, borderRadius:GIF_SCALED_HEIGHT/25 }]}>
                     <Image source={gifPath} style={styles.gif} resizeMode='contain' />
                 </View>
             </View>
-            <View style={[styles.textSection,{paddingHorizontal:verticalView ? "5%": "10%"}]}>
+            <View style={[styles.textSection,{paddingHorizontal:verticalView ? "5%": null, 
+            paddingLeft:reverseOrder?'5%' : null,paddingRight:!reverseOrder?'5%' : null , flex: verticalView ? null : 1/2}]}>
                 <View style={styles.textContainer}>
                     <DefaultText style={headerMainStyle}>{title}</DefaultText>
                     <DefaultText style={standardText}>{text}</DefaultText>
@@ -52,9 +56,12 @@ const styles = StyleSheet.create({
     },
     gifSection: {
          alignItems: 'center',
-        justifyContent:'center'
+        justifyContent:'center',
+        // borderWidth:1,
+       
     },
     textSection: {
+        // borderWidth:1,
         
     },
     gif: {

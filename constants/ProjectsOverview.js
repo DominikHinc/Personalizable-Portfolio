@@ -8,7 +8,8 @@ export const projectsOverview = [
         frameworks: "React Native, React, Expo",
         techonologies: "redux, react-redux, redux-thunk, expo-sqlite, react-reanimated, react-navigation, REST API",
         tools: "Version control, react-native-debugger",
-        link: "https://play.google.com/store/apps/details?id=pl.dominik.hinc.grocereats"
+        link: "https://play.google.com/store/apps/details?id=pl.dominik.hinc.grocereats",
+        specialLabel:"Latest"
     },
     {
         title: "WordFishing",
@@ -18,7 +19,8 @@ export const projectsOverview = [
         frameworks: "LibGDX",
         techonologies: "Scene2D, Android Push Notifications, Local Android Storage management",
         tools: "Version control, Gradle, Android Studio, Skin Composer",
-        link: "https://play.google.com/store/apps/details?id=pl.dominikhinc.wordfishing"
+        link: "https://play.google.com/store/apps/details?id=pl.dominikhinc.wordfishing",
+        specialLabel:"Popular"
     },
     {
         title: "Health Advisor",

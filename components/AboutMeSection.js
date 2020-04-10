@@ -4,7 +4,7 @@ import DefaultText from './DefaultText'
 import { headerMainStyle, standardText, standardBoldText, sectionHeaderStyle, standardTextLeft } from '../constants/FontStyles'
 import { ColorsContext } from '../helpers/ColorsContext'
 import { normalizePaddingSize, normalizeMarginSize, normalizeFontSize } from '../helpers/normalize'
-import { languages, technologies, otherLibraries, softSkills } from '../constants/MySkills'
+import { languages, technologies, smallerLibraries, softSkills, general, frameworks } from '../constants/MySkills'
 
 const renderSkillsLabel = (label) => {
     return <DefaultText key={label} style={standardTextLeft}>- {label}</DefaultText>
@@ -27,6 +27,29 @@ const AboutMeSection = ({ }) => {
                 I enjoy creating apps. The whole process from idea on paper to a functional product is something I will never get bored of.
                 If I had to choose one thing, why I like coding, it would be confronting different ideas and solutions people have regarding the same problem.
             </DefaultText>
+
+            <DefaultText style={{ ...headerMainStyle, marginTop: normalizeMarginSize(50) }}>My skills</DefaultText>
+            <View style={[styles.mySkillsMainContainer, { flexDirection: verticalView ? 'column' : 'row' }]}>
+                <View style={[styles.mySkillsColumn, { alignItems: verticalView ? 'center' : 'flex-start' }]}>
+                    <DefaultText style={{ ...sectionHeaderStyle, marginTop: normalizeMarginSize(20) }}>Languages:</DefaultText>
+                    {languages.map(item => renderSkillsLabel(item))}
+                    <DefaultText style={{ ...sectionHeaderStyle, marginTop: normalizeMarginSize(20) }}>General Programming:</DefaultText>
+                    {general.map(item => renderSkillsLabel(item))}
+                </View>
+                <View style={[styles.mySkillsColumn, { alignItems: verticalView ? 'center' : 'flex-start' }]}>
+                    <DefaultText style={{ ...sectionHeaderStyle, marginTop: normalizeMarginSize(20) }}>Frameworks:</DefaultText>
+                    {frameworks.map(item=>renderSkillsLabel(item))}
+                    <DefaultText style={{ ...sectionHeaderStyle, marginTop: normalizeMarginSize(20) }}>Smaller libraries:</DefaultText>
+                    {smallerLibraries.map(item => renderSkillsLabel(item))}
+                </View>
+                <View style={[styles.mySkillsColumn, { alignItems: verticalView ? 'center' : 'flex-start' }]}>
+                    <DefaultText style={{ ...sectionHeaderStyle, marginTop: normalizeMarginSize(20) }}>Technologies:</DefaultText>
+                    {technologies.map(item => renderSkillsLabel(item))}
+                    <DefaultText style={{ ...sectionHeaderStyle, marginTop: normalizeMarginSize(20) }}>Soft skills:</DefaultText>
+                    {softSkills.map(item => renderSkillsLabel(item))}
+                </View>
+            </View>
+
             <DefaultText style={{ ...headerMainStyle, marginTop: normalizeMarginSize(50) }}>My coding history</DefaultText>
             <DefaultText style={{ ...standardText, ...styles.textLabel }}>
                 Over the years I have worked with many different technologies.
@@ -53,7 +76,7 @@ const AboutMeSection = ({ }) => {
             <DefaultText style={{ ...standardText, ...styles.textLabel }}>
                 My latest discovery that absorbed me completely is <DefaultText style={standardBoldText}>JavaScript</DefaultText>.
                 Because <DefaultText style={standardBoldText}>JavaScript</DefaultText> is so different from two languages mentioned earlier, the process of learning it was very refreshing and enjoyable.
-                After that I decided that I want to use my previous experience and continue working with mobile platforms, but now using <DefaultText style={standardBoldText}>JavaScript</DefaultText>.
+                As I got to know it better I have decided that I want to use my previous experience and continue working with mobile platforms, but now using <DefaultText style={standardBoldText}>JavaScript</DefaultText>.
 
 
             </DefaultText>
@@ -71,23 +94,7 @@ const AboutMeSection = ({ }) => {
                 written in <DefaultText style={standardBoldText}>React</DefaultText>, but it uses <DefaultText style={standardBoldText}>react-native-web</DefaultText>.
             </DefaultText>
 
-            <DefaultText style={{ ...headerMainStyle, marginTop: normalizeMarginSize(50) }}>My skills</DefaultText>
-            <View style={[styles.mySkillsMainContainer,{flexDirection:verticalView ? 'column' : 'row'}]}>
-                <View style={[styles.mySkillsColumn, {alignItems:verticalView ? 'center' : 'flex-start'}]}>
-                    <DefaultText style={{...sectionHeaderStyle, marginTop:normalizeMarginSize(20)}}>Languages:</DefaultText>
-                    {languages.map(item => renderSkillsLabel(item))}
-                </View>
-                <View style={[styles.mySkillsColumn, {alignItems:verticalView ? 'center' : 'flex-start'}]}>
-                    <DefaultText style={{...sectionHeaderStyle, marginTop:normalizeMarginSize(20)}}>Technologies:</DefaultText>
-                    {technologies.map(item => renderSkillsLabel(item))}
-                    <DefaultText style={{...sectionHeaderStyle, marginTop:normalizeMarginSize(20)}}>Other Libraries:</DefaultText>
-                    {otherLibraries.map(item => renderSkillsLabel(item))}
-                </View>
-                <View style={[styles.mySkillsColumn, {alignItems:verticalView ? 'center' : 'flex-start'}]}>
-                    <DefaultText style={{...sectionHeaderStyle, marginTop:normalizeMarginSize(20)}}>Soft skills:</DefaultText>
-                    {softSkills.map(item => renderSkillsLabel(item))}
-                </View>
-            </View>
+            
 
         </View>
     )
@@ -104,12 +111,12 @@ const styles = StyleSheet.create({
         marginVertical: normalizeMarginSize(10)
     },
     mySkillsMainContainer: {
-        
+
         // marginTop: normalizeMarginSize(20),
     },
     mySkillsColumn: {
         flex: 1 / 3,
-    
+
     },
 })
 
