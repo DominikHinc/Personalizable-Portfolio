@@ -57,8 +57,8 @@ const getPreviewIcon = (label, colors, isFocused) => {
             return <MaterialIcons name='contact-mail' size={normalizeIconSize(48)} color={isFocused ? colors.font : colors.gray} />
 
         case "GrocerEats":
-            return isFocused ? <Animated.Image source={require('../assets/Icons/GrocerEats.png')} style={styles.iconImage} />
-            : <Animated.Image source={require('../assets/Icons/GrocerEats_Gray.png')} style={styles.iconImage} />
+            return isFocused ? <Image source={require('../assets/Icons/GrocerEats.png')} style={styles.iconImage} />
+            : <Image source={require('../assets/Icons/GrocerEats_Gray.png')} style={styles.iconImage} />
 
         case "WordFishing":
             // return <Animated.Image source={require('../assets/Icons/W.png')} style={styles.iconImage} />
@@ -68,12 +68,12 @@ const getPreviewIcon = (label, colors, isFocused) => {
                 color: isFocused ? colors.font : colors.gray
             }}>W</DefaultText>
         case "BounceBack":
-            return isFocused ? <Animated.Image source={require('../assets/Icons/BounceBack.png')} style={styles.iconImage} />
-            :<Animated.Image source={require('../assets/Icons/BounceBack_Gray.png')} style={styles.iconImage} />
+            return isFocused ? <Image source={require('../assets/Icons/BounceBack.png')} style={styles.iconImage} />
+            :<Image source={require('../assets/Icons/BounceBack_Gray.png')} style={styles.iconImage} />
 
         case "Health Advisor":
-            return isFocused ? <Animated.Image source={require('../assets/Icons/Health_Advisor.png')} style={styles.iconImage} />
-            :<Animated.Image source={require('../assets/Icons/Health_Advisor_Gray.png')} style={styles.iconImage} />
+            return isFocused ? <Image source={require('../assets/Icons/Health_Advisor.png')} style={styles.iconImage} />
+            :<Image source={require('../assets/Icons/Health_Advisor_Gray.png')} style={styles.iconImage} />
     }
 }
 

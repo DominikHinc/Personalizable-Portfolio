@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from 'react-native'
 import TextWithGifSection from './TextWithGifSection'
 
 const renderSection = (title, gif, text, index) => {
-    return <TextWithGifSection gifPath={gif} title={title} text={text} reverseOrder={index%2 === 1 ? true : undefined} />
+    return <TextWithGifSection key={title} gifPath={gif} title={title} text={text} reverseOrder={index%2 === 1 ? true : undefined} />
 }
 
 

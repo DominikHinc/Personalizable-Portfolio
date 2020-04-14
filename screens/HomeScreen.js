@@ -37,21 +37,6 @@ const HomeScreen = (props) => {
     },[colors])
 
     const onScrollHandler = (e) => {
-        // if (e.nativeEvent.contentOffset.y > 20 && shouldCallToActionAnimationStop === false) {
-        //     setShouldCallToActionAnimationStop(true)
-        // }
-        // if (e.nativeEvent.contentOffset.y <= 20 && shouldCallToActionAnimationStop === true) {
-        //     console.log(e.nativeEvent.contentOffset.y)
-        //     setShouldCallToActionAnimationStop(false)
-        //     startCallToActionAnimation()
-        // }
-        // if (e.nativeEvent.contentOffset.y > Dimensions.get('window').height / 5) {
-        //     callToActionAnimatedValue.setValue(0)
-        //     setShowCallToActionIcon(false)
-        // } else {
-        //     callToActionAnimatedValue.setValue(0)
-        //     setShowCallToActionIcon(true)
-        // }
         currentContentOffset.setValue(e.nativeEvent.contentOffset.y);
     }
 

@@ -2,12 +2,12 @@ export const BounceBackDetails = [
     {
         title:"Genesis",
         gif:require('../../assets/Gifs/BounceBack/Gameplay.gif'),
-        text:'This is genesis text'
+        text:'I always wanted to create a game, but due to my lack of drawing skills I had to create something that would mainly base on geometrical shapes. Around that time I also was playing a lot of \"Don\'t touch the piskes\", so I decided that I want to create something similar.'
     },
     {
         title:"Time in development",
         gif:require('../../assets/Gifs/BounceBack/Plusfive.gif'),
-        text:'This is Time in development me text'
+        text:''
     },
     {
         title:"History",
