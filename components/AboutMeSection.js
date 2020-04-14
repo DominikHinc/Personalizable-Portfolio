@@ -1,14 +1,12 @@
 import React, { useContext } from 'react'
-import { View, Text, StyleSheet, Dimensions } from 'react-native'
-import DefaultText from './DefaultText'
-import { headerMainStyle, standardText, standardBoldText, sectionHeaderStyle, standardTextLeft } from '../constants/FontStyles'
+import { Dimensions, StyleSheet, View } from 'react-native'
+import { headerMainStyle, standardBoldText, standardText } from '../constants/FontStyles'
 import { ColorsContext } from '../helpers/ColorsContext'
-import { normalizePaddingSize, normalizeMarginSize, normalizeFontSize } from '../helpers/normalize'
-import { languages, technologies, smallerLibraries, softSkills, general, frameworks } from '../constants/MySkills'
+import { normalizeMarginSize, normalizePaddingSize } from '../helpers/normalize'
+import DefaultText from './DefaultText'
+import MySkillsSection from './MySkillsSection'
 
-const renderSkillsLabel = (label) => {
-    return <DefaultText key={label} style={standardTextLeft}>- {label}</DefaultText>
-}
+
 
 const AboutMeSection = ({ }) => {
 
@@ -29,7 +27,10 @@ const AboutMeSection = ({ }) => {
             </DefaultText>
 
             <DefaultText style={{ ...headerMainStyle, marginTop: normalizeMarginSize(50) }}>My skills</DefaultText>
-            <View style={[styles.mySkillsMainContainer, { flexDirection: verticalView ? 'column' : 'row' }]}>
+
+            <MySkillsSection/>
+
+            {/* <View style={[styles.mySkillsMainContainer, { flexDirection: verticalView ? 'column' : 'row' }]}>
                 <View style={[styles.mySkillsColumn, { alignItems: verticalView ? 'center' : 'flex-start' }]}>
                     <DefaultText style={{ ...sectionHeaderStyle, marginTop: normalizeMarginSize(20) }}>Languages:</DefaultText>
                     {languages.map(item => renderSkillsLabel(item))}
@@ -48,7 +49,7 @@ const AboutMeSection = ({ }) => {
                     <DefaultText style={{ ...sectionHeaderStyle, marginTop: normalizeMarginSize(20) }}>Soft skills:</DefaultText>
                     {softSkills.map(item => renderSkillsLabel(item))}
                 </View>
-            </View>
+            </View> */}
 
             <DefaultText style={{ ...headerMainStyle, marginTop: normalizeMarginSize(50) }}>My coding history</DefaultText>
             <DefaultText style={{ ...standardText, ...styles.textLabel }}>
@@ -110,14 +111,7 @@ const styles = StyleSheet.create({
     textLabel: {
         marginVertical: normalizeMarginSize(10)
     },
-    mySkillsMainContainer: {
 
-        // marginTop: normalizeMarginSize(20),
-    },
-    mySkillsColumn: {
-        flex: 1 / 3,
-
-    },
 })
 
 

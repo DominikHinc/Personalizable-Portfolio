@@ -1,20 +1,29 @@
-import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import * as React from 'react';
-import HomeScreen from '../screens/HomeScreen';
+import { projectsOverview } from '../constants/PersonalData/ProjectsOverview';
 import ContactScreen from '../screens/ContactScreen';
-import WordFishingScreen from '../screens/WordFishingScreen';
-import GrocerEatsScreen from '../screens/GorcerEatsScreen';
-import BounceBackScreen from '../screens/BounceBackScreen';
-import HealthAdvisorScreen from '../screens/HealthAdvisorScreen';
+import HomeScreen from '../screens/HomeScreen';
+import ProjectDetailsScreen from '../screens/ProjectDetailsScreen';
 import MyTabBar from './MyTabBar';
 
 
 const TopTab = createBottomTabNavigator();
-// 
+
+const mapProjectFromProjectsOverviewToNavigation = () => {
+    return projectsOverview.map(item => {
+        return <TopTab.Screen
+        name={item.title}
+        component={ProjectDetailsScreen}
+        options={{
+            title:item.title,
+        }}
+    />
+    })
+}
+
 const mainTabNavigator = () => {
     return (
-        <TopTab.Navigator tabBar={props => <MyTabBar {...props} />} initialRouteName="WordFishing">
+        <TopTab.Navigator tabBar={props => <MyTabBar {...props} />}>
             <TopTab.Screen
                 name="Home"
                 component={HomeScreen}
@@ -29,35 +38,7 @@ const mainTabNavigator = () => {
                     title: 'Contact'
                 }}
             />
-            <TopTab.Screen
-                name="GrocerEats"
-                component={GrocerEatsScreen}
-                options={{
-                    title: 'GrocerEats',
-
-                }}
-            />
-            <TopTab.Screen
-                name="WordFishing"
-                component={WordFishingScreen}
-                options={{
-                    title: 'WordFishing'
-                }}
-            />
-            <TopTab.Screen
-                name="Health Advisor"
-                component={HealthAdvisorScreen}
-                options={{
-                    title: 'Health Advisor'
-                }}
-            />
-            <TopTab.Screen
-                name="BounceBack"
-                component={BounceBackScreen}
-                options={{
-                    title: 'BounceBack'
-                }}
-            />
+            {mapProjectFromProjectsOverviewToNavigation()}
 
         </TopTab.Navigator>
     )

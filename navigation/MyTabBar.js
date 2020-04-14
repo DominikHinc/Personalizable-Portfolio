@@ -7,6 +7,7 @@ import { ColorsContext } from '../helpers/ColorsContext';
 import { normalizeMarginSize, normalizePaddingSize } from '../helpers/normalize';
 import MyTabBarTab from './MyTabBarTab';
 import { useSafeArea } from 'react-native-safe-area-context'
+import { projectsOverview } from '../constants/PersonalData/ProjectsOverview';
 
 const MyTabBar = ({ state, descriptors, navigation, position }) => {
     const { colors, setColors } = useContext(ColorsContext)
@@ -34,20 +35,13 @@ const MyTabBar = ({ state, descriptors, navigation, position }) => {
                             });
 
                             if (!isFocused && !event.defaultPrevented) {
-                                navigation.navigate(route.name);
+                                navigation.navigate(route.name,{projectDetails:projectsOverview.find(item=>item.title===route.name) !== undefined ? projectsOverview.find(item=>item.title===route.name).projectDetails  : null});
                             }
-                        };
-
-                        const onLongPress = () => {
-                            navigation.emit({
-                                type: 'tabLongPress',
-                                target: route.key,
-                            });
                         };
 
                         return (
 
-                            <MyTabBarTab key={label} label={label} isFocused={isFocused} onLongPress={onLongPress} onPress={onPress} options={options} />
+                            <MyTabBarTab key={label} label={label} isFocused={isFocused} onPress={onPress} options={options} />
 
                         );
                     })}

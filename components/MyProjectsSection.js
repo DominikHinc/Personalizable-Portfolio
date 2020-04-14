@@ -6,7 +6,7 @@ import Colors from '../constants/Colors'
 import { headerMainStyle, headerSecondaryStyle, sectionHeaderStyle, standardText, standardBoldText } from '../constants/FontStyles'
 import { Linking } from 'expo'
 import { ColorsContext } from '../helpers/ColorsContext'
-import { projectsOverview } from '../constants/ProjectsOverview'
+import { projectsOverview } from '../constants/PersonalData/ProjectsOverview'
 import {AntDesign} from "@expo/vector-icons"
 
 
