@@ -1,35 +1,13 @@
-import React, { useContext } from 'react'
-import { Dimensions, StyleSheet, View } from 'react-native'
-import { headerMainStyle, standardBoldText, standardText } from '../constants/FontStyles'
-import { ColorsContext } from '../helpers/ColorsContext'
-import { normalizeMarginSize, normalizePaddingSize } from '../helpers/normalize'
-import DefaultText from './DefaultText'
-import MySkillsSection from './MySkillsSection'
+import React from 'react'
+import { View, StyleSheet } from 'react-native'
+import DefaultText from '../../components/DefaultText'
+import { headerMainStyle, standardBoldText, standardText } from '../../constants/FontStyles'
+import { normalizeMarginSize } from '../../helpers/normalize'
 
 
-
-const AboutMeSection = ({ }) => {
-
-    const { colors } = useContext(ColorsContext)
-    const verticalView = Dimensions.get('window').height / Dimensions.get('window').width > 1;
-
+const MyCodingHistory = () => {
     return (
-        <View style={[styles.sectionMainContainer, { backgroundColor: colors.second, paddingHorizontal: verticalView ? '5%' : '20%' }]}>
-            <DefaultText style={headerMainStyle}>About Me</DefaultText>
-            <DefaultText style={standardText}>
-                I'm a passionate self taught developer, who seeks for more knowledge everyday.
-            </DefaultText>
-            <DefaultText style={standardText}>
-                For the past 4 years, I have been working with code almost every day.
-                I like to learn new stuff, especially if then I can put what I learned into use.
-                I enjoy creating apps. The whole process from idea on paper to a functional product is something I will never get bored of.
-                If I had to choose one thing, why I like coding, it would be confronting different ideas and solutions people have regarding the same problem.
-            </DefaultText>
-
-            <DefaultText style={{ ...headerMainStyle, marginTop: normalizeMarginSize(50) }}>My skills</DefaultText>
-
-            <MySkillsSection/>
-
+        <View>
             <DefaultText style={{ ...headerMainStyle, marginTop: normalizeMarginSize(50) }}>My coding history</DefaultText>
             <DefaultText style={{ ...standardText, ...styles.textLabel }}>
                 Over the years I have worked with many different technologies.
@@ -73,25 +51,14 @@ const AboutMeSection = ({ }) => {
                 Because I like experimenting with new stuff and like constantly learning new things this site in not, as one might expect,
                 written in <DefaultText style={standardBoldText}>React</DefaultText>, but it uses <DefaultText style={standardBoldText}>react-native-web</DefaultText>.
             </DefaultText>
-
-            
-
         </View>
     )
 }
-
-
 const styles = StyleSheet.create({
-    sectionMainContainer: {
-        paddingVertical: normalizePaddingSize(20),
-
-
-    },
     textLabel: {
         marginVertical: normalizeMarginSize(10)
     },
 
 })
 
-
-export default AboutMeSection
+export default MyCodingHistory

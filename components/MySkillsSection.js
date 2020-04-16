@@ -30,6 +30,7 @@ const MySkillsSection = () => {
 
     return (
         <View style={styles.mainSkillsContainer}>
+            <DefaultText style={{ ...headerMainStyle, marginTop: normalizeMarginSize(50) }}>My skills</DefaultText>
             <View style={styles.innerSkillsContainer}>
                 {renderSkillsColumn()}
             </View>
@@ -42,21 +43,21 @@ const styles = StyleSheet.create({
     mainSkillsContainer: {
 
         paddingHorizontal: normalizePaddingSize(50),
-        width:'100%',
-        alignItems:'center',
-       
+        width: '100%',
+        alignItems: 'center',
+
     },
     innerSkillsContainer: {
         flexWrap: 'wrap',
         flexDirection: 'row',
-        justifyContent:'center',
-       
+        justifyContent: 'center',
+
     },
     skillsColumn: {
-        width:'80%',
-        maxWidth:normalizeWidth(270),
-        marginVertical:normalizeMarginSize(15),
-        alignItems:'center'
+        width: '80%',
+        maxWidth: normalizeWidth(270),
+        marginVertical: normalizeMarginSize(15),
+        alignItems: 'center'
     }
 })
 

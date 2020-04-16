@@ -9,8 +9,10 @@ import MyProjectsSection from '../components/MyProjectsSection'
 import { ColorsContext } from '../helpers/ColorsContext'
 import { Ionicons } from '@expo/vector-icons'
 import { useSafeArea } from 'react-native-safe-area-context'
-import AboutMeSection from '../components/AboutMeSection'
+
+
 import Footer from '../components/Footer'
+import Presentation from '../components/Presentation'
 
 
 const HomeScreen = (props) => {
@@ -117,7 +119,7 @@ const HomeScreen = (props) => {
                     </View>
 
                     <View style={styles.aboutMeSectionContainer}>
-                        <AboutMeSection/>
+                        <Presentation />
                     </View>
                     <View>
                         <Footer/>
