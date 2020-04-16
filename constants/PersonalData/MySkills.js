@@ -1,36 +1,41 @@
+// This file describes properties used in My Skills section
+// mySkills array should only contain MySkillsColumn objects
+// MySkillsColumn object should contain title and skills array
+// Each string in skills array is separate row in a given skill column
+
+import MySkillsColumn from "../../models/mySkillsColumn"
 
 export const mySkills = [
-    {
-        title: "Languages",
-        skills: [
+    new MySkillsColumn(
+        "Languages",
+        [
             'JavaScript ES6/ES7/ES8',
             'Java',
             'C++',
             "SQLite and SQL"
         ]
-    },
-
-    {
-        title: "General Programming",
-        skills: [
+    ),
+    new MySkillsColumn(
+        "General Programming",
+        [
             "Version control",
             'REST API',
             "Design Patterns"
         ]
-    },
+    ),
 
-    {
-        title: "Frameworks",
-        skills: [
+    new MySkillsColumn(
+        "Frameworks",
+        [
             'React Native',
             'React',
             'LibGDX',
         ]
-    },
+    ),
 
-    {
-        title: "Smaller libraries",
-        skills: [
+    new MySkillsColumn(
+        "Smaller libraries",
+        [
             'react-redux',
             'redux-thunk',
             'react-naviagtion',
@@ -39,19 +44,19 @@ export const mySkills = [
             'expo-sqlite',
             'validate.js'
         ]
-    },
+    ),
 
-    {
-        title: "Technologies",
-        skills: [
+    new MySkillsColumn(
+        "Technologies",
+        [
             'Expo',
             'Redux',
         ]
-    },
+    ),
 
-    {
-        title: "Soft skills",
-        skills: [
+    new MySkillsColumn(
+        "Soft skills",
+        [
             "Communication",
             "Persistence",
             "Fast learner",
@@ -60,5 +65,5 @@ export const mySkills = [
             "Adaptability",
 
         ]
-    },
+    ),
 ]

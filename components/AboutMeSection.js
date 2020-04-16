@@ -30,27 +30,6 @@ const AboutMeSection = ({ }) => {
 
             <MySkillsSection/>
 
-            {/* <View style={[styles.mySkillsMainContainer, { flexDirection: verticalView ? 'column' : 'row' }]}>
-                <View style={[styles.mySkillsColumn, { alignItems: verticalView ? 'center' : 'flex-start' }]}>
-                    <DefaultText style={{ ...sectionHeaderStyle, marginTop: normalizeMarginSize(20) }}>Languages:</DefaultText>
-                    {languages.map(item => renderSkillsLabel(item))}
-                    <DefaultText style={{ ...sectionHeaderStyle, marginTop: normalizeMarginSize(20) }}>General Programming:</DefaultText>
-                    {general.map(item => renderSkillsLabel(item))}
-                </View>
-                <View style={[styles.mySkillsColumn, { alignItems: verticalView ? 'center' : 'flex-start' }]}>
-                    <DefaultText style={{ ...sectionHeaderStyle, marginTop: normalizeMarginSize(20) }}>Frameworks:</DefaultText>
-                    {frameworks.map(item=>renderSkillsLabel(item))}
-                    <DefaultText style={{ ...sectionHeaderStyle, marginTop: normalizeMarginSize(20) }}>Smaller libraries:</DefaultText>
-                    {smallerLibraries.map(item => renderSkillsLabel(item))}
-                </View>
-                <View style={[styles.mySkillsColumn, { alignItems: verticalView ? 'center' : 'flex-start' }]}>
-                    <DefaultText style={{ ...sectionHeaderStyle, marginTop: normalizeMarginSize(20) }}>Technologies:</DefaultText>
-                    {technologies.map(item => renderSkillsLabel(item))}
-                    <DefaultText style={{ ...sectionHeaderStyle, marginTop: normalizeMarginSize(20) }}>Soft skills:</DefaultText>
-                    {softSkills.map(item => renderSkillsLabel(item))}
-                </View>
-            </View> */}
-
             <DefaultText style={{ ...headerMainStyle, marginTop: normalizeMarginSize(50) }}>My coding history</DefaultText>
             <DefaultText style={{ ...standardText, ...styles.textLabel }}>
                 Over the years I have worked with many different technologies.

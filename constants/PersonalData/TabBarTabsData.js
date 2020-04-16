@@ -7,8 +7,13 @@ import { normalizeFontSize, normalizeIconSize, normalizeWidth, normalizeHeight }
 
 
 
-//Here you can set properties related to tabs that are located on top of the screen
-//Every object should be named the same as title given in ProjectsOverview.js file
+// This file describes properties related to navigation tabs located on top of the screen
+// Every case should be named the same as title given in ProjectsOverview.js file
+
+// textProperties are supplied to Text component that is displayed when given tab is active
+// icon is component displayed as icon of a given tab, it should be a rectangle which height is TAB_BAR_HEIGHT - normalizeHeight(15),
+// icon can change depending whether the tab is focused or not
+// widthWhenTabIsActive is a property that describes what should be the width of each tab when it's active
 
 
 export const getTabBarTabsData = (label, isFocused, colors) => {
@@ -51,8 +56,8 @@ export const getTabBarTabsData = (label, isFocused, colors) => {
                     fontFamily: 'berkshireswash',
                     fontSize: normalizeFontSize(18),
                     color: colors.font,
-                    tilte:"WORDFISHING"
                 },
+                title:"WORDFISHING",
                 icon: <DefaultText style={{
                     fontFamily: 'berkshireswash',
                     fontSize: normalizeFontSize(48),
@@ -92,8 +97,4 @@ const styles = StyleSheet.create({
         height: TAB_BAR_HEIGHT - normalizeHeight(15),
 
     },
-    wordFishingImage: {
-        width: TAB_WIDTH,
-        height: TAB_WIDTH / 2
-    }
 })

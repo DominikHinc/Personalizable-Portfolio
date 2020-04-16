@@ -1,3 +1,6 @@
+//This file is not mandatory, it just provides better separation. All data present here could be directly written in ProjectsOverview.js file under projectDetails object property.
+//Content of this file is used to describe details screen for the given project.
+
 export const BounceBackDetails = [
     {
         title:"Genesis",

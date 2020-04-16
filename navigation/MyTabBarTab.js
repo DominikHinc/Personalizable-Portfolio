@@ -55,7 +55,7 @@ const MyTabBarTab = ({ label, isFocused, options, onPress }) => {
 
                 <Animated.View style={[{ opacity: textOpacity, marginLeft: normalizeMarginSize(10), width: textWidth }]}>
                     <DefaultText numberOfLines={1} style={{ fontSize: normalizeFontSize(22), ...tabProperties.textProperties, color: tabProperties.textProperties.color }}>
-                        {tabProperties.textProperties.tilte !== undefined ? tabProperties.textProperties.tilte : label}
+                        {tabProperties.tilte !== undefined ? tabProperties.tilte : label}
                     </DefaultText>
                 </Animated.View>
 
