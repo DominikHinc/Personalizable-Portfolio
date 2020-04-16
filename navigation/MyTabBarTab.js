@@ -4,7 +4,7 @@ import DefaultText from '../components/DefaultText';
 import { getTabBarTabsData } from '../constants/PersonalData/TabBarTabsData';
 import { TAB_BAR_HEIGHT } from '../constants/TABBAR';
 import { ColorsContext } from '../helpers/ColorsContext';
-import { normalizeFontSize, normalizeMarginSize } from '../helpers/normalize';
+import { normalizeFontSize, normalizeMarginSize, normalizeHeight } from '../helpers/normalize';
 
 const MyTabBarTab = ({ label, isFocused, options, onPress }) => {
     const [animatedValue, setAnimatedValue] = useState(new Animated.Value(isFocused ? 1 : 0))
@@ -40,7 +40,7 @@ const MyTabBarTab = ({ label, isFocused, options, onPress }) => {
     })
 
     return (
-        <Animated.View style={[styles.mainTabContainer]}>
+        <Animated.View style={[styles.mainTabContainer, {marginHorizontal: normalizeMarginSize(10), height:normalizeHeight(TAB_BAR_HEIGHT)}]}>
             <TouchableOpacity
                 accessibilityRole="button"
                 accessibilityStates={isFocused ? ['selected'] : []}
@@ -54,7 +54,7 @@ const MyTabBarTab = ({ label, isFocused, options, onPress }) => {
                 </Animated.View>
 
                 <Animated.View style={[{ opacity: textOpacity, marginLeft: normalizeMarginSize(10), width: textWidth }]}>
-                    <DefaultText numberOfLines={1} style={{ fontSize: normalizeFontSize(22), ...tabProperties.textProperties, color: tabProperties.textProperties.color }}>
+                    <DefaultText numberOfLines={1} style={{ fontSize: 22, ...tabProperties.textProperties, color: tabProperties.textProperties.color }}>
                         {tabProperties.tilte !== undefined ? tabProperties.tilte : label}
                     </DefaultText>
                 </Animated.View>
@@ -66,9 +66,9 @@ const MyTabBarTab = ({ label, isFocused, options, onPress }) => {
 
 const styles = StyleSheet.create({
     mainTabContainer: {
-        height: TAB_BAR_HEIGHT,
+        
         // backgroundColor: Colors.primary,
-        marginHorizontal: normalizeMarginSize(10)
+        
     },
     tabTouchable: {
         flex: 1,

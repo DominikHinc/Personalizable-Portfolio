@@ -57,13 +57,13 @@ const HomeScreen = (props) => {
     }
 
     const imageOpacity = currentContentOffset.interpolate({
-        inputRange: [0, Dimensions.get('window').height - TAB_BAR_HEIGHT],
+        inputRange: [0, Dimensions.get('window').height - normalizeHeight(TAB_BAR_HEIGHT)],
         outputRange: [1, 0],
         extrapolate: 'clamp',
         easing: Easing.ease,
     })
     const imageHeight = currentContentOffset.interpolate({
-        inputRange: [0, Dimensions.get('window').height - TAB_BAR_HEIGHT],
+        inputRange: [0, Dimensions.get('window').height - normalizeHeight(TAB_BAR_HEIGHT)],
         outputRange: [Dimensions.get('window').height, 0],
         extrapolate: 'clamp',
         easing: Easing.ease,
@@ -107,14 +107,14 @@ const HomeScreen = (props) => {
                     </Animated.View>
                 </ImageBackground>
             </Animated.View>
-            <ScrollView style={[styles.screenScrollView,{marginTop: TAB_BAR_HEIGHT + insets.top,}]} contentContainerStyle={[styles.scrollViewInnerContainer, { paddingTop: Dimensions.get('window').height, }]}
+            <ScrollView style={[styles.screenScrollView,{marginTop: normalizeHeight(TAB_BAR_HEIGHT) + insets.top,}]} contentContainerStyle={[styles.scrollViewInnerContainer, { paddingTop: Dimensions.get('window').height, }]}
                 onScroll={onScrollHandler} onMomentumScrollEnd={onScrollHandler} onScrollBeginDrag={onScrollHandler} scrollEventThrottle={1}>
                 <View style={[styles.screenUseableContainer, { backgroundColor: colors.background }]}>
                     <View style={styles.projectsSectionTitleContainer}>
                         <DefaultText style={headerSecondaryStyle}>My Projects:</DefaultText>
                     </View>
                     
-                    <View style={styles.projectsSectionContainer}>
+                    <View style={[styles.projectsSectionContainer, {paddingTop: normalizePaddingSize(20)}]}>
                         <MyProjectsSection navigation={props.navigation} />
                     </View>
 
@@ -161,7 +161,7 @@ const styles = StyleSheet.create({
     },
     projectsSectionContainer: {
         flex: 1,
-        paddingTop: normalizePaddingSize(20),
+        
 
     },
     projectsSectionTitleContainer: {

@@ -8,7 +8,7 @@ import { ColorsContext } from '../helpers/ColorsContext'
 const Footer = () => {
     const {colors} = useContext(ColorsContext)
     return (
-        <View style={[styles.footerMainContainer,{backgroundColor:colors.background}]}>
+        <View style={[styles.footerMainContainer,{backgroundColor:colors.background, height:normalizeHeight(100)}]}>
             <DefaultText style={standardBoldText}>{`@${Platform.OS === 'web' ? "Site" : "App"} created by Dominik Hinc`}</DefaultText>
         </View>
     )
@@ -17,7 +17,6 @@ const Footer = () => {
 const styles = StyleSheet.create({
     footerMainContainer:{
         width:'100%',
-        height:normalizeHeight(100),
         flexDirection:'row',
         justifyContent:'flex-end',
         paddingRight:'5%',

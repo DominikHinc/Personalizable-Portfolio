@@ -5,8 +5,8 @@ import { ColorsContext } from '../helpers/ColorsContext'
 import { normalizeMarginSize, normalizePaddingSize } from '../helpers/normalize'
 import DefaultText from './DefaultText'
 import MySkillsSection from './MySkillsSection'
-import AboutMe from '../constants/PersonalData/AboutMe'
-import MyCodingHistory from '../constants/PersonalData/MyCodingHistory'
+import AboutMe from '../constants/PersonalData/TextComponents/AboutMe'
+import MyCodingHistory from '../constants/PersonalData/TextComponents/MyCodingHistory'
 
 
 
@@ -16,7 +16,7 @@ const Presentation = ({ }) => {
     const verticalView = Dimensions.get('window').height / Dimensions.get('window').width > 1;
 
     return (
-        <View style={[styles.sectionMainContainer, { backgroundColor: colors.second, paddingHorizontal: verticalView ? '5%' : '20%' }]}>
+        <View style={[styles.sectionMainContainer, { backgroundColor: colors.second, paddingHorizontal: verticalView ? '5%' : '20%', paddingVertical: normalizePaddingSize(20) }]}>
 
             <AboutMe />
 
@@ -31,9 +31,7 @@ const Presentation = ({ }) => {
 
 const styles = StyleSheet.create({
     sectionMainContainer: {
-        paddingVertical: normalizePaddingSize(20),
-
-
+        
     }
 })
 

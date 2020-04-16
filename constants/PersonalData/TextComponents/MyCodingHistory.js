@@ -1,14 +1,14 @@
 import React from 'react'
 import { View, StyleSheet } from 'react-native'
-import DefaultText from '../../components/DefaultText'
-import { headerMainStyle, standardBoldText, standardText } from '../../constants/FontStyles'
-import { normalizeMarginSize } from '../../helpers/normalize'
+import DefaultText from '../../../components/DefaultText'
+import { headerMainStyle, standardBoldText, standardText } from '../../FontStyles'
+import { normalizeMarginSize } from '../../../helpers/normalize'
 
 
 const MyCodingHistory = () => {
     return (
         <View>
-            <DefaultText style={{ ...headerMainStyle, marginTop: normalizeMarginSize(50) }}>My coding history</DefaultText>
+            <DefaultText style={{ ...headerMainStyle, marginTop: normalizeMarginSize(35) }}>My coding history</DefaultText>
             <DefaultText style={{ ...standardText, ...styles.textLabel }}>
                 Over the years I have worked with many different technologies.
             </DefaultText>

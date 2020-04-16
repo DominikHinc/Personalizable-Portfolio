@@ -15,7 +15,10 @@ const ProjectDetailsTemplate = ({ data }) => {
     )
 }
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    detailsMainContaiener:{
+    }
+})
 
 export default ProjectDetailsTemplate
 

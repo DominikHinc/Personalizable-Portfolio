@@ -1,18 +1,16 @@
-import React, { useContext } from 'react'
-import { View, Text, StyleSheet, Image, TouchableOpacity, Platform } from 'react-native'
-import DefaultText from './DefaultText'
-import { normalizeWidth, normalizeHeight, normalizeBorderRadiusSize, normalizePaddingSize, normalizeIconSize, normalizeMarginSize } from '../helpers/normalize'
-import Colors from '../constants/Colors'
-import { headerMainStyle, headerSecondaryStyle, sectionHeaderStyle, standardText, standardBoldText } from '../constants/FontStyles'
 import { Linking } from 'expo'
-import { ColorsContext } from '../helpers/ColorsContext'
+import React, { useContext } from 'react'
+import { Image, Platform, StyleSheet, TouchableOpacity, View } from 'react-native'
+import { headerSecondaryStyle, sectionHeaderStyle, standardText } from '../constants/FontStyles'
 import { projectsOverview } from '../constants/PersonalData/ProjectsOverview'
-import { AntDesign } from "@expo/vector-icons"
+import { ColorsContext } from '../helpers/ColorsContext'
+import { normalizeBorderRadiusSize, normalizeHeight, normalizeMarginSize, normalizePaddingSize, normalizeWidth } from '../helpers/normalize'
+import DefaultText from './DefaultText'
 
 
 const renderProjectRows = (item) => {
     return item.map(row => {
-        return <View style={[styles.shortDescriptionContainer, styles.section]}>
+        return <View key={row.title} style={[styles.shortDescriptionContainer, styles.section, {paddingVertical: normalizePaddingSize(20)}]}>
             <DefaultText style={sectionHeaderStyle}>{row.title}</DefaultText>
             <DefaultText style={standardText}>{row.text}</DefaultText>
         </View>
@@ -22,13 +20,16 @@ const renderProject = (navigation) => {
     const { colors } = useContext(ColorsContext)
     return projectsOverview.map(item => {
         return (
-            <View key={item.title} style={[styles.tabMainContainer, { backgroundColor: colors.second }]}>
+            <View key={item.title} style={[styles.tabMainContainer, { backgroundColor: colors.second,maxWidth: normalizeWidth(400), borderRadius: normalizeBorderRadiusSize(50) }]}>
                 {item.specialLabel !== undefined &&
-                    <View style={[styles.specialLabelContainer, { backgroundColor: colors.third }]}><DefaultText style={{ fontWeight: 'bold', fontSize: 20 }}>{item.specialLabel}</DefaultText></View>}
-                <View style={styles.projectImageContainer}>
-                    <Image style={styles.projectImage} source={item.image} resizeMode="contain" />
+                    <View style={[styles.specialLabelContainer, { backgroundColor: colors.third,top: normalizeMarginSize(20), right: normalizeMarginSize(-45),
+                        paddingVertical: normalizePaddingSize(10), width: normalizeWidth(185),}]}>
+                            <DefaultText style={{ fontWeight: 'bold', fontSize: 20 }}>{item.specialLabel}</DefaultText>
+                            </View>}
+                <View style={[styles.projectImageContainer,{height: normalizeHeight(200),}]}>
+                    <Image style={[styles.projectImage,{height: normalizeHeight(200)}]} source={item.image} resizeMode="contain" />
                 </View>
-                <View style={[styles.titleContainer, styles.section]}>
+                <View style={[styles.titleContainer, styles.section, {paddingVertical: normalizePaddingSize(20)}]}>
                     <DefaultText style={headerSecondaryStyle}>{item.title}</DefaultText>
                 </View>
                 {renderProjectRows(item.content)}
@@ -83,8 +84,7 @@ const styles = StyleSheet.create({
     },
     tabMainContainer: {
         width: "80%",
-        maxWidth: normalizeWidth(400),
-        borderRadius: normalizeBorderRadiusSize(50),
+        
         marginHorizontal: '10%',
         marginVertical: '5%',
         alignItems: 'center',
@@ -92,29 +92,25 @@ const styles = StyleSheet.create({
     },
     specialLabelContainer: {
         position: 'absolute',
-        top: normalizeMarginSize(20),
-        right: normalizeMarginSize(-45),
+        
         transform: [{ rotate: '45deg' }],
-        paddingVertical: normalizePaddingSize(10),
-        width: normalizeWidth(185),
+        
         alignItems: 'center'
     },
     projectImageContainer: {
         width: '80%',
-        height: normalizeHeight(200),
+        
         marginTop: '8%',
         overflow: 'hidden',
 
     },
     projectImage: {
-        // height: '100%',
-        // width: '100%',
-        height: normalizeHeight(200),
+        
         width: '100%',
 
     },
     section: {
-        paddingVertical: normalizePaddingSize(20),
+        
         paddingHorizontal: '5%'
     },
     navigationContainer: {

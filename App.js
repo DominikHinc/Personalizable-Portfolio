@@ -9,6 +9,10 @@ import { ColorsContext } from './helpers/ColorsContext';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 
+//This option will turn on normalization, that will scale whole application. Config for this is located in normalize.js file
+export const EXPERIMENTAL_NORMALIZATION = true;
+
+
 export default function App(props) {
   const [isLoadingComplete, setLoadingComplete] = useState(false);
   const [rerender, setRerender] = useState(false)
@@ -41,7 +45,6 @@ export default function App(props) {
           'verdana': require('./assets/Fonts/Verdana.ttf')
         });
       } catch (e) {
-        // We might want to provide this error information to an error reporting service
         console.warn(e);
       } finally {
         setLoadingComplete(true);

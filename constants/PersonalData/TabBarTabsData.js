@@ -25,7 +25,7 @@ export const getTabBarTabsData = (label, isFocused, colors) => {
                     color: colors.font
                 },
                 icon: <Entypo name="home" size={normalizeIconSize(48)} color={isFocused ? colors.font : colors.gray} />,
-                widthWhenTabIsActive:TAB_WIDTH / 2
+                widthWhenTabIsActive: normalizeWidth(TAB_WIDTH) / 2
             }
 
         case "Contact":
@@ -35,8 +35,8 @@ export const getTabBarTabsData = (label, isFocused, colors) => {
                     color: colors.font
                 },
                 icon: <MaterialIcons name='contact-mail' size={normalizeIconSize(48)} color={isFocused ? colors.font : colors.gray} />,
-                widthWhenTabIsActive:TAB_WIDTH / 1.5
-                
+                widthWhenTabIsActive:normalizeWidth(TAB_WIDTH) / 1.5
+
             }
 
         case "GrocerEats":
@@ -45,25 +45,31 @@ export const getTabBarTabsData = (label, isFocused, colors) => {
                     fontFamily: 'coiny',
                     color: colors.blue
                 },
-                icon: isFocused ? <Image source={require('../../assets/Icons/GrocerEats.png')} style={styles.iconImage} />
-                    : <Image source={require('../../assets/Icons/GrocerEats_Gray.png')} style={styles.iconImage} />,
-                    widthWhenTabIsActive:TAB_WIDTH / 1.15
+                icon: isFocused ? <Image source={require('../../assets/Icons/GrocerEats.png')} style={[styles.iconImage, {
+                    width: normalizeWidth(TAB_BAR_HEIGHT - 15),
+                    height: normalizeHeight(TAB_BAR_HEIGHT - 15),}]} 
+                    />
+                    : <Image source={require('../../assets/Icons/GrocerEats_Gray.png')} style={[styles.iconImage, {
+                        width: normalizeWidth(TAB_BAR_HEIGHT - 15),
+                        height: normalizeHeight(TAB_BAR_HEIGHT - 15),}]} 
+                        />,
+                widthWhenTabIsActive: normalizeWidth(TAB_WIDTH) / 1.15
             }
 
         case "WordFishing":
             return {
                 textProperties: {
                     fontFamily: 'berkshireswash',
-                    fontSize: normalizeFontSize(18),
+                    fontSize: 18,
                     color: colors.font,
                 },
-                title:"WORDFISHING",
+                title: "WORDFISHING",
                 icon: <DefaultText style={{
                     fontFamily: 'berkshireswash',
-                    fontSize: normalizeFontSize(48),
+                    fontSize: 48,
                     color: isFocused ? colors.font : colors.gray
                 }}>W</DefaultText>,
-                widthWhenTabIsActive:TAB_WIDTH / 1.05
+                widthWhenTabIsActive: normalizeWidth(TAB_WIDTH) / 1.05
             }
 
         case "BounceBack":
@@ -71,11 +77,17 @@ export const getTabBarTabsData = (label, isFocused, colors) => {
                 textProperties: {
                     color: colors.darkBlue,
                     fontFamily: 'gibson',
-                    fontSize: normalizeFontSize(24)
+                    fontSize: 24
                 },
-                icon: isFocused ? <Image source={require('../../assets/Icons/BounceBack.png')} style={styles.iconImage} />
-                    : <Image source={require('../../assets/Icons/BounceBack_Gray.png')} style={styles.iconImage} />,
-                widthWhenTabIsActive:TAB_WIDTH / 1.2
+                icon: isFocused ? <Image source={require('../../assets/Icons/BounceBack.png')} style={[styles.iconImage, {
+                    width: normalizeWidth(TAB_BAR_HEIGHT - 15),
+                    height: normalizeHeight(TAB_BAR_HEIGHT - 15),}]}
+                    />
+                    : <Image source={require('../../assets/Icons/BounceBack_Gray.png')} style={[styles.iconImage, {
+                        width: normalizeWidth(TAB_BAR_HEIGHT - 15),
+                        height: normalizeHeight(TAB_BAR_HEIGHT - 15),}]}
+                        />,
+                widthWhenTabIsActive: normalizeWidth(TAB_WIDTH) / 1.2
             }
 
         case "Health Advisor":
@@ -84,17 +96,21 @@ export const getTabBarTabsData = (label, isFocused, colors) => {
                     color: colors.lightGreen,
                     fontFamily: 'impact'
                 },
-                icon: isFocused ? <Image source={require('../../assets/Icons/Health_Advisor.png')} style={styles.iconImage} />
-                    : <Image source={require('../../assets/Icons/Health_Advisor_Gray.png')} style={styles.iconImage} />,
-                widthWhenTabIsActive:TAB_WIDTH
+                icon: isFocused ? <Image source={require('../../assets/Icons/Health_Advisor.png')} style={[styles.iconImage, {
+                    width: normalizeWidth(TAB_BAR_HEIGHT - 15),
+                    height: normalizeHeight(TAB_BAR_HEIGHT - 15),}]}
+                    />
+                    : <Image source={require('../../assets/Icons/Health_Advisor_Gray.png')} style={[styles.iconImage, {
+                        width: normalizeWidth(TAB_BAR_HEIGHT - 15),
+                        height: normalizeHeight(TAB_BAR_HEIGHT - 15),}]}
+                        />,
+                widthWhenTabIsActive: normalizeWidth(TAB_WIDTH)
             }
     }
 }
 
 const styles = StyleSheet.create({
     iconImage: {
-        width: TAB_BAR_HEIGHT - normalizeWidth(15),
-        height: TAB_BAR_HEIGHT - normalizeHeight(15),
 
     },
 })

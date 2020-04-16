@@ -8,21 +8,6 @@ import { ColorsContext } from '../helpers/ColorsContext'
 
 const DefaultText = (props) => {
     const { colors } = useContext(ColorsContext)
-    const BASE_WIDTH = 1920;
-    const SCREEN_WIDTH = Dimensions.get('window').width
-
-    const scale = SCREEN_WIDTH / BASE_WIDTH;
-
-    const normalize = (size) => {
-        const newSize = size * scale
-        return Math.round(PixelRatio.roundToNearestPixel(newSize))
-        // const newSize = size * scale
-        // if (Platform.OS === 'android') {
-        //     return Math.round(PixelRatio.roundToNearestPixel(newSize)) - 2
-        // } else {
-        //     return Math.round(PixelRatio.roundToNearestPixel(newSize))
-        // }
-    }
 
     return (
         <Text {...props}

@@ -6,6 +6,7 @@ import ProjectDetailsTemplate from '../components/ProjectDetailsTemplate'
 import { HealthAdvisorDetails } from '../constants/PersonalData/ProjectsDetails/HealthAdvisor'
 import { TAB_BAR_HEIGHT } from '../constants/TABBAR'
 import { ColorsContext } from '../helpers/ColorsContext'
+import { normalizeMarginSize } from '../helpers/normalize'
 
 const ProjectDetailsScreen = ({ route, navigation }) => {
     const {colors} = useContext(ColorsContext)
@@ -16,7 +17,7 @@ const ProjectDetailsScreen = ({ route, navigation }) => {
 
     return (
         <View style={[styles.screen,{backgroundColor:colors.background}]}>
-            <ScrollView style={[styles.scrollView, {marginTop:TAB_BAR_HEIGHT + insets.top}]} contentContainerStyle={styles.scrollViewContainer} >
+            <ScrollView style={[styles.scrollView, {marginTop:normalizeMarginSize(TAB_BAR_HEIGHT)  + insets.top}]} contentContainerStyle={styles.scrollViewContainer} >
                 <ProjectDetailsTemplate data={projectDetails} />
                 <Footer/>
             </ScrollView>

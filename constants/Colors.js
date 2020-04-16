@@ -1,4 +1,8 @@
+export const DARK_MODE = 'DARK_MODE'
+export const LIGHT_MODE = 'LIGHT_MODE'
+
 export const darkMode = {
+    mode:DARK_MODE,
     background:"#111418",
     first:"#191f24",
     second:'#232a31',
@@ -19,6 +23,7 @@ export const darkMode = {
 }
 
 export const lightMode = {
+    mode:LIGHT_MODE,
     background:"#ffffff",
     first:"#f9f9fa",
     second:'#eff0f2',

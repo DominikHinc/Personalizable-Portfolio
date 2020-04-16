@@ -1,21 +1,15 @@
-import React, { useContext } from 'react'
-import { Dimensions, StyleSheet, Text, View } from 'react-native'
-import { ColorsContext } from '../helpers/ColorsContext'
+import React from 'react'
+import { StyleSheet, View } from 'react-native'
+import { headerMainStyle, sectionHeaderStyle, standardText } from '../constants/FontStyles'
 import { mySkills } from '../constants/PersonalData/MySkills'
-import DefaultText from './DefaultText'
-import { headerMainStyle, standardBoldText, standardText, sectionHeaderStyle } from '../constants/FontStyles'
 import { normalizeMarginSize, normalizePaddingSize, normalizeWidth } from '../helpers/normalize'
+import DefaultText from './DefaultText'
 
 
 const MySkillsSection = () => {
-
-    const { colors } = useContext(ColorsContext)
-    const verticalView = Dimensions.get('window').height / Dimensions.get('window').width > 1;
-
-
     const renderSkillsColumn = () => {
         return mySkills.map(item => {
-            return <View key={item.title} style={[styles.skillsColumn]}>
+            return <View key={item.title} style={[styles.skillsColumn, {maxWidth: normalizeWidth(270),marginVertical: normalizeMarginSize(15)}]}>
                 <DefaultText style={sectionHeaderStyle}>{item.title}</DefaultText>
                 {renderSkillsRow(item.skills)}
             </View>
@@ -29,7 +23,7 @@ const MySkillsSection = () => {
     }
 
     return (
-        <View style={styles.mainSkillsContainer}>
+        <View style={[styles.mainSkillsContainer, {paddingHorizontal: normalizePaddingSize(50)}]}>
             <DefaultText style={{ ...headerMainStyle, marginTop: normalizeMarginSize(50) }}>My skills</DefaultText>
             <View style={styles.innerSkillsContainer}>
                 {renderSkillsColumn()}
@@ -41,8 +35,6 @@ const MySkillsSection = () => {
 
 const styles = StyleSheet.create({
     mainSkillsContainer: {
-
-        paddingHorizontal: normalizePaddingSize(50),
         width: '100%',
         alignItems: 'center',
 
@@ -55,8 +47,7 @@ const styles = StyleSheet.create({
     },
     skillsColumn: {
         width: '80%',
-        maxWidth: normalizeWidth(270),
-        marginVertical: normalizeMarginSize(15),
+        
         alignItems: 'center'
     }
 })

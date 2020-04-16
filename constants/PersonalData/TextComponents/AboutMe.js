@@ -1,7 +1,7 @@
 import React from 'react'
 import { View } from 'react-native'
-import { headerMainStyle, standardText } from '../../constants/FontStyles'
-import DefaultText from '../../components/DefaultText'
+import { headerMainStyle, standardText } from '../../FontStyles'
+import DefaultText from '../../../components/DefaultText'
 
 const AboutMe = () => {
     return (
