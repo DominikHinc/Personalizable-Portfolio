@@ -44,7 +44,7 @@ const renderProject = (navigation) => {
                             </TouchableOpacity>
                         </View>
                         <View style={styles.naviagtionButton}>
-                            <TouchableOpacity style={{ flex: 1 }} onPress={() => { navigation.navigate(item.title) }}>
+                            <TouchableOpacity style={{ flex: 1 }} onPress={() => { navigation.navigate(item.title, {projectDetails:item.projectDetails}) }}>
                                 <View>
                                     <DefaultText style={{ ...standardText, color: colors.blue }}>Project's page</DefaultText>
                                 </View>

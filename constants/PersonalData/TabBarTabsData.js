@@ -43,7 +43,7 @@ export const getTabBarTabsData = (label, isFocused, colors) => {
             return {
                 textProperties: {
                     fontFamily: 'coiny',
-                    color: colors.blue
+                    color: colors.blue,
                 },
                 icon: isFocused ? <Image source={require('../../assets/Icons/GrocerEats.png')} style={[styles.iconImage, {
                     width: normalizeWidth(TAB_BAR_HEIGHT - 15),
@@ -60,7 +60,7 @@ export const getTabBarTabsData = (label, isFocused, colors) => {
             return {
                 textProperties: {
                     fontFamily: 'berkshireswash',
-                    fontSize: 18,
+                    fontSize: 22,
                     color: colors.font,
                 },
                 title: "WORDFISHING",
@@ -77,7 +77,7 @@ export const getTabBarTabsData = (label, isFocused, colors) => {
                 textProperties: {
                     color: colors.darkBlue,
                     fontFamily: 'gibson',
-                    fontSize: 24
+                    fontSize: 25
                 },
                 icon: isFocused ? <Image source={require('../../assets/Icons/BounceBack.png')} style={[styles.iconImage, {
                     width: normalizeWidth(TAB_BAR_HEIGHT - 15),

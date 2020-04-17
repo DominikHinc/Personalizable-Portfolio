@@ -57,13 +57,13 @@ const HomeScreen = (props) => {
     }
 
     const imageOpacity = currentContentOffset.interpolate({
-        inputRange: [0, Dimensions.get('window').height - normalizeHeight(TAB_BAR_HEIGHT)],
+        inputRange: [0, Dimensions.get('window').height - normalizeHeight(TAB_BAR_HEIGHT) > 0 ? Dimensions.get('window').height - normalizeHeight(TAB_BAR_HEIGHT) : Dimensions.get('window').height],
         outputRange: [1, 0],
         extrapolate: 'clamp',
         easing: Easing.ease,
     })
     const imageHeight = currentContentOffset.interpolate({
-        inputRange: [0, Dimensions.get('window').height - normalizeHeight(TAB_BAR_HEIGHT)],
+        inputRange: [0, Dimensions.get('window').height - normalizeHeight(TAB_BAR_HEIGHT) > 0 ? Dimensions.get('window').height - normalizeHeight(TAB_BAR_HEIGHT) : Dimensions.get('window').height],
         outputRange: [Dimensions.get('window').height, 0],
         extrapolate: 'clamp',
         easing: Easing.ease,
