@@ -4,7 +4,7 @@ import { useSafeArea } from 'react-native-safe-area-context'
 import Footer from '../components/Footer'
 import ProjectDetailsTemplate from '../components/ProjectDetailsTemplate'
 import { HealthAdvisorDetails } from '../constants/PersonalData/ProjectsDetails/HealthAdvisor'
-import { TAB_BAR_HEIGHT } from '../constants/TABBAR'
+import { TAB_BAR_HEIGHT } from '../constants/TAB_BAR'
 import { ColorsContext } from '../helpers/ColorsContext'
 import { normalizeMarginSize } from '../helpers/normalize'
 

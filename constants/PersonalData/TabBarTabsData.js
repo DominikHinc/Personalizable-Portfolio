@@ -2,7 +2,7 @@ import { Entypo, MaterialIcons } from '@expo/vector-icons';
 import React from 'react';
 import { Image, StyleSheet } from 'react-native';
 import DefaultText from '../../components/DefaultText';
-import { TAB_WIDTH, TAB_BAR_HEIGHT } from '../TABBAR';
+import { TAB_WIDTH, TAB_BAR_HEIGHT } from '../TAB_BAR';
 import { normalizeFontSize, normalizeIconSize, normalizeWidth, normalizeHeight } from '../../helpers/normalize';
 
 
@@ -10,10 +10,10 @@ import { normalizeFontSize, normalizeIconSize, normalizeWidth, normalizeHeight }
 // This file describes properties related to navigation tabs located on top of the screen
 // Every case should be named the same as title given in ProjectsOverview.js file
 
-// textProperties are supplied to Text component that is displayed when given tab is active
-// icon is component displayed as icon of a given tab, it should be a rectangle which height is TAB_BAR_HEIGHT - normalizeHeight(15),
-// icon can change depending whether the tab is focused or not
-// widthWhenTabIsActive is a property that describes what should be the width of each tab when it's active
+// textProperties are supplied to Text component that is displayed when a given tab is active
+// icon is component displayed as icon of a given tab, it should be a rectangle which height is normalizeHeight(TAB_BAR_HEIGHT - 15),
+// icon can changed depending whether the tab is focused or not
+// widthWhenTabIsActive describes what should be the width of each tab when it's active
 
 
 export const getTabBarTabsData = (label, isFocused, colors) => {
@@ -60,7 +60,7 @@ export const getTabBarTabsData = (label, isFocused, colors) => {
             return {
                 textProperties: {
                     fontFamily: 'berkshireswash',
-                    fontSize: 22,
+                    fontSize: 19,
                     color: colors.font,
                 },
                 title: "WORDFISHING",
@@ -69,7 +69,7 @@ export const getTabBarTabsData = (label, isFocused, colors) => {
                     fontSize: 48,
                     color: isFocused ? colors.font : colors.gray
                 }}>W</DefaultText>,
-                widthWhenTabIsActive: normalizeWidth(TAB_WIDTH) / 1.05
+                widthWhenTabIsActive: normalizeWidth(TAB_WIDTH)/ 0.95
             }
 
         case "BounceBack":

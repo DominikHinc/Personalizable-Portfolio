@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Animated, StyleSheet, TouchableOpacity } from 'react-native';
 import DefaultText from '../components/DefaultText';
 import { getTabBarTabsData } from '../constants/PersonalData/TabBarTabsData';
-import { TAB_BAR_HEIGHT } from '../constants/TABBAR';
+import { TAB_BAR_HEIGHT } from '../constants/TAB_BAR';
 import { ColorsContext } from '../helpers/ColorsContext';
 import { normalizeFontSize, normalizeMarginSize, normalizeHeight } from '../helpers/normalize';
 
@@ -55,7 +55,7 @@ const MyTabBarTab = ({ label, isFocused, options, onPress }) => {
 
                 <Animated.View style={[{ opacity: textOpacity, marginLeft: normalizeMarginSize(10), width: textWidth }]}>
                     <DefaultText numberOfLines={1} style={{ fontSize: 22, ...tabProperties.textProperties, color: tabProperties.textProperties.color }}>
-                        {tabProperties.tilte !== undefined ? tabProperties.tilte : label}
+                        {tabProperties.title !== undefined ? tabProperties.title : label}
                     </DefaultText>
                 </Animated.View>
 

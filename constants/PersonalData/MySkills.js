@@ -38,7 +38,7 @@ export const mySkills = [
         [
             'react-redux',
             'redux-thunk',
-            'react-naviagtion',
+            'react-navigation',
             'react-reanimated',
             'react-native-web',
             'expo-sqlite',

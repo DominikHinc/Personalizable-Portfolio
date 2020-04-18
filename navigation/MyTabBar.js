@@ -2,7 +2,7 @@ import { Entypo, MaterialIcons } from '@expo/vector-icons';
 import React, { useContext } from 'react';
 import { ScrollView, StyleSheet, TouchableOpacity, View, Platform } from 'react-native';
 import { darkMode, lightMode, LIGHT_MODE } from '../constants/Colors';
-import { TAB_BAR_HEIGHT } from '../constants/TABBAR';
+import { TAB_BAR_HEIGHT } from '../constants/TAB_BAR';
 import { ColorsContext } from '../helpers/ColorsContext';
 import { normalizeMarginSize, normalizePaddingSize, normalizeIconSize, normalizeHeight, normalizeWidth } from '../helpers/normalize';
 import MyTabBarTab from './MyTabBarTab';

@@ -9,14 +9,14 @@ const renderSection = (title, gif, text, index) => {
 
 const ProjectDetailsTemplate = ({ data }) => {
     return (
-        <View style={styles.detailsMainContaiener}>
+        <View style={styles.detailsMainContainer}>
             {data.map((item,index) => renderSection(item.title, item.gif, item.text, index))}
         </View>
     )
 }
 
 const styles = StyleSheet.create({
-    detailsMainContaiener:{
+    detailsMainContainer:{
     }
 })
 

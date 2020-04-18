@@ -1,5 +1,7 @@
 import { Dimensions, Platform, PixelRatio } from "react-native";
-import { EXPERIMENTAL_NORMALIZATION } from "../App";
+import { EXPERIMENTAL_NORMALIZATION } from "../constants/Config";
+
+
 
 
 

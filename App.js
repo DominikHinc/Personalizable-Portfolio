@@ -1,16 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, Dimensions } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import PortfolioNavigator from "./navigation/PortfolioNavigator"
-import * as Font from 'expo-font';
 import { SplashScreen } from 'expo';
-import { lightMode, darkMode } from './constants/Colors';
-import { ColorsContext } from './helpers/ColorsContext';
+import * as Font from 'expo-font';
+import React, { useEffect, useState } from 'react';
+import { Dimensions, StyleSheet, View } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { darkMode } from './constants/Colors';
+import { ColorsContext } from './helpers/ColorsContext';
+import PortfolioNavigator from "./navigation/PortfolioNavigator";
 
 
-//This option will turn on normalization, that will scale whole application. Config for this is located in normalize.js file
-export const EXPERIMENTAL_NORMALIZATION = true;
+
 
 
 export default function App(props) {
@@ -20,10 +19,10 @@ export default function App(props) {
   const value = { colors, setColors }
   
   useEffect(() => {
-    const dimenstionsChangeListener = Dimensions.addEventListener('change', () => { setRerender(prev => !prev) })
+    const dimensionsChangeListener = Dimensions.addEventListener('change', () => { setRerender(prev => !prev) })
 
     return () => {
-      Dimensions.removeEventListener('change', dimenstionsChangeListener)
+      Dimensions.removeEventListener('change', dimensionsChangeListener)
     }
   }, [])
 
