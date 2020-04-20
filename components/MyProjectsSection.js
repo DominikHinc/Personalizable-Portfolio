@@ -41,14 +41,14 @@ const renderProject = (navigation) => {
                         <View style={styles.navigationButton}>
                             <TouchableOpacity style={{ flex: 1 }} onPress={() => { Platform.OS === 'web' ? window.open(item.buttonConfig.link) : Linking.openURL(item.buttonConfig.link) }}>
                                 <View>
-                                    <DefaultText style={{ ...standardText, color: colors.blue }}>{item.buttonConfig.title}</DefaultText>
+                                    <DefaultText style={{ ...standardText, color: colors.linkBlue }}>{item.buttonConfig.title}</DefaultText>
                                 </View>
                             </TouchableOpacity>
                         </View>
                         <View style={styles.navigationButton}>
                             <TouchableOpacity style={{ flex: 1 }} onPress={() => { navigation.navigate(item.title, { projectDetails: item.projectDetails }) }}>
                                 <View>
-                                    <DefaultText style={{ ...standardText, color: colors.blue }}>Project's page</DefaultText>
+                                    <DefaultText style={{ ...standardText, color: colors.linkBlue }}>Project's page</DefaultText>
                                 </View>
                             </TouchableOpacity>
                         </View>

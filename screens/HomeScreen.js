@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { Animated, Dimensions, Easing, ImageBackground, ScrollView, StyleSheet, View } from 'react-native'
 import { useSafeArea } from 'react-native-safe-area-context'
 import DefaultText from '../components/DefaultText'
-import Footer from '../components/Footer'
+import Footer, { FOOTER_HEIGHT } from '../components/Footer'
 import MyProjectsSection from '../components/MyProjectsSection'
 import Presentation from '../components/Presentation'
 import { headerMainStyle, headerSecondaryStyle } from '../constants/FontStyles'
@@ -46,7 +46,7 @@ const HomeScreen = (props) => {
     useEffect(() => {
         startCallToActionAnimation()
     }, [shouldCallToActionAnimationReset])
-    
+
     const startCallToActionAnimation = () => {
         // This function needs to be called every time component rerenders, because rerendering stops the animation.
         Animated.loop(Animated.spring(callToActionAnimatedValue, {
@@ -55,7 +55,7 @@ const HomeScreen = (props) => {
             velocity: -10,
         }), { iterations: -1 }).start()
     }
-    
+
 
     const onScrollHandler = (e) => {
         currentContentOffset.setValue(e.nativeEvent.contentOffset.y);
@@ -108,15 +108,16 @@ const HomeScreen = (props) => {
                 <ImageBackground style={styles.headerImage} source={HomeScreenConfig.backgroundImage}>
                     <DefaultText style={{ ...headerMainStyle, color: 'white' }}>{HomeScreenConfig.title}</DefaultText>
                     <DefaultText style={{ ...headerSecondaryStyle, color: 'white' }}>{HomeScreenConfig.subTitle}</DefaultText>
-                    <Animated.View style={[styles.callToActionIconContainer, callToActionIconAnimationState, {marginBottom: callToActionIconMargin }]}>
+                    <Animated.View style={[styles.callToActionIconContainer, callToActionIconAnimationState, { marginBottom: callToActionIconMargin }]}>
                         <Ionicons name="ios-arrow-dropdown" size={normalizeIconSize(50)} />
                     </Animated.View>
                 </ImageBackground>
             </Animated.View>
-            <ScrollView style={[styles.screenScrollView, { marginTop: normalizeHeight(TAB_BAR_HEIGHT) + insets.top, }]} contentContainerStyle={[styles.scrollViewInnerContainer, { paddingTop: Dimensions.get('window').height, }]}
+            <ScrollView style={[styles.screenScrollView, { marginTop: normalizeHeight(TAB_BAR_HEIGHT) + insets.top, }]} 
+            contentContainerStyle={[styles.scrollViewInnerContainer, { paddingTop: Dimensions.get('window').height,paddingBottom:normalizeHeight(FOOTER_HEIGHT) }]}
                 onScroll={onScrollHandler} onMomentumScrollEnd={onScrollHandler} onScrollBeginDrag={onScrollHandler} scrollEventThrottle={1}>
-                <View style={[styles.screenUseableContainer, { backgroundColor: colors.background }]}>
                     
+                <View style={[styles.screenUseableContainer, { backgroundColor: colors.background }]}>
 
                     <View style={[styles.projectsSectionContainer, { paddingTop: normalizePaddingSize(20) }]}>
                         <MyProjectsSection navigation={props.navigation} />
@@ -125,11 +126,11 @@ const HomeScreen = (props) => {
                     <View style={styles.aboutMeSectionContainer}>
                         <Presentation />
                     </View>
-                    <View>
-                        <Footer />
-                    </View>
+
                 </View>
+                
             </ScrollView>
+            <Footer absolute={true} />
         </View>
     )
 }
@@ -174,7 +175,8 @@ const styles = StyleSheet.create({
         width: '100%',
         alignItems: 'center',
 
-    }
+    },
+    
 })
 
 

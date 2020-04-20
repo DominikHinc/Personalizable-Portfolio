@@ -5,10 +5,12 @@ import DefaultText from './DefaultText'
 import { sectionHeaderStyle, standardBoldText } from '../constants/FontStyles'
 import { ColorsContext } from '../helpers/ColorsContext'
 
-const Footer = () => {
+export const FOOTER_HEIGHT = 100;
+
+const Footer = ({absolute}) => {
     const {colors} = useContext(ColorsContext)
     return (
-        <View style={[styles.footerMainContainer,{backgroundColor:colors.background, height:normalizeHeight(100)}]}>
+        <View style={[styles.footerMainContainer, absolute === true ? styles.footerAbsoluteContainer : null,{backgroundColor:colors.background, height:normalizeHeight(FOOTER_HEIGHT)}]}>
             <DefaultText style={standardBoldText}>{`@${Platform.OS === 'web' ? "Site" : "App"} created by Dominik Hinc`}</DefaultText>
         </View>
     )
@@ -21,6 +23,13 @@ const styles = StyleSheet.create({
         justifyContent:'flex-end',
         paddingRight:'5%',
         alignItems:'center'
+    },
+    footerAbsoluteContainer:{
+        position: 'absolute', 
+        left: 0, 
+        bottom: 0,
+        width: '100%', 
+        zIndex: -1
     }
 })
 

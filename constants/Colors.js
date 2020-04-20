@@ -8,7 +8,7 @@ export const darkMode = {
     second:'#232a31',
     third:'#38434f',
     font:'#ffffff',
-    linkBlue:"#0000EE",
+    linkBlue:"#00B4EB",
     red:'#FA1E44',
     darkRed:'#c41835',
     yellow:'#EE782D',

@@ -19,6 +19,7 @@ export const sectionHeaderStyle={
     textAlign:'center',
     fontWeight:'700'
 }
+
 export const standardText={
     // fontFamily:"verdana",
     fontSize:18,
@@ -29,7 +30,10 @@ export const standardTextLeft={
     // fontFamily:"verdana",
     fontSize:18,
     textAlign:'left',
- 
+}
+export const standardLargeLeft = {
+    fontSize:22,
+    textAlign:'left',
 }
 export const standardBoldText={
     fontSize:18,

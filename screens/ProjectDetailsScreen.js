@@ -1,12 +1,12 @@
 import React, { useContext } from 'react'
 import { ScrollView, StyleSheet, View } from 'react-native'
 import { useSafeArea } from 'react-native-safe-area-context'
-import Footer from '../components/Footer'
+import Footer, { FOOTER_HEIGHT } from '../components/Footer'
 import ProjectDetailsTemplate from '../components/ProjectDetailsTemplate'
 import { HealthAdvisorDetails } from '../constants/PersonalData/ProjectsDetails/HealthAdvisor'
 import { TAB_BAR_HEIGHT } from '../constants/TAB_BAR'
 import { ColorsContext } from '../helpers/ColorsContext'
-import { normalizeMarginSize } from '../helpers/normalize'
+import { normalizeMarginSize, normalizeHeight } from '../helpers/normalize'
 
 const ProjectDetailsScreen = ({ route, navigation }) => {
     const {colors} = useContext(ColorsContext)
@@ -17,10 +17,12 @@ const ProjectDetailsScreen = ({ route, navigation }) => {
 
     return (
         <View style={[styles.screen,{backgroundColor:colors.background}]}>
-            <ScrollView style={[styles.scrollView, {marginTop:normalizeMarginSize(TAB_BAR_HEIGHT)  + insets.top}]} contentContainerStyle={styles.scrollViewContainer} >
+            <ScrollView style={[styles.scrollView, {marginTop:normalizeMarginSize(TAB_BAR_HEIGHT)  + insets.top}]} 
+            contentContainerStyle={[styles.scrollViewContainer, {paddingBottom:normalizeHeight(FOOTER_HEIGHT)}]} >
                 <ProjectDetailsTemplate data={projectDetails} />
-                <Footer/>
+                
             </ScrollView>
+            <Footer absolute={true} />
         </View>
     )
 }
