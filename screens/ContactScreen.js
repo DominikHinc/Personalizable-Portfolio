@@ -25,10 +25,11 @@ const ContactScreen = (props) => {
     }
 
     return (
-        <View style={[styles.screen, { backgroundColor: colors.background }]}>
+        <View style={[styles.screen, { backgroundColor: colors.first }]}>
             <ScrollView style={[styles.scrollView, { marginTop: normalizeMarginSize(TAB_BAR_HEIGHT) + insets.top,  }]}
             contentContainerStyle={{paddingBottom:normalizeHeight(FOOTER_HEIGHT)}}>
-                <View style={[styles.contactContainer, { flexDirection: verticalView ? 'column' : 'row',backgroundColor: colors.first }]}>
+                <View style={[styles.contactContainer, { flexDirection: verticalView ? 'column' : 'row',backgroundColor: colors.first, 
+                minHeight: Dimensions.get('window').height - normalizeMarginSize(TAB_BAR_HEIGHT) - insets.top }]}>
                     <View style={{ ...contactPositionDynamicProperties }} >
 
                         <ContactForm />

@@ -1,13 +1,13 @@
 import { Entypo, MaterialIcons } from '@expo/vector-icons';
 import React, { useContext } from 'react';
-import { ScrollView, StyleSheet, TouchableOpacity, View, Platform } from 'react-native';
+import { Platform, ScrollView, StyleSheet, TouchableOpacity, View } from 'react-native';
+import { useSafeArea } from 'react-native-safe-area-context';
 import { darkMode, lightMode, LIGHT_MODE } from '../constants/Colors';
 import { TAB_BAR_HEIGHT } from '../constants/TAB_BAR';
 import { ColorsContext } from '../helpers/ColorsContext';
-import { normalizeMarginSize, normalizePaddingSize, normalizeIconSize, normalizeHeight, normalizeWidth } from '../helpers/normalize';
+import { normalizeHeight, normalizeIconSize, normalizeMarginSize, normalizeWidth } from '../helpers/normalize';
 import MyTabBarTab from './MyTabBarTab';
-import { useSafeArea } from 'react-native-safe-area-context'
-import { projectsOverview } from '../constants/PersonalData/ProjectsOverview';
+
 
 const MyTabBar = ({ state, descriptors, navigation, position }) => {
     const { colors, setColors } = useContext(ColorsContext)
@@ -35,7 +35,8 @@ const MyTabBar = ({ state, descriptors, navigation, position }) => {
                             });
 
                             if (!isFocused && !event.defaultPrevented) {
-                                navigation.navigate(route.name, { projectDetails: projectsOverview.find(item => item.title === route.name) !== undefined ? projectsOverview.find(item => item.title === route.name).projectDetails : null });
+                                navigation.navigate(route.name);
+                              
                             }
                         };
 
@@ -83,7 +84,6 @@ const styles = StyleSheet.create({
         flex: 1,
         width: '100%',
         flexDirection: 'row',
-        // justifyContent: 'space-evenly',
 
     },
     darkModeButtonContainer: {

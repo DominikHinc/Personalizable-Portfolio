@@ -3,10 +3,17 @@ import { WordFishingDetails } from './ProjectsDetails/WordFishing';
 import { HealthAdvisorDetails } from './ProjectsDetails/HealthAdvisor';
 import { BounceBackDetails } from './ProjectsDetails/BounceBack';
 import ProjectOverview from '../../models/projectOverview';
+import {MaterialCommunityIcons} from '@expo/vector-icons'
+import React from 'react'
 
+
+export const GROCEREATS_TITLE = "GrocerEats"
+export const WORD_FISHING_TITLE = "WordFishing"
+export const HEALTH_ADVISOR_TITLE = "Health Advisor"
+export const BOUNCEBACK_TITLE = "BounceBack"
 
 // This file describes properties used in  My Projects section
-// Each ProjectOverview object is a new project tab
+// projectsOverview array should contain only ProjectOverview objects
 // ProjectOverview should contain:
 // title - project's title
 // image - can be in form of local image by passing require statement or in form of url to image by passing {uri:"https://example.url"}
@@ -19,12 +26,13 @@ import ProjectOverview from '../../models/projectOverview';
 
 export const projectsOverview = [
     new ProjectOverview(
-        'GrocerEats',
+        GROCEREATS_TITLE,
         require('../../assets/Icons/GrocerEats.png'),
         GrocerEatsDetails,
         {
             title: 'Play Store',
-            link: "https://play.google.com/store/apps/details?id=pl.dominik.hinc.grocereats"
+            link: "https://play.google.com/store/apps/details?id=pl.dominik.hinc.grocereats",
+            icon: <MaterialCommunityIcons name="google-play" size={45} />
         },
         [
             {
@@ -55,12 +63,13 @@ export const projectsOverview = [
         "Latest"
     ),
     new ProjectOverview(
-        'WordFishing',
+        WORD_FISHING_TITLE,
         require('../../assets/Icons/WordFishing.png'),
         WordFishingDetails,
         {
             title: 'Play Store',
-            link: "https://play.google.com/store/apps/details?id=pl.dominikhinc.wordfishing"
+            link: "https://play.google.com/store/apps/details?id=pl.dominikhinc.wordfishing",
+            icon: <MaterialCommunityIcons name="google-play" size={45} />
         },
         [
             {
@@ -91,12 +100,13 @@ export const projectsOverview = [
         "Popular"
     ),
     new ProjectOverview(
-        'Health Advisor',
+        HEALTH_ADVISOR_TITLE,
         require('../../assets/Icons/Health_Advisor.png'),
         HealthAdvisorDetails,
         {
             title: 'Play Store',
-            link: "https://play.google.com/store/apps/details?id=pl.dominik.hinc.heath_advisor"
+            link: "https://play.google.com/store/apps/details?id=pl.dominik.hinc.heath_advisor",
+            icon: <MaterialCommunityIcons name="google-play" size={45} />
         },
         [
             {
@@ -126,12 +136,13 @@ export const projectsOverview = [
         ],
     ),
     new ProjectOverview(
-        'BounceBack',
+        BOUNCEBACK_TITLE,
         require('../../assets/Icons/BounceBack.png'),
         BounceBackDetails,
         {
             title: 'Play Store',
-            link: "https://play.google.com/store/apps/details?id=pl.dominik.hinc.bounceback"
+            link: "https://play.google.com/store/apps/details?id=pl.dominik.hinc.bounceback",
+            icon: <MaterialCommunityIcons name="google-play" size={45} />
         },
         [
             {
@@ -156,7 +167,7 @@ export const projectsOverview = [
             },
             {
                 title: "Other:",
-                text: "Version control, Android Push Notifications, Local Android Storage management"
+                text: "Version control, Local Android Storage management"
             }
         ],
     ),

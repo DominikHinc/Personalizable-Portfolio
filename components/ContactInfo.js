@@ -1,25 +1,25 @@
 import React, { useContext } from 'react'
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
+import { StyleSheet, TouchableOpacity, View } from 'react-native'
+import { standardLargeLeft } from '../constants/FontStyles'
 import { contactData } from '../constants/PersonalData/ContactData'
-import DefaultText from './DefaultText'
 import { ColorsContext } from '../helpers/ColorsContext'
-import { standardBoldText, standardTextLeft, standardLargeLeft } from '../constants/FontStyles'
-import { normalizeMarginSize } from '../helpers/normalize'
-import { LIGHT_MODE } from '../constants/Colors'
+import { normalizeIconSize, normalizeMarginSize } from '../helpers/normalize'
 import { openLink } from '../helpers/OpenLink'
+import DefaultText from './DefaultText'
+import { normalizeStaticIcon } from '../helpers/normalizeStaticIcon'
 
 
 const renderContactInfo = (colors) => {
     return contactData.map(item => {
         
-        let icon  = {...item.icon, props:{...item.icon.props, color:item.icon.props.color === undefined ? colors.font : item.icon.props.color }}
+        let icon  = normalizeStaticIcon(item.icon, colors)
      
         return <View key={item.link} style={[styles.contactContainer, {marginVertical:normalizeMarginSize(20)}]}>
             {icon}
             <View style={[styles.linkContainer, {marginLeft:normalizeMarginSize(10)}]}>
-                <TouchableOpacity onPress={()=>{openLink(item.link)}}>
+                <TouchableOpacity onPress={()=>{item.link === undefined ? null : openLink(item.link)}} disabled={item.link === undefined}>
                     <View>
-                        <DefaultText style={{...standardLargeLeft, color:colors.linkBlue}}>{item.title}</DefaultText>
+                        <DefaultText style={{...standardLargeLeft, color:item.link === undefined ? colors.font : colors.linkBlue}}>{item.title}</DefaultText>
                     </View>
                 </TouchableOpacity>
             </View>

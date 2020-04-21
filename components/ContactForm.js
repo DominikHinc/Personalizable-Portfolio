@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import { View, Text, StyleSheet, TextInput, Button, TouchableOpacity, Dimensions } from 'react-native'
+import { View, Text, StyleSheet, TextInput, Button, TouchableOpacity, Dimensions, ActivityIndicator } from 'react-native'
 import { ColorsContext } from '../helpers/ColorsContext'
 import DefaultText from './DefaultText'
 import { sectionHeaderStyle, standardTextLeft, standardBoldText, headerMainStyle } from '../constants/FontStyles'
@@ -13,10 +13,13 @@ const ContactForm = (props) => {
     const [messageTextInputValue, setMessageTextInputValue] = useState("asdas")
 
     const [messageSentSuccessfully, setMessageSentSuccessfully] = useState(false)
+    const [errorMessage, setErrorMessage] = useState("")
 
     const [nameValidated, setNameValidated] = useState(true)
     const [emailValidated, setEmailValidated] = useState(true)
     const [messageValidated, setMessageValidated] = useState(true)
+
+    const [loading, setLoading] = useState(false)
 
     const { colors } = useContext(ColorsContext)
 
@@ -37,22 +40,22 @@ const ContactForm = (props) => {
     const submitInputHandler = () => {
         const { nameValidation, emailValidation, messageValidation } = validateInputs()
 
-        console.log(nameValidation)
-
         setMessageSentSuccessfully(false)
         setNameValidated(nameValidation)
         setEmailValidated(emailValidation)
         setMessageValidated(messageValidation)
 
         if (nameValidation && emailValidation && messageValidation) {
+            setLoading(true)
             sendEmail(nameTextInputValue, emailTextInputValue, messageTextInputValue).then((result) => {
-                console.log(JSON.stringify(result))
                 setMessageSentSuccessfully(true)
                 setNameTextInputValue("")
                 setEmailTextInputValue("")
                 setMessageTextInputValue('')
-            }).catch(err=>{
-                console.log(err.message)
+                setLoading(false)
+            }).catch(err => {
+                setErrorMessage(err.message)
+                setLoading(false)
             })
 
         }
@@ -73,9 +76,19 @@ const ContactForm = (props) => {
 
     return (
         <View style={[styles.mainContainer, { backgroundColor: colors.first }]}>
+
+            {loading && <View style={[styles.titleContainer, { marginBottom: normalizeMarginSize(20) }]}>
+                <ActivityIndicator size="large" color={colors.font} />
+            </View>}
+
             {messageSentSuccessfully && <View style={[styles.titleContainer, { marginBottom: normalizeMarginSize(20) }]}>
                 <DefaultText style={{ ...headerMainStyle, color: colors.green }}>Message sent successfully</DefaultText>
             </View>}
+
+            {errorMessage !== "" && <View style={[styles.titleContainer, { marginBottom: normalizeMarginSize(20) }]}>
+                <DefaultText style={{ ...headerMainStyle, color: colors.red }}>{errorMessage}</DefaultText>
+            </View>}
+
             <View style={[styles.titleContainer, { marginBottom: normalizeMarginSize(20) }]}>
                 <DefaultText style={headerMainStyle}>Let's talk</DefaultText>
             </View>

@@ -7,7 +7,7 @@ import MySkillsColumn from "../../models/mySkillsColumn"
 
 export const mySkills = [
     new MySkillsColumn(
-        "Languages",
+        "Languages:",
         [
             'JavaScript ES6/ES7/ES8',
             'Java',
@@ -16,7 +16,7 @@ export const mySkills = [
         ]
     ),
     new MySkillsColumn(
-        "General Programming",
+        "General Programming:",
         [
             "Version control",
             'REST API',
@@ -25,7 +25,7 @@ export const mySkills = [
     ),
 
     new MySkillsColumn(
-        "Frameworks",
+        "Frameworks:",
         [
             'React Native',
             'React',
@@ -34,7 +34,7 @@ export const mySkills = [
     ),
 
     new MySkillsColumn(
-        "Smaller libraries",
+        "Smaller libraries:",
         [
             'react-redux',
             'redux-thunk',
@@ -47,7 +47,7 @@ export const mySkills = [
     ),
 
     new MySkillsColumn(
-        "Technologies",
+        "Technologies:",
         [
             'Expo',
             'Redux',
@@ -55,7 +55,7 @@ export const mySkills = [
     ),
 
     new MySkillsColumn(
-        "Soft skills",
+        "Soft skills:",
         [
             "Communication",
             "Persistence",

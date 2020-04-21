@@ -1,22 +1,23 @@
 import React, { useContext } from 'react'
 import { ScrollView, StyleSheet, View } from 'react-native'
 import { useSafeArea } from 'react-native-safe-area-context'
+import BottomLinkButton from '../components/BottomLinkButton'
 import Footer, { FOOTER_HEIGHT } from '../components/Footer'
 import ProjectDetailsTemplate from '../components/ProjectDetailsTemplate'
-import { HealthAdvisorDetails } from '../constants/PersonalData/ProjectsDetails/HealthAdvisor'
 import { TAB_BAR_HEIGHT } from '../constants/TAB_BAR'
 import { ColorsContext } from '../helpers/ColorsContext'
-import { normalizeMarginSize, normalizeHeight } from '../helpers/normalize'
+import { normalizeHeight, normalizeMarginSize } from '../helpers/normalize'
 
 const ProjectDetailsScreen = ({ route, navigation }) => {
     const {colors} = useContext(ColorsContext)
 
-    const {projectDetails} = route.params;
+    const {projectDetails, buttonConfig} = route.params;
 
     const insets = useSafeArea();
 
     return (
-        <View style={[styles.screen,{backgroundColor:colors.background}]}>
+        <View style={[styles.screen,{backgroundColor:colors.first}]}>
+            {buttonConfig.link !== undefined && <BottomLinkButton buttonConfig={buttonConfig} />}
             <ScrollView style={[styles.scrollView, {marginTop:normalizeMarginSize(TAB_BAR_HEIGHT)  + insets.top}]} 
             contentContainerStyle={[styles.scrollViewContainer, {paddingBottom:normalizeHeight(FOOTER_HEIGHT)}]} >
                 <ProjectDetailsTemplate data={projectDetails} />
@@ -38,6 +39,7 @@ const styles = StyleSheet.create({
         
         width:'100%'
     },
+    
 })
 
 

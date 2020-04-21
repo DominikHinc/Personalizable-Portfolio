@@ -9,15 +9,13 @@ import { ColorsContext } from './helpers/ColorsContext';
 import PortfolioNavigator from "./navigation/PortfolioNavigator";
 
 
-
-
-
 export default function App(props) {
   const [isLoadingComplete, setLoadingComplete] = useState(false);
+
   const [rerender, setRerender] = useState(false)
   const [colors, setColors] = useState(darkMode)
-  const value = { colors, setColors }
-  
+  const colorContextValue = { colors, setColors }
+
   useEffect(() => {
     const dimensionsChangeListener = Dimensions.addEventListener('change', () => { setRerender(prev => !prev) })
 
@@ -26,8 +24,8 @@ export default function App(props) {
     }
   }, [])
 
-  React.useEffect(() => {
-    async function loadResourcesAndDataAsync() {
+  useEffect(() => {
+    const loadResourcesAndDataAsync = async () => {
       try {
         SplashScreen.preventAutoHide();
 
@@ -37,10 +35,7 @@ export default function App(props) {
           'coiny': require('./assets/Fonts/coiny.ttf'),
           'gibson': require('./assets/Fonts/Gisbon.ttf'),
           'impact': require('./assets/Fonts/impact.ttf'),
-          'sofia': require('./assets/Fonts/Sofia-Regular.ttf'),
-          'sofia-med': require('./assets/Fonts/Sofia-Medium.ttf'),
-          'sofia-bold': require('./assets/Fonts/Sofia-Bold.ttf'),
-          'verdana': require('./assets/Fonts/Verdana.ttf')
+          'sofia-bold': require('./assets/Fonts/Sofia-Bold.ttf')
         });
       } catch (e) {
         console.warn(e);
@@ -59,7 +54,7 @@ export default function App(props) {
     return (
       <SafeAreaProvider>
         <View style={[styles.container]}>
-          <ColorsContext.Provider value={value}>
+          <ColorsContext.Provider value={colorContextValue}>
             <NavigationContainer>
               <PortfolioNavigator />
             </NavigationContainer>

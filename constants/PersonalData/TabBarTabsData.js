@@ -2,61 +2,67 @@ import { Entypo, MaterialIcons } from '@expo/vector-icons';
 import React from 'react';
 import { Image, StyleSheet } from 'react-native';
 import DefaultText from '../../components/DefaultText';
-import { TAB_WIDTH, TAB_BAR_HEIGHT } from '../TAB_BAR';
-import { normalizeFontSize, normalizeIconSize, normalizeWidth, normalizeHeight } from '../../helpers/normalize';
+import { normalizeIconSize, normalizeWidth } from '../../helpers/normalize';
+import { CONTACT_SCREEN_TITLE, HOME_SCREEN_TITLE } from '../../navigation/PortfolioNavigator';
+import { TAB_BAR_HEIGHT, TAB_WIDTH } from '../TAB_BAR';
+import { BOUNCEBACK_TITLE, GROCEREATS_TITLE, HEALTH_ADVISOR_TITLE, WORD_FISHING_TITLE } from './ProjectsOverview';
 
 
 
 // This file describes properties related to navigation tabs located on top of the screen
-// Every case should be named the same as title given in ProjectsOverview.js file
+// Every case should be named the same as title of a given project in ProjectsOverview.js file or title provided to Home Screen and Contact Screen in PortfolioNavigator.js
 
 // textProperties are supplied to Text component that is displayed when a given tab is active
-// icon is component displayed as icon of a given tab, it should be a rectangle which height is normalizeHeight(TAB_BAR_HEIGHT - 15),
+// icon is component displayed as icon of a given tab, it should be a image rectangle whose height is normalizeHeight(TAB_BAR_HEIGHT - 15) or icon whose height is normalizeIconSize(48)
 // icon can changed depending whether the tab is focused or not
 // widthWhenTabIsActive describes what should be the width of each tab when it's active
 
 
 export const getTabBarTabsData = (label, isFocused, colors) => {
+
+    const standardIconSize = normalizeIconSize(48)
+    const standardImageSize = normalizeWidth(TAB_BAR_HEIGHT - 15)
+
     switch (label) {
-        case "Home":
+        case HOME_SCREEN_TITLE:
             return {
                 textProperties: {
                     fontFamily: 'sofia-bold',
                     color: colors.font
                 },
-                icon: <Entypo name="home" size={normalizeIconSize(48)} color={isFocused ? colors.font : colors.gray} />,
+                icon: <Entypo name="home" size={standardIconSize} color={isFocused ? colors.font : colors.gray} />,
                 widthWhenTabIsActive: normalizeWidth(TAB_WIDTH) / 2
             }
 
-        case "Contact":
+        case CONTACT_SCREEN_TITLE:
             return {
                 textProperties: {
                     fontFamily: 'sofia-bold',
                     color: colors.font
                 },
-                icon: <MaterialIcons name='contact-mail' size={normalizeIconSize(48)} color={isFocused ? colors.font : colors.gray} />,
+                icon: <MaterialIcons name='contact-mail' size={standardIconSize} color={isFocused ? colors.font : colors.gray} />,
                 widthWhenTabIsActive:normalizeWidth(TAB_WIDTH) / 1.5
 
             }
 
-        case "GrocerEats":
+        case GROCEREATS_TITLE:
             return {
                 textProperties: {
                     fontFamily: 'coiny',
                     color: colors.blue,
                 },
                 icon: isFocused ? <Image source={require('../../assets/Icons/GrocerEats.png')} style={[styles.iconImage, {
-                    width: normalizeWidth(TAB_BAR_HEIGHT - 15),
-                    height: normalizeHeight(TAB_BAR_HEIGHT - 15),}]} 
+                    width: standardImageSize,
+                    height: standardImageSize}]} 
                     />
                     : <Image source={require('../../assets/Icons/GrocerEats_Gray.png')} style={[styles.iconImage, {
-                        width: normalizeWidth(TAB_BAR_HEIGHT - 15),
-                        height: normalizeHeight(TAB_BAR_HEIGHT - 15),}]} 
+                        width: standardImageSize,
+                        height: standardImageSize}]} 
                         />,
                 widthWhenTabIsActive: normalizeWidth(TAB_WIDTH) / 1.15
             }
 
-        case "WordFishing":
+        case WORD_FISHING_TITLE:
             return {
                 textProperties: {
                     fontFamily: 'berkshireswash',
@@ -72,7 +78,7 @@ export const getTabBarTabsData = (label, isFocused, colors) => {
                 widthWhenTabIsActive: normalizeWidth(TAB_WIDTH)/ 0.95
             }
 
-        case "BounceBack":
+        case BOUNCEBACK_TITLE:
             return {
                 textProperties: {
                     color: colors.darkBlue,
@@ -80,29 +86,29 @@ export const getTabBarTabsData = (label, isFocused, colors) => {
                     fontSize: 25
                 },
                 icon: isFocused ? <Image source={require('../../assets/Icons/BounceBack.png')} style={[styles.iconImage, {
-                    width: normalizeWidth(TAB_BAR_HEIGHT - 15),
-                    height: normalizeHeight(TAB_BAR_HEIGHT - 15),}]}
+                    width: standardImageSize,
+                    height: standardImageSize}]}
                     />
                     : <Image source={require('../../assets/Icons/BounceBack_Gray.png')} style={[styles.iconImage, {
-                        width: normalizeWidth(TAB_BAR_HEIGHT - 15),
-                        height: normalizeHeight(TAB_BAR_HEIGHT - 15),}]}
+                        width: standardImageSize,
+                        height: standardImageSize}]}
                         />,
                 widthWhenTabIsActive: normalizeWidth(TAB_WIDTH) / 1.2
             }
 
-        case "Health Advisor":
+        case HEALTH_ADVISOR_TITLE:
             return {
                 textProperties: {
                     color: colors.lightGreen,
                     fontFamily: 'impact'
                 },
                 icon: isFocused ? <Image source={require('../../assets/Icons/Health_Advisor.png')} style={[styles.iconImage, {
-                    width: normalizeWidth(TAB_BAR_HEIGHT - 15),
-                    height: normalizeHeight(TAB_BAR_HEIGHT - 15),}]}
+                    width: standardImageSize,
+                    height: standardImageSize}]}
                     />
                     : <Image source={require('../../assets/Icons/Health_Advisor_Gray.png')} style={[styles.iconImage, {
-                        width: normalizeWidth(TAB_BAR_HEIGHT - 15),
-                        height: normalizeHeight(TAB_BAR_HEIGHT - 15),}]}
+                        width: standardImageSize,
+                        height: standardImageSize}]}
                         />,
                 widthWhenTabIsActive: normalizeWidth(TAB_WIDTH)
             }

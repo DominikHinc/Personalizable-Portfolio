@@ -6,6 +6,8 @@ import HomeScreen from '../screens/HomeScreen';
 import ProjectDetailsScreen from '../screens/ProjectDetailsScreen';
 import MyTabBar from './MyTabBar';
 
+export const HOME_SCREEN_TITLE = "Home"
+export const CONTACT_SCREEN_TITLE = "Contact"
 
 const TopTab = createBottomTabNavigator();
 
@@ -18,25 +20,26 @@ const mapProjectFromProjectsOverviewToNavigation = () => {
         options={{
             title:item.title,
         }}
+        initialParams={item}
     />
     })
 }
 
 const mainTabNavigator = () => {
     return (
-        <TopTab.Navigator tabBar={props => <MyTabBar {...props} />} initialRouteName='Contact'>
+        <TopTab.Navigator tabBar={props => <MyTabBar {...props} />}>
             <TopTab.Screen
-                name="Home"
+                name={HOME_SCREEN_TITLE}
                 component={HomeScreen}
                 options={{
-                    title: 'Home'
+                    title: HOME_SCREEN_TITLE
                 }}
             />
             <TopTab.Screen
-                name="Contact"
+                name={CONTACT_SCREEN_TITLE}
                 component={ContactScreen}
                 options={{
-                    title: 'Contact'
+                    title: CONTACT_SCREEN_TITLE
                 }}
             />
             {mapProjectFromProjectsOverviewToNavigation()}
@@ -44,5 +47,6 @@ const mainTabNavigator = () => {
         </TopTab.Navigator>
     )
 }
+
 
 export default mainTabNavigator
