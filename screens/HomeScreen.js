@@ -1,7 +1,7 @@
-import { Ionicons } from '@expo/vector-icons'
-import React, { useContext, useEffect, useState } from 'react'
-import { Animated, Dimensions, Easing, ImageBackground, ScrollView, StyleSheet, View, Platform } from 'react-native'
+import React, { useContext } from 'react'
+import { Animated, Dimensions, Easing, ImageBackground, Platform, ScrollView, StyleSheet, View } from 'react-native'
 import { useSafeArea } from 'react-native-safe-area-context'
+import BouncingCallToActionIcon from '../components/BouncingCallToActionIcon'
 import DefaultText from '../components/DefaultText'
 import Footer, { FOOTER_HEIGHT } from '../components/Footer'
 import MyProjectsSection from '../components/MyProjectsSection'
@@ -10,7 +10,7 @@ import { headerMainStyle, headerSecondaryStyle } from '../constants/FontStyles'
 import { HomeScreenConfig } from '../constants/PersonalData/HomeScreenData'
 import { TAB_BAR_HEIGHT } from '../constants/TAB_BAR'
 import { ColorsContext } from '../helpers/ColorsContext'
-import { normalizeHeight, normalizeIconSize, normalizePaddingSize } from '../helpers/normalize'
+import { normalizeHeight, normalizePaddingSize } from '../helpers/normalize'
 
 
 
@@ -19,43 +19,8 @@ const HomeScreen = (props) => {
     console.log(Dimensions.get('window').width)
     const { colors } = useContext(ColorsContext)
     const currentContentOffset = new Animated.Value(0)
-    const callToActionAnimatedValue = new Animated.Value(0)
-
-    const [shouldCallToActionAnimationReset, setShouldCallToActionAnimationReset] = useState(false)
 
     const insets = useSafeArea();
-
-    useEffect(() => {
-        startCallToActionAnimation()
-    }, [])
-
-    useEffect(() => {
-        // Every time dimensions change startCallToActionAnimation must be called
-        const dimensionsChangeListener = Dimensions.addEventListener('change', () => { setShouldCallToActionAnimationReset(prev => !prev) })
-
-        return () => {
-            Dimensions.removeEventListener('change', dimensionsChangeListener)
-        }
-    }, [])
-
-    useEffect(() => {
-        // Every time colors change startCallToActionAnimation must be called
-        startCallToActionAnimation()
-    }, [colors])
-
-    useEffect(() => {
-        startCallToActionAnimation()
-    }, [shouldCallToActionAnimationReset])
-
-    const startCallToActionAnimation = () => {
-        // This function needs to be called every time component rerenders, because rerendering stops the animation.
-        Animated.loop(Animated.spring(callToActionAnimatedValue, {
-            toValue: callToActionAnimatedValue._value === 0 ? 1 : 0,
-            damping: 20,
-            velocity: -10,
-        }), { iterations: -1 }).start()
-    }
-
 
     const onScrollHandler = (e) => {
         currentContentOffset.setValue(e.nativeEvent.contentOffset.y);
@@ -74,33 +39,7 @@ const HomeScreen = (props) => {
         extrapolate: 'clamp',
         easing: Easing.ease,
     })
-    const callToActionIconMargin = currentContentOffset.interpolate({
-        inputRange: [0, Dimensions.get('window').height / 5],
-        outputRange: [0, -200],
-        extrapolate: 'clamp',
-        easing: Easing.ease,
-    })
-    const callToActionIconAnimationState = {
-        transform: [{
-            translateY: callToActionAnimatedValue.interpolate({
-                inputRange: [0, 0.5, 1],
-                outputRange: [0, -20, 0]
-            }),
-
-        }, {
-            scale: callToActionAnimatedValue.interpolate({
-                inputRange: [0, 0.5, 1],
-                outputRange: [1, 0.9, 1]
-            }),
-        },
-        {
-            rotate: callToActionAnimatedValue.interpolate({
-                inputRange: [0, 1],
-                outputRange: ['0deg', '360deg']
-            }),
-        }
-        ]
-    }
+    
 
     return (
         <View style={[styles.screen, { backgroundColor: colors.background }]}>
@@ -108,9 +47,7 @@ const HomeScreen = (props) => {
                 <ImageBackground style={styles.headerImage} source={HomeScreenConfig.backgroundImage}>
                     <DefaultText style={{ ...headerMainStyle, color: 'white' }}>{HomeScreenConfig.title}</DefaultText>
                     <DefaultText style={{ ...headerSecondaryStyle, color: 'white' }}>{HomeScreenConfig.subTitle}</DefaultText>
-                    <Animated.View style={[styles.callToActionIconContainer, callToActionIconAnimationState, { marginBottom: callToActionIconMargin }]}>
-                        <Ionicons name="ios-arrow-dropdown" size={normalizeIconSize(50)} />
-                    </Animated.View>
+                    <BouncingCallToActionIcon currentContentOffset={currentContentOffset} />
                 </ImageBackground>
             </Animated.View>
             <ScrollView style={[styles.screenScrollView, { marginTop: normalizeHeight(TAB_BAR_HEIGHT) + insets.top, }]} 
@@ -158,7 +95,6 @@ const styles = StyleSheet.create({
     },
     scrollViewInnerContainer: {
 
-
     },
     screenUseableContainer: {
         flex: 1,
@@ -166,15 +102,6 @@ const styles = StyleSheet.create({
     },
     projectsSectionContainer: {
         flex: 1,
-
-
-    },
-    callToActionIconContainer: {
-        position: 'absolute',
-        bottom: 0,
-        width: '100%',
-        alignItems: 'center',
-
     },
     
 })

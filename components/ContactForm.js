@@ -1,10 +1,10 @@
 import React, { useContext, useState } from 'react'
-import { View, Text, StyleSheet, TextInput, Button, TouchableOpacity, Dimensions, ActivityIndicator } from 'react-native'
+import { ActivityIndicator, Dimensions, StyleSheet, TextInput, TouchableOpacity, View } from 'react-native'
+import { headerMainStyle, standardBoldText, standardTextLeft } from '../constants/FontStyles'
 import { ColorsContext } from '../helpers/ColorsContext'
-import DefaultText from './DefaultText'
-import { sectionHeaderStyle, standardTextLeft, standardBoldText, headerMainStyle } from '../constants/FontStyles'
-import { normalizeMarginSize, normalizeHeight, normalizePaddingSize, normalizeFontSize, normalizeBorderRadiusSize, normalizeWidth } from '../helpers/normalize'
+import { normalizeBorderRadiusSize, normalizeFontSize, normalizeHeight, normalizeMarginSize, normalizePaddingSize } from '../helpers/normalize'
 import { sendEmail } from '../helpers/SendEmail'
+import DefaultText from './DefaultText'
 
 const ContactForm = (props) => {
 

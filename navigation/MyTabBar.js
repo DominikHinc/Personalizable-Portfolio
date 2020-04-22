@@ -1,6 +1,6 @@
 import { Entypo, MaterialIcons } from '@expo/vector-icons';
 import React, { useContext } from 'react';
-import { Platform, ScrollView, StyleSheet, TouchableOpacity, View } from 'react-native';
+import { Dimensions, ScrollView, StyleSheet, TouchableOpacity, View } from 'react-native';
 import { useSafeArea } from 'react-native-safe-area-context';
 import { darkMode, lightMode, LIGHT_MODE } from '../constants/Colors';
 import { TAB_BAR_HEIGHT } from '../constants/TAB_BAR';
@@ -12,9 +12,10 @@ import MyTabBarTab from './MyTabBarTab';
 const MyTabBar = ({ state, descriptors, navigation, position }) => {
     const { colors, setColors } = useContext(ColorsContext)
     const insets = useSafeArea();
+    const verticalView = Dimensions.get('window').height / Dimensions.get('window').width > 1;
     return (
-        <View style={[styles.mainBarContainer, { backgroundColor: 'transparent', marginTop: insets.top, height:normalizeHeight(TAB_BAR_HEIGHT) }]}>
-            <ScrollView style={styles.tabScrollView} contentContainerStyle={[styles.tabBarScrollContainer]} horizontal={true} >
+        <View style={[styles.mainBarContainer, { backgroundColor: 'transparent', marginTop: insets.top, height: normalizeHeight(TAB_BAR_HEIGHT) }]}>
+            <ScrollView style={styles.tabScrollView} contentContainerStyle={[styles.tabBarScrollContainer, { width: verticalView ? null : '100%' }]} horizontal={true} >
                 <View style={[styles.tabBarInnerContainer]}>
                     {state.routes.map((route, index) => {
                         const { options } = descriptors[route.key];
@@ -36,7 +37,7 @@ const MyTabBar = ({ state, descriptors, navigation, position }) => {
 
                             if (!isFocused && !event.defaultPrevented) {
                                 navigation.navigate(route.name);
-                              
+
                             }
                         };
 
@@ -46,18 +47,16 @@ const MyTabBar = ({ state, descriptors, navigation, position }) => {
 
                         );
                     })}
-                    <View style={[styles.darkModeButtonContainer, { minWidth: normalizeWidth(TAB_BAR_HEIGHT / 1.5 + 40)  }]}>
+                    <View style={[styles.darkModeButtonContainer, { minWidth: normalizeWidth(TAB_BAR_HEIGHT / 1.5 + 40) }]}>
                         <TouchableOpacity onPress={() => setColors(colors.mode === LIGHT_MODE ? darkMode : lightMode)} >
-                        {colors.mode === LIGHT_MODE ?
-                            <Entypo name="moon" size={normalizeIconSize(TAB_BAR_HEIGHT / 1.5)} style={[styles.darkModeIcon,{marginHorizontal: normalizeMarginSize(30)}]} color={colors.font} />
-                            :
-                            <MaterialIcons name="wb-sunny" size={normalizeIconSize(TAB_BAR_HEIGHT / 1.5)} style={[styles.darkModeIcon,{marginHorizontal: normalizeMarginSize(30)}]} color={colors.font} />
-                        }
+                            {colors.mode === LIGHT_MODE ?
+                                <Entypo name="moon" size={normalizeIconSize(TAB_BAR_HEIGHT / 1.5)} style={[styles.darkModeIcon, { marginHorizontal: normalizeMarginSize(30) }]} color={colors.font} />
+                                :
+                                <MaterialIcons name="wb-sunny" size={normalizeIconSize(TAB_BAR_HEIGHT / 1.5)} style={[styles.darkModeIcon, { marginHorizontal: normalizeMarginSize(30) }]} color={colors.font} />
+                            }
+                        </TouchableOpacity>
 
-
-                    </TouchableOpacity>
-
-                </View>
+                    </View>
 
                 </View>
 
@@ -77,7 +76,7 @@ const styles = StyleSheet.create({
 
     },
     tabBarScrollContainer: {
-        width: Platform.OS === 'web' ? '100%' : null
+
 
     },
     tabBarInnerContainer: {
@@ -87,13 +86,13 @@ const styles = StyleSheet.create({
 
     },
     darkModeButtonContainer: {
-        flex: 1, 
-        flexDirection: 'row', 
-        justifyContent: 'flex-end', 
+        flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'flex-end',
         alignItems: 'center'
     },
     darkModeIcon: {
-        
+
     }
 })
 
