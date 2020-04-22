@@ -8,9 +8,9 @@ import { sendEmail } from '../helpers/SendEmail'
 
 const ContactForm = (props) => {
 
-    const [nameTextInputValue, setNameTextInputValue] = useState("asdasdas")
-    const [emailTextInputValue, setEmailTextInputValue] = useState("sadasda@adsf.as")
-    const [messageTextInputValue, setMessageTextInputValue] = useState("asdas")
+    const [nameTextInputValue, setNameTextInputValue] = useState("")
+    const [emailTextInputValue, setEmailTextInputValue] = useState("")
+    const [messageTextInputValue, setMessageTextInputValue] = useState("")
 
     const [messageSentSuccessfully, setMessageSentSuccessfully] = useState(false)
     const [errorMessage, setErrorMessage] = useState("")

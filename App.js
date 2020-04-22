@@ -35,6 +35,7 @@ export default function App(props) {
           'coiny': require('./assets/Fonts/coiny.ttf'),
           'gibson': require('./assets/Fonts/Gisbon.ttf'),
           'impact': require('./assets/Fonts/impact.ttf'),
+          'sofia' : require('./assets/Fonts/Sofia-Regular.ttf'),
           'sofia-bold': require('./assets/Fonts/Sofia-Bold.ttf')
         });
       } catch (e) {

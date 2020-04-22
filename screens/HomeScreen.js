@@ -1,6 +1,6 @@
 import { Ionicons } from '@expo/vector-icons'
 import React, { useContext, useEffect, useState } from 'react'
-import { Animated, Dimensions, Easing, ImageBackground, ScrollView, StyleSheet, View } from 'react-native'
+import { Animated, Dimensions, Easing, ImageBackground, ScrollView, StyleSheet, View, Platform } from 'react-native'
 import { useSafeArea } from 'react-native-safe-area-context'
 import DefaultText from '../components/DefaultText'
 import Footer, { FOOTER_HEIGHT } from '../components/Footer'
@@ -70,7 +70,7 @@ const HomeScreen = (props) => {
     })
     const imageHeight = currentContentOffset.interpolate({
         inputRange: [0, Dimensions.get('window').height - normalizeHeight(TAB_BAR_HEIGHT) > 0 ? Dimensions.get('window').height - normalizeHeight(TAB_BAR_HEIGHT) : Dimensions.get('window').height],
-        outputRange: [Dimensions.get('window').height, 0],
+        outputRange: [Platform.OS === 'web' ? Dimensions.get('window').height : Dimensions.get('screen').height, 0],
         extrapolate: 'clamp',
         easing: Easing.ease,
     })

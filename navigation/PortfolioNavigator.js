@@ -1,18 +1,18 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import * as React from 'react';
-import { projectsOverview } from '../constants/PersonalData/ProjectsOverview';
+import { projectsOverview, HOME_SCREEN_TITLE, CONTACT_SCREEN_TITLE } from '../constants/PersonalData/ProjectsOverview';
 import ContactScreen from '../screens/ContactScreen';
 import HomeScreen from '../screens/HomeScreen';
 import ProjectDetailsScreen from '../screens/ProjectDetailsScreen';
 import MyTabBar from './MyTabBar';
 
-export const HOME_SCREEN_TITLE = "Home"
-export const CONTACT_SCREEN_TITLE = "Contact"
+
 
 const TopTab = createBottomTabNavigator();
 
 const mapProjectFromProjectsOverviewToNavigation = () => {
     return projectsOverview.map(item => {
+        console.log(item)
         return <TopTab.Screen
         key={item.title}
         name={item.title}
@@ -20,7 +20,7 @@ const mapProjectFromProjectsOverviewToNavigation = () => {
         options={{
             title:item.title,
         }}
-        initialParams={item}
+        initialParams={{title:item.title}}
     />
     })
 }

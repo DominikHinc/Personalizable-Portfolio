@@ -3,9 +3,8 @@ import React from 'react';
 import { Image, StyleSheet } from 'react-native';
 import DefaultText from '../../components/DefaultText';
 import { normalizeIconSize, normalizeWidth } from '../../helpers/normalize';
-import { CONTACT_SCREEN_TITLE, HOME_SCREEN_TITLE } from '../../navigation/PortfolioNavigator';
 import { TAB_BAR_HEIGHT, TAB_WIDTH } from '../TAB_BAR';
-import { BOUNCEBACK_TITLE, GROCEREATS_TITLE, HEALTH_ADVISOR_TITLE, WORD_FISHING_TITLE } from './ProjectsOverview';
+import { BOUNCEBACK_TITLE, GROCEREATS_TITLE, HEALTH_ADVISOR_TITLE, WORD_FISHING_TITLE, CONTACT_SCREEN_TITLE, HOME_SCREEN_TITLE } from './ProjectsOverview';
 
 
 

@@ -6,7 +6,8 @@ import ProjectOverview from '../../models/projectOverview';
 import {MaterialCommunityIcons} from '@expo/vector-icons'
 import React from 'react'
 
-
+export const HOME_SCREEN_TITLE = "Home"
+export const CONTACT_SCREEN_TITLE = "Contact"
 export const GROCEREATS_TITLE = "GrocerEats"
 export const WORD_FISHING_TITLE = "WordFishing"
 export const HEALTH_ADVISOR_TITLE = "Health Advisor"
