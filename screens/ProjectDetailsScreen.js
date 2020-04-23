@@ -40,7 +40,7 @@ const ProjectDetailsScreen = ({ route, navigation }) => {
                 <ProjectDetailsTemplate data={project.projectDetails} />
 
             </ScrollView>
-            <Footer absolute={true} />
+            <Footer absolute={true} leftSide={true} />
         </View>
     )
 }
