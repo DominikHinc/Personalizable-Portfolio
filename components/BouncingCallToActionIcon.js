@@ -6,34 +6,9 @@ import { normalizeIconSize } from '../helpers/normalize'
 
 const BouncingCallToActionIcon = ({ currentContentOffset, iconColor }) => {
 
-    const { colors } = useContext(ColorsContext)
-
     const callToActionAnimatedValue = new Animated.Value(0)
 
-    const [shouldCallToActionAnimationReset, setShouldCallToActionAnimationReset] = useState(false)
-
-    useEffect(() => {
-        startCallToActionAnimation()
-    }, [])
-
-    useEffect(() => {
-        // Every time dimensions change startCallToActionAnimation must be called
-        const dimensionsChangeListener = Dimensions.addEventListener('change', () => { setShouldCallToActionAnimationReset(prev => !prev) })
-
-        return () => {
-            Dimensions.removeEventListener('change', dimensionsChangeListener)
-        }
-    }, [])
-
-    useEffect(() => {
-        // Every time colors change startCallToActionAnimation must be called
-        startCallToActionAnimation()
-    }, [colors])
-
-    useEffect(() => {
-        startCallToActionAnimation()
-    }, [shouldCallToActionAnimationReset])
-
+   
     const startCallToActionAnimation = () => {
         // This function needs to be called every time component rerenders, because rerendering stops the animation.
         Animated.loop(Animated.spring(callToActionAnimatedValue, {
@@ -71,6 +46,7 @@ const BouncingCallToActionIcon = ({ currentContentOffset, iconColor }) => {
         ]
     }
 
+    startCallToActionAnimation()
 
     return (
 

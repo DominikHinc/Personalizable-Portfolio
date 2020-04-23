@@ -4,7 +4,7 @@ import { useSafeArea } from 'react-native-safe-area-context'
 import { headerMainStyle, standardText } from '../constants/FontStyles'
 import { TAB_BAR_HEIGHT } from '../constants/TAB_BAR'
 import { ColorsContext } from '../helpers/ColorsContext'
-import { normalizeHeight } from '../helpers/normalize'
+import { normalizeHeight, normalizeMarginSize } from '../helpers/normalize'
 import DefaultText from './DefaultText'
 
 
@@ -51,7 +51,7 @@ const TextWithGifSection = ({ gifPath, text, title, reverseOrder }) => {
                 paddingHorizontal: verticalView ? "5%" : null,
                 paddingLeft: reverseOrder ? '5%' : null, paddingRight: !reverseOrder ? '5%' : null, flex: verticalView ? null : 1 / 2
             }]}>
-                <View style={styles.textContainer}>
+                <View style={[styles.textContainer, {marginVertical:verticalView ? normalizeMarginSize(25) : null}]}>
                     <DefaultText style={headerMainStyle}>{title}</DefaultText>
                     <DefaultText style={standardText}>{text}</DefaultText>
                 </View>

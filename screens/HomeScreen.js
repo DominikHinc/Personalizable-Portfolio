@@ -16,7 +16,6 @@ import { normalizeHeight, normalizePaddingSize } from '../helpers/normalize'
 
 
 const HomeScreen = (props) => {
-    console.log(Dimensions.get('window').width)
     const { colors } = useContext(ColorsContext)
     const currentContentOffset = new Animated.Value(0)
 

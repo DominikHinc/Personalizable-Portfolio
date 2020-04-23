@@ -12,7 +12,6 @@ const TopTab = createBottomTabNavigator();
 
 const mapProjectFromProjectsOverviewToNavigation = () => {
     return projectsOverview.map(item => {
-        console.log(item)
         return <TopTab.Screen
         key={item.title}
         name={item.title}
