@@ -7,10 +7,11 @@ import Footer, { FOOTER_HEIGHT } from '../components/Footer'
 import MyProjectsSection from '../components/MyProjectsSection'
 import Presentation from '../components/Presentation'
 import { headerMainStyle, headerSecondaryStyle } from '../constants/FontStyles'
-import { HomeScreenConfig } from '../constants/PersonalData/HomeScreenData'
+import { homeScreenConfig } from '../constants/PersonalData/HomeScreenData'
 import { TAB_BAR_HEIGHT } from '../constants/TAB_BAR'
 import { ColorsContext } from '../helpers/ColorsContext'
 import { normalizeHeight, normalizePaddingSize } from '../helpers/normalize'
+import RoundIconButton from '../components/IconButton'
 
 
 
@@ -38,21 +39,33 @@ const HomeScreen = (props) => {
         extrapolate: 'clamp',
         easing: Easing.ease,
     })
-    
+
+    const renderLinkIcons = () => {
+        return homeScreenConfig.buttons.length > 0 ? homeScreenConfig.buttons.map((item) => {
+            return <RoundIconButton key={item.link} icon={item.icon} link={item.link} />
+        }) : null
+    }
+
 
     return (
         <View style={[styles.screen, { backgroundColor: colors.background }]}>
             <Animated.View style={[styles.headerView, { backgroundColor: colors.first, opacity: imageOpacity, height: imageHeight, }]}>
-                <ImageBackground style={styles.headerImage} source={HomeScreenConfig.backgroundImage}>
-                    <DefaultText style={{ ...headerMainStyle, color: 'white' }}>{HomeScreenConfig.title}</DefaultText>
-                    <DefaultText style={{ ...headerSecondaryStyle, color: 'white' }}>{HomeScreenConfig.subTitle}</DefaultText>
+                <ImageBackground style={styles.headerImage} source={homeScreenConfig.backgroundImage}>
+                    <DefaultText style={{ ...headerMainStyle, color: 'white' }}>{homeScreenConfig.title}</DefaultText>
+                    <DefaultText style={{ ...headerSecondaryStyle, color: 'white' }}>{homeScreenConfig.subTitle}</DefaultText>
+
                     <BouncingCallToActionIcon currentContentOffset={currentContentOffset} />
                 </ImageBackground>
             </Animated.View>
-            <ScrollView style={[styles.screenScrollView, { marginTop: normalizeHeight(TAB_BAR_HEIGHT) + insets.top, }]} 
-            contentContainerStyle={[styles.scrollViewInnerContainer, { paddingTop: Dimensions.get('window').height,paddingBottom:normalizeHeight(FOOTER_HEIGHT) }]}
-                onScroll={onScrollHandler} onMomentumScrollEnd={onScrollHandler} onScrollBeginDrag={onScrollHandler} scrollEventThrottle={1}>
-                    
+            <ScrollView style={[styles.screenScrollView, { marginTop: normalizeHeight(TAB_BAR_HEIGHT) + insets.top, }]}
+                contentContainerStyle={[styles.scrollViewInnerContainer, { paddingBottom: normalizeHeight(FOOTER_HEIGHT) }]}
+                onScroll={onScrollHandler} onMomentumScrollEnd={onScrollHandler} onScrollBeginDrag={onScrollHandler} scrollEventThrottle={1} >
+                <View style={{ height: Dimensions.get('window').height }}>
+                    <View style={styles.linkIconsContainer}>
+                        {renderLinkIcons()}
+                    </View>
+                </View>
+
                 <View style={[styles.screenUseableContainer, { backgroundColor: colors.background }]}>
 
                     <View style={[styles.projectsSectionContainer, { paddingTop: normalizePaddingSize(20) }]}>
@@ -64,7 +77,7 @@ const HomeScreen = (props) => {
                     </View>
 
                 </View>
-                
+
             </ScrollView>
             <Footer absolute={true} />
         </View>
@@ -88,6 +101,12 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center'
     },
+    linkIconsContainer: {
+        flex:1,
+        alignItems: 'flex-end',
+        height: '100%',
+       
+    },
     screenScrollView: {
         flex: 1,
 
@@ -102,7 +121,7 @@ const styles = StyleSheet.create({
     projectsSectionContainer: {
         flex: 1,
     },
-    
+
 })
 
 

@@ -18,8 +18,10 @@ const TextWithGifSection = ({ gifPath, text, title, reverseOrder }) => {
 
     const barHeight = normalizeHeight(TAB_BAR_HEIGHT)
     useEffect(() => {
-        if (Platform.OS === 'web') {
-            Image.getSize(gifPath, (width, height) => {
+        if (Platform.OS === 'web' || gifPath.uri !== undefined ) {
+            Image.getSize(gifPath.uri !== undefined ? gifPath.uri : gifPath, (width, height) => {
+                console.log("Width " + width)
+                console.log("Height " + height)
                 setGifAspectRatio(width / height)
             })
         } else {
