@@ -26,7 +26,7 @@ const mapProjectFromProjectsOverviewToNavigation = () => {
 
 const mainTabNavigator = () => {
     return (
-        <TopTab.Navigator tabBar={props => <MyTabBar {...props} />} initialRouteName={"GrocerEats"} >
+        <TopTab.Navigator tabBar={props => <MyTabBar {...props} />} >
             <TopTab.Screen
                 name={HOME_SCREEN_TITLE}
                 component={HomeScreen}
