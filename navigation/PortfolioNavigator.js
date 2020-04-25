@@ -13,14 +13,14 @@ const TopTab = createBottomTabNavigator();
 const mapProjectFromProjectsOverviewToNavigation = () => {
     return projectsOverview.map(item => {
         return <TopTab.Screen
-        key={item.title}
-        name={item.title}
-        component={ProjectDetailsScreen}
-        options={{
-            title:item.title,
-        }}
-        initialParams={{title:item.title}}
-    />
+            key={item.title}
+            name={item.title}
+            component={ProjectDetailsScreen}
+            options={{
+                title: item.title,
+            }}
+            initialParams={{ title: item.title }}
+        />
     })
 }
 

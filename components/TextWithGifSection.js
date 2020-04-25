@@ -20,8 +20,6 @@ const TextWithGifSection = ({ gifPath, text, title, reverseOrder }) => {
     useEffect(() => {
         if (Platform.OS === 'web' || gifPath.uri !== undefined ) {
             Image.getSize(gifPath.uri !== undefined ? gifPath.uri : gifPath, (width, height) => {
-                console.log("Width " + width)
-                console.log("Height " + height)
                 setGifAspectRatio(width / height)
             })
         } else {

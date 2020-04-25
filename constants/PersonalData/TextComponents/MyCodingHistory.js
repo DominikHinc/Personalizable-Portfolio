@@ -43,7 +43,7 @@ const MyCodingHistory = () => {
             </DefaultText>
             <DefaultText style={{ ...standardText, ...styles.textLabel }}>
                 After time I spent writing in it I can easily say it's my favorite way of coding I have ever tried.
-                I have created many projects using <DefaultText style={standardBoldText}>React Native</DefaultText>
+                I have created many projects using <DefaultText style={standardBoldText}>React Native</DefaultText> 
                 (two of which - <DefaultText style={standardBoldText}>GrocerEats</DefaultText> and <DefaultText style={standardBoldText}>Health Advisor</DefaultText> - are available on Google Play Store).
             </DefaultText>
             <DefaultText style={{ ...standardText, ...styles.textLabel }}>

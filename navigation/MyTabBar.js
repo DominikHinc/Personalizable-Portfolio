@@ -1,5 +1,5 @@
 import { Entypo, MaterialIcons } from '@expo/vector-icons';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Dimensions, ScrollView, StyleSheet, TouchableOpacity, View } from 'react-native';
 import { useSafeArea } from 'react-native-safe-area-context';
 import { darkMode, lightMode, LIGHT_MODE } from '../constants/Colors';
@@ -7,12 +7,16 @@ import { TAB_BAR_HEIGHT } from '../constants/TAB_BAR';
 import { ColorsContext } from '../helpers/ColorsContext';
 import { normalizeHeight, normalizeIconSize, normalizeMarginSize, normalizeWidth } from '../helpers/normalize';
 import MyTabBarTab from './MyTabBarTab';
+import AboutSiteModal from '../components/AboutSiteModal';
 
 
 const MyTabBar = ({ state, descriptors, navigation, position }) => {
     const { colors, setColors } = useContext(ColorsContext)
     const insets = useSafeArea();
     const verticalView = Dimensions.get('window').height / Dimensions.get('window').width > 1;
+
+    const [isAboutSiteModalActive, setIsAboutSiteModalActive] = useState(false)
+
     return (
         <View style={[styles.mainBarContainer, { backgroundColor: 'transparent', marginTop: insets.top, height: normalizeHeight(TAB_BAR_HEIGHT) }]}>
             <ScrollView style={styles.tabScrollView} contentContainerStyle={[styles.tabBarScrollContainer, { width: verticalView ? null : '100%' }]} horizontal={true} >
@@ -48,19 +52,20 @@ const MyTabBar = ({ state, descriptors, navigation, position }) => {
                         );
                     })}
                     <View style={[styles.darkModeButtonContainer, { minWidth: normalizeWidth(TAB_BAR_HEIGHT / 1.5 + 40) }]}>
+                        <TouchableOpacity onPress={() => { setIsAboutSiteModalActive(true) }} >
+                            <Entypo name="info-with-circle" size={normalizeIconSize(TAB_BAR_HEIGHT / 1.7)} style={[styles.darkModeIcon, { marginHorizontal: normalizeMarginSize(30) }]} color={colors.font} />
+                        </TouchableOpacity>
                         <TouchableOpacity onPress={() => setColors(colors.mode === LIGHT_MODE ? darkMode : lightMode)} >
                             {colors.mode === LIGHT_MODE ?
-                                <Entypo name="moon" size={normalizeIconSize(TAB_BAR_HEIGHT / 1.5)} style={[styles.darkModeIcon, { marginHorizontal: normalizeMarginSize(30) }]} color={colors.font} />
+                                <Entypo name="moon" size={normalizeIconSize(TAB_BAR_HEIGHT / 1.5)} style={[styles.darkModeIcon, { marginRight: normalizeMarginSize(30) }]} color={colors.font} />
                                 :
-                                <MaterialIcons name="wb-sunny" size={normalizeIconSize(TAB_BAR_HEIGHT / 1.5)} style={[styles.darkModeIcon, { marginHorizontal: normalizeMarginSize(30) }]} color={colors.font} />
+                                <MaterialIcons name="wb-sunny" size={normalizeIconSize(TAB_BAR_HEIGHT / 1.5)} style={[styles.darkModeIcon, { marginRight: normalizeMarginSize(30) }]} color={colors.font} />
                             }
                         </TouchableOpacity>
-
                     </View>
-
                 </View>
-
             </ScrollView>
+            {isAboutSiteModalActive && <View style={styles.modalContainer}><AboutSiteModal isActive={isAboutSiteModalActive} setActive={setIsAboutSiteModalActive} /></View>}
         </View >
     );
 }
@@ -93,6 +98,9 @@ const styles = StyleSheet.create({
     },
     darkModeIcon: {
 
+    },
+    modalContainer:{
+        position:'absolute'
     }
 })
 
