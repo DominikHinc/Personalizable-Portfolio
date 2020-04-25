@@ -7,6 +7,8 @@ import { ColorsContext } from '../helpers/ColorsContext'
 import { normalizeBorderRadiusSize, normalizeHeight, normalizeMarginSize, normalizePaddingSize, normalizeWidth } from '../helpers/normalize'
 import DefaultText from './DefaultText'
 
+// This component is used in HomeScreen
+// It utilizes data from ProjectsOverview.js file
 
 const renderProjectRows = (item) => {
     return item.map(row => {

@@ -2,13 +2,14 @@ import { Entypo, MaterialIcons } from '@expo/vector-icons';
 import React, { useContext, useState } from 'react';
 import { Dimensions, ScrollView, StyleSheet, TouchableOpacity, View } from 'react-native';
 import { useSafeArea } from 'react-native-safe-area-context';
+import AboutSiteModal from '../components/AboutSiteModal';
 import { darkMode, lightMode, LIGHT_MODE } from '../constants/Colors';
 import { TAB_BAR_HEIGHT } from '../constants/TAB_BAR';
 import { ColorsContext } from '../helpers/ColorsContext';
 import { normalizeHeight, normalizeIconSize, normalizeMarginSize, normalizeWidth } from '../helpers/normalize';
 import MyTabBarTab from './MyTabBarTab';
-import AboutSiteModal from '../components/AboutSiteModal';
 
+// Custom tab bar, changes the position from default bottom to top.
 
 const MyTabBar = ({ state, descriptors, navigation, position }) => {
     const { colors, setColors } = useContext(ColorsContext)

@@ -1,10 +1,9 @@
 import React, { useContext } from 'react'
-import { StyleSheet, Text, Dimensions, PixelRatio } from 'react-native'
-import { normalizeFontSize } from '../helpers/normalize'
+import { StyleSheet, Text } from 'react-native'
 import { ColorsContext } from '../helpers/ColorsContext'
+import { normalizeFontSize } from '../helpers/normalize'
 
-
-
+// Wrapper around standard React Native Text component, it automatically normalizes the font size and applies the font color from the current color context
 
 const DefaultText = (props) => {
     const { colors } = useContext(ColorsContext)

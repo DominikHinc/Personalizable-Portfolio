@@ -1,9 +1,13 @@
 import React, { useContext } from 'react'
-import { View, Text, StyleSheet, TouchableOpacity, Dimensions } from 'react-native'
+import { Dimensions, StyleSheet, TouchableOpacity, View } from 'react-native'
+import { ColorsContext } from '../helpers/ColorsContext'
 import { normalizeBorderRadiusSize, normalizePaddingSize } from '../helpers/normalize'
 import { normalizeStaticIcon } from '../helpers/normalizeStaticIcon'
-import { ColorsContext } from '../helpers/ColorsContext'
 import { openLink } from '../helpers/OpenLink'
+
+// This component is used in ProjectDetailsScreen
+// Is placed at the bottom right of the screen
+// It utilizes IconButtonConfig object from ProjectOverview.js file
 
 const BottomLinkButton = ({ buttonConfig }) => {
 

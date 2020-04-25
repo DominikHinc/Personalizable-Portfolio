@@ -1,11 +1,12 @@
-import React, { useContext } from 'react'
-import { StyleSheet, Text, View, Dimensions, TouchableOpacity, Modal, Platform, ScrollView } from 'react-native'
-import DefaultText from './DefaultText'
 import ModalWeb from 'modal-react-native-web';
-import { ColorsContext } from '../helpers/ColorsContext';
-import { normalizeBorderRadiusSize, normalizePaddingSize, normalizeHeight } from '../helpers/normalize';
+import React, { useContext } from 'react';
+import { Dimensions, Modal, Platform, ScrollView, StyleSheet, TouchableOpacity, View } from 'react-native';
 import { headerMainStyle, standardText } from '../constants/FontStyles';
+import { linkToExpo, linkToWebsite } from '../constants/PersonalData/AppData';
+import { ColorsContext } from '../helpers/ColorsContext';
+import { normalizeBorderRadiusSize, normalizeHeight, normalizePaddingSize } from '../helpers/normalize';
 import { openLink } from '../helpers/OpenLink';
+import DefaultText from './DefaultText';
 const AboutSiteModal = ({ isActive, setActive }) => {
 
     const getModalContent = () => {
@@ -29,11 +30,11 @@ const AboutSiteModal = ({ isActive, setActive }) => {
                                 <DefaultText style={standardText}>You can find detailed description about this project on Github by clicking <DefaultText style={{ color: colors.linkBlue }} onPress={() => { openLink("https://github.com/DominikHinc/Portfolio") }}>here</DefaultText></DefaultText>
                                 {Platform.OS === 'web' ?
                                     <View>
-                                        <DefaultText style={standardText}>You can also open this site as an application using Expo by clicking <DefaultText style={{ color: colors.linkBlue }} onPress={() => openLink("https://expo.io/@osobanr7/portfolio-dominik-hinc")}>here</DefaultText></DefaultText>
+                                        <DefaultText style={standardText}>You can also open this site as an application using Expo by clicking <DefaultText style={{ color: colors.linkBlue }} onPress={() => openLink(linkToExpo)}>here</DefaultText></DefaultText>
                                     </View>
                                     :
                                     <View>
-                                        <DefaultText style={standardText}>This app is also available in form of website, you can get access to it by clicking <DefaultText style={{ color: colors.linkBlue }} onPress={() => openLink("https://ecstatic-minsky-8be7a5.netlify.app/")}>here</DefaultText></DefaultText>
+                                        <DefaultText style={standardText}>This app is also available in form of website, you can get access to it by clicking <DefaultText style={{ color: colors.linkBlue }} onPress={() => openLink(linkToWebsite)}>here</DefaultText></DefaultText>
                                     </View>
                                 }
                             </View>

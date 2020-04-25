@@ -6,6 +6,9 @@ import { normalizeBorderRadiusSize, normalizeFontSize, normalizeHeight, normaliz
 import { sendEmail } from '../helpers/SendEmail'
 import DefaultText from './DefaultText'
 
+// Component placed at the left side of the ContactScreen
+// Takes input from user and than passes it to sendEmail method
+
 const ContactForm = (props) => {
 
     const [nameTextInputValue, setNameTextInputValue] = useState("")

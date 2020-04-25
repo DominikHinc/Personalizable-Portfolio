@@ -1,9 +1,7 @@
 import { Dimensions, Platform, PixelRatio } from "react-native";
 import { EXPERIMENTAL_NORMALIZATION } from "../constants/Config";
 
-
-
-
+// This file contains scaling logic
 
 export const normalizeFontSize = (size) => {
     if (!EXPERIMENTAL_NORMALIZATION) {

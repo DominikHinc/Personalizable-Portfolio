@@ -5,6 +5,8 @@ import { mySkills } from '../constants/PersonalData/MySkills'
 import { normalizeMarginSize, normalizePaddingSize, normalizeWidth } from '../helpers/normalize'
 import DefaultText from './DefaultText'
 
+// This component is used in Presentation
+// It utilizes data from MySkills.js file
 
 const MySkillsSection = () => {
     const renderSkillsColumn = () => {

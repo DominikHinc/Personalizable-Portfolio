@@ -1,5 +1,10 @@
-//This file is not mandatory, it just provides better separation. All data present here could be directly written in ProjectsOverview.js file under projectDetails object property.
-//Content of this file is used to describe details screen for the given project.
+// This file is not mandatory, it just provides better separation. All data present here could be directly written in ProjectsOverview.js file.
+// This file describes the properties of ProjectDetailsScreen for a given project.
+// Array that is present here should contain only ProjectDetail objects
+// ProjectDetail object should contain:
+// Title of given section
+// Gif/Webp/other type of image - can be in form of local image by passing require statement or in form of url by passing {uri:"https://example.url"}
+// Content text displayed under a given title
 
 import { ProjectDetail } from '../../../models/projectDetail'
 

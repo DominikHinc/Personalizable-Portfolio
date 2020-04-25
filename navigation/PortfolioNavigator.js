@@ -1,12 +1,12 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import * as React from 'react';
-import { projectsOverview, HOME_SCREEN_TITLE, CONTACT_SCREEN_TITLE } from '../constants/PersonalData/ProjectsOverview';
+import { CONTACT_SCREEN_TITLE, HOME_SCREEN_TITLE, projectsOverview } from '../constants/PersonalData/ProjectsOverview';
 import ContactScreen from '../screens/ContactScreen';
 import HomeScreen from '../screens/HomeScreen';
 import ProjectDetailsScreen from '../screens/ProjectDetailsScreen';
 import MyTabBar from './MyTabBar';
 
-
+// Creates navigation for the application
 
 const TopTab = createBottomTabNavigator();
 

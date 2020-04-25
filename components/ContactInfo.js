@@ -3,11 +3,14 @@ import { StyleSheet, TouchableOpacity, View } from 'react-native'
 import { standardLargeLeft } from '../constants/FontStyles'
 import { contactData } from '../constants/PersonalData/ContactData'
 import { ColorsContext } from '../helpers/ColorsContext'
-import { normalizeIconSize, normalizeMarginSize } from '../helpers/normalize'
+import { normalizeMarginSize } from '../helpers/normalize'
+import { normalizeStaticIcon } from '../helpers/normalizeStaticIcon'
 import { openLink } from '../helpers/OpenLink'
 import DefaultText from './DefaultText'
-import { normalizeStaticIcon } from '../helpers/normalizeStaticIcon'
 
+
+// Component placed at the right side of the ContactScreen
+// It utilizes data from ContactData.js file
 
 const renderContactInfo = (colors) => {
     return contactData.map(item => {

@@ -4,6 +4,7 @@ import { useSafeArea } from 'react-native-safe-area-context'
 import BouncingCallToActionIcon from '../components/BouncingCallToActionIcon'
 import DefaultText from '../components/DefaultText'
 import Footer, { FOOTER_HEIGHT } from '../components/Footer'
+import IconButton from '../components/IconButton'
 import MyProjectsSection from '../components/MyProjectsSection'
 import Presentation from '../components/Presentation'
 import { headerMainStyle, headerSecondaryStyle } from '../constants/FontStyles'
@@ -11,9 +12,6 @@ import { homeScreenConfig } from '../constants/PersonalData/HomeScreenData'
 import { TAB_BAR_HEIGHT } from '../constants/TAB_BAR'
 import { ColorsContext } from '../helpers/ColorsContext'
 import { normalizeHeight, normalizePaddingSize } from '../helpers/normalize'
-import RoundIconButton from '../components/IconButton'
-
-
 
 
 const HomeScreen = (props) => {
@@ -42,7 +40,7 @@ const HomeScreen = (props) => {
 
     const renderLinkIcons = () => {
         return homeScreenConfig.buttons.length > 0 ? homeScreenConfig.buttons.map((item) => {
-            return <RoundIconButton key={item.link} icon={item.icon} link={item.link} />
+            return <IconButton key={item.link} icon={item.icon} link={item.link} />
         }) : null
     }
 

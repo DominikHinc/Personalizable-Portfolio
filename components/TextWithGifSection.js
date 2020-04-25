@@ -7,7 +7,10 @@ import { ColorsContext } from '../helpers/ColorsContext'
 import { normalizeHeight, normalizeMarginSize } from '../helpers/normalize'
 import DefaultText from './DefaultText'
 
-
+// This component is used in ProjectDetailsScreen
+// It utilizes data from files located in ProjectDetails folder
+// If reverseOrder is not specified Gif will appear at the left side and the text at the right side, if true the order will be reversed.
+//          reverseOrder has effect only when width of the window is bigger than the height.
 
 const TextWithGifSection = ({ gifPath, text, title, reverseOrder }) => {
     const { colors } = useContext(ColorsContext)

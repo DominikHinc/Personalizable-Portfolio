@@ -1,13 +1,12 @@
 import React, { useContext } from 'react'
-import { View, Text, StyleSheet, ScrollView, Dimensions } from 'react-native'
-import Colors from '../constants/Colors'
-import { ColorsContext } from '../helpers/ColorsContext'
-import ContactForm from '../components/ContactForm'
+import { Dimensions, ScrollView, StyleSheet, View } from 'react-native'
 import { useSafeArea } from 'react-native-safe-area-context'
-import { normalizeMarginSize, normalizePaddingSize, normalizeHeight } from '../helpers/normalize'
-import { TAB_BAR_HEIGHT } from '../constants/TAB_BAR'
+import ContactForm from '../components/ContactForm'
 import ContactInfo from '../components/ContactInfo'
 import Footer, { FOOTER_HEIGHT } from '../components/Footer'
+import { TAB_BAR_HEIGHT } from '../constants/TAB_BAR'
+import { ColorsContext } from '../helpers/ColorsContext'
+import { normalizeHeight, normalizeMarginSize, normalizePaddingSize } from '../helpers/normalize'
 
 
 const ContactScreen = (props) => {

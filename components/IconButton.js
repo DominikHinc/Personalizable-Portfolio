@@ -1,10 +1,12 @@
 import React, { useContext } from 'react'
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
-import DefaultText from './DefaultText'
+import { StyleSheet, TouchableOpacity, View } from 'react-native'
 import { ColorsContext } from '../helpers/ColorsContext'
+import { normalizeHeight, normalizeWidth } from '../helpers/normalize'
 import { normalizeStaticIcon } from '../helpers/normalizeStaticIcon'
-import { normalizePaddingSize, normalizeBorderRadiusSize, normalizeHeight, normalizeWidth, normalizeMarginSize } from '../helpers/normalize'
-import {openLink} from '../helpers/OpenLink'
+import { openLink } from '../helpers/OpenLink'
+
+// This component is used in HomeScreen
+// Wraps passed icon inside touchable which open passed link when pressed.
 
 const IconButton = ({ icon, link }) => {
     const { colors } = useContext(ColorsContext)

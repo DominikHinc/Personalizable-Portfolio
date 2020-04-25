@@ -5,17 +5,19 @@ import DefaultText from '../../components/DefaultText';
 import { normalizeIconSize, normalizeWidth } from '../../helpers/normalize';
 import { TAB_BAR_HEIGHT, TAB_WIDTH } from '../TAB_BAR';
 import { BOUNCEBACK_TITLE, GROCEREATS_TITLE, HEALTH_ADVISOR_TITLE, WORD_FISHING_TITLE, CONTACT_SCREEN_TITLE, HOME_SCREEN_TITLE } from './ProjectsOverview';
+import { TabConfig } from '../../models/tabConfig';
 
 
 
-// This file describes properties related to navigation tabs located on top of the screen
-// Every case should be named the same as title of a given project in ProjectsOverview.js file or title provided to Home Screen and Contact Screen in PortfolioNavigator.js
+// This file describes the properties of each navigation tab located on top of the screen
+// Every case should be named the same as title of a given project in ProjectsOverview.js file or title provided to Home Screen or Contact Screen.
 
-// textProperties are supplied to Text component that is displayed when a given tab is active
-// icon is component displayed as icon of a given tab, it should be a image rectangle whose height is normalizeHeight(TAB_BAR_HEIGHT - 15) or icon whose height is normalizeIconSize(48)
-// icon can changed depending whether the tab is focused or not
-// widthWhenTabIsActive describes what should be the width of each tab when it's active
-
+// getTabBarTabsData should return only TabConfig objects
+// TabConfig object should contain:
+// Text styling object that is supplied to Text component, which is displayed when a given tab is active
+// Component displayed as icon of a given tab, it should be a image rectangle whose height is standardImageSize or icon whose height is standardIconSize - it can be dynamically changed.
+// Number that describes what should be the width of each tab when it's active
+// (optional) Text that is displayed when a given tab is active, if not provided the text will be the same as case label used in switch (project title).
 
 export const getTabBarTabsData = (label, isFocused, colors) => {
 
@@ -24,33 +26,33 @@ export const getTabBarTabsData = (label, isFocused, colors) => {
 
     switch (label) {
         case HOME_SCREEN_TITLE:
-            return {
-                textProperties: {
+            return new TabConfig(
+                {
                     fontFamily: 'sofia-bold',
                     color: colors.font
                 },
-                icon: <Entypo name="home" size={standardIconSize} color={isFocused ? colors.font : colors.gray} />,
-                widthWhenTabIsActive: normalizeWidth(TAB_WIDTH) / 2
-            }
+                <Entypo name="home" size={standardIconSize} color={isFocused ? colors.font : colors.gray} />,
+                normalizeWidth(TAB_WIDTH) / 2
+            )
 
         case CONTACT_SCREEN_TITLE:
-            return {
-                textProperties: {
+            return new TabConfig(
+                {
                     fontFamily: 'sofia-bold',
                     color: colors.font
                 },
-                icon: <MaterialIcons name='contact-mail' size={standardIconSize} color={isFocused ? colors.font : colors.gray} />,
-                widthWhenTabIsActive:normalizeWidth(TAB_WIDTH) / 1.5
+                <MaterialIcons name='contact-mail' size={standardIconSize} color={isFocused ? colors.font : colors.gray} />,
+                normalizeWidth(TAB_WIDTH) / 1.5
 
-            }
+            )
 
         case GROCEREATS_TITLE:
-            return {
-                textProperties: {
+            return new TabConfig(
+                {
                     fontFamily: 'coiny',
                     color: colors.blue,
                 },
-                icon: isFocused ? <Image source={require('../../assets/Icons/GrocerEats.png')} style={[styles.iconImage, {
+                isFocused ? <Image source={require('../../assets/Icons/GrocerEats.png')} style={[styles.iconImage, {
                     width: standardImageSize,
                     height: standardImageSize}]} 
                     />
@@ -58,33 +60,34 @@ export const getTabBarTabsData = (label, isFocused, colors) => {
                         width: standardImageSize,
                         height: standardImageSize}]} 
                         />,
-                widthWhenTabIsActive: normalizeWidth(TAB_WIDTH) / 1.15
-            }
+                normalizeWidth(TAB_WIDTH) / 1.15
+            )
 
         case WORD_FISHING_TITLE:
-            return {
-                textProperties: {
+            return new TabConfig(
+                {
                     fontFamily: 'berkshireswash',
                     fontSize: 19,
                     color: colors.font,
                 },
-                title: "WORDFISHING",
-                icon: <DefaultText style={{
+                
+                <DefaultText style={{
                     fontFamily: 'berkshireswash',
                     fontSize: 48,
                     color: isFocused ? colors.font : colors.gray
                 }}>W</DefaultText>,
-                widthWhenTabIsActive: normalizeWidth(TAB_WIDTH)/ 0.95
-            }
+                normalizeWidth(TAB_WIDTH)/ 0.95,
+                "WORDFISHING"
+            )
 
         case BOUNCEBACK_TITLE:
-            return {
-                textProperties: {
+            return new TabConfig(
+                {
                     color: colors.darkBlue,
                     fontFamily: 'gibson',
                     fontSize: 25
                 },
-                icon: isFocused ? <Image source={require('../../assets/Icons/BounceBack.png')} style={[styles.iconImage, {
+                isFocused ? <Image source={require('../../assets/Icons/BounceBack.png')} style={[styles.iconImage, {
                     width: standardImageSize,
                     height: standardImageSize}]}
                     />
@@ -92,16 +95,16 @@ export const getTabBarTabsData = (label, isFocused, colors) => {
                         width: standardImageSize,
                         height: standardImageSize}]}
                         />,
-                widthWhenTabIsActive: normalizeWidth(TAB_WIDTH) / 1.2
-            }
+                normalizeWidth(TAB_WIDTH) / 1.2
+            )
 
         case HEALTH_ADVISOR_TITLE:
-            return {
-                textProperties: {
+            return new TabConfig(
+                {
                     color: colors.lightGreen,
                     fontFamily: 'impact'
                 },
-                icon: isFocused ? <Image source={require('../../assets/Icons/Health_Advisor.png')} style={[styles.iconImage, {
+                isFocused ? <Image source={require('../../assets/Icons/Health_Advisor.png')} style={[styles.iconImage, {
                     width: standardImageSize,
                     height: standardImageSize}]}
                     />
@@ -109,8 +112,8 @@ export const getTabBarTabsData = (label, isFocused, colors) => {
                         width: standardImageSize,
                         height: standardImageSize}]}
                         />,
-                widthWhenTabIsActive: normalizeWidth(TAB_WIDTH)
-            }
+                normalizeWidth(TAB_WIDTH)
+            )
     }
 }
 

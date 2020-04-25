@@ -1,8 +1,10 @@
 import { Ionicons } from '@expo/vector-icons'
-import React, { useContext, useEffect, useState } from 'react'
+import React from 'react'
 import { Animated, Dimensions, Easing, StyleSheet } from 'react-native'
-import { ColorsContext } from '../helpers/ColorsContext'
 import { normalizeIconSize } from '../helpers/normalize'
+
+// This component is used in HomeScreen and ProjectDetailsScreen
+// Bouncing icon which indicates that current screen can be scrolled
 
 const BouncingCallToActionIcon = ({ currentContentOffset, iconColor }) => {
 

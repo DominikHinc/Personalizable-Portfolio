@@ -1,14 +1,14 @@
 import React, { useContext } from 'react'
-import { ScrollView, StyleSheet, View, Animated, Dimensions } from 'react-native'
+import { Animated, Dimensions, ScrollView, StyleSheet, View } from 'react-native'
 import { useSafeArea } from 'react-native-safe-area-context'
 import BottomLinkButton from '../components/BottomLinkButton'
+import BouncingCallToActionIcon from '../components/BouncingCallToActionIcon'
 import Footer, { FOOTER_HEIGHT } from '../components/Footer'
 import ProjectDetailsTemplate from '../components/ProjectDetailsTemplate'
+import { projectsOverview } from '../constants/PersonalData/ProjectsOverview'
 import { TAB_BAR_HEIGHT } from '../constants/TAB_BAR'
 import { ColorsContext } from '../helpers/ColorsContext'
 import { normalizeHeight, normalizeMarginSize, normalizeWidth } from '../helpers/normalize'
-import { projectsOverview } from '../constants/PersonalData/ProjectsOverview'
-import BouncingCallToActionIcon from '../components/BouncingCallToActionIcon'
 
 const ProjectDetailsScreen = ({ route, navigation }) => {
     const { colors } = useContext(ColorsContext)

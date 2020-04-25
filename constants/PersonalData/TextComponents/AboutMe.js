@@ -3,6 +3,10 @@ import { View } from 'react-native'
 import { headerMainStyle, standardText } from '../../FontStyles'
 import DefaultText from '../../../components/DefaultText'
 
+// This component is placed at the top of Presentation Component.
+// It should return View with DefaultText components inside it.
+// If there is need for more components like this, they can be added inside Presentation component.
+
 const AboutMe = () => {
     return (
         <View>

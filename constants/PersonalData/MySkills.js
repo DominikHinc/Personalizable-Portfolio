@@ -1,4 +1,4 @@
-// This file describes properties used in My Skills section
+// This file describes the properties of My Skills section
 // mySkills array should only contain MySkillsColumn objects
 // MySkillsColumn object should contain title and skills array
 // Each string in skills array is separate row in a given skill column

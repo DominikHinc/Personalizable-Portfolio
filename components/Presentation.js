@@ -8,7 +8,7 @@ import MySkillsSection from './MySkillsSection'
 import AboutMe from '../constants/PersonalData/TextComponents/AboutMe'
 import MyCodingHistory from '../constants/PersonalData/TextComponents/MyCodingHistory'
 
-
+//This component is placed at the bottom of HomeScreen
 
 const Presentation = ({ }) => {
 

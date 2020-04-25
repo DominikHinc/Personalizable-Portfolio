@@ -4,7 +4,11 @@ import DefaultText from '../components/DefaultText';
 import { getTabBarTabsData } from '../constants/PersonalData/TabBarTabsData';
 import { TAB_BAR_HEIGHT } from '../constants/TAB_BAR';
 import { ColorsContext } from '../helpers/ColorsContext';
-import { normalizeFontSize, normalizeMarginSize, normalizeHeight } from '../helpers/normalize';
+import { normalizeHeight, normalizeMarginSize } from '../helpers/normalize';
+
+// This component is used in MyTabBar.js file
+// Returns custom animated tab, for every screen
+// It utilizes data from TabBarTabsData.js file
 
 const MyTabBarTab = ({ label, isFocused, options, onPress }) => {
     const [animatedValue, setAnimatedValue] = useState(new Animated.Value(isFocused ? 1 : 0))
