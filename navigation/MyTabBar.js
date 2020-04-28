@@ -54,7 +54,7 @@ const MyTabBar = ({ state, descriptors, navigation, position }) => {
                     })}
                     <View style={[styles.darkModeButtonContainer, { minWidth: normalizeWidth(TAB_BAR_HEIGHT / 1.5 + 40) }]}>
                         <TouchableOpacity onPress={() => { setIsAboutSiteModalActive(true) }} >
-                            <Entypo name="info-with-circle" size={normalizeIconSize(TAB_BAR_HEIGHT / 1.7)} style={[styles.darkModeIcon, { marginHorizontal: normalizeMarginSize(30) }]} color={colors.font} />
+                            <Entypo name="info" size={normalizeIconSize(TAB_BAR_HEIGHT / 2)} style={[styles.darkModeIcon, { marginHorizontal: normalizeMarginSize(30) }]} color={colors.font} />
                         </TouchableOpacity>
                         <TouchableOpacity onPress={() => setColors(colors.mode === LIGHT_MODE ? darkMode : lightMode)} >
                             {colors.mode === LIGHT_MODE ?

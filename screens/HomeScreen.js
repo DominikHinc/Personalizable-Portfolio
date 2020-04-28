@@ -12,6 +12,7 @@ import { homeScreenConfig } from '../constants/PersonalData/HomeScreenData'
 import { TAB_BAR_HEIGHT } from '../constants/TAB_BAR'
 import { ColorsContext } from '../helpers/ColorsContext'
 import { normalizeHeight, normalizePaddingSize } from '../helpers/normalize'
+import { openLink } from '../helpers/OpenLink'
 
 
 const HomeScreen = (props) => {
@@ -40,7 +41,7 @@ const HomeScreen = (props) => {
 
     const renderLinkIcons = () => {
         return homeScreenConfig.buttons.length > 0 ? homeScreenConfig.buttons.map((item) => {
-            return <IconButton key={item.link} icon={item.icon} link={item.link} />
+            return <IconButton key={item.link} icon={item.icon} onPress={()=>{openLink(item.link)}} />
         }) : null
     }
 

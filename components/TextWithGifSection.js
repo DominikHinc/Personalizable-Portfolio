@@ -42,9 +42,9 @@ const TextWithGifSection = ({ gifPath, text, title, reverseOrder }) => {
         <View style={[styles.sectionMainContainer, {
             minHeight: Dimensions.get('window').height - barHeight, backgroundColor: colors.first,
             flexDirection: verticalView ? 'column' : reverseOrder === true ? 'row-reverse' : 'row',
-            justifyContent: verticalView ? null : 'space-evenly'
+            justifyContent: verticalView ? null : 'space-evenly', paddingBottom: verticalView ? GIF_VERTICAL_MARGIN/4 : null
         }]}>
-            <View style={[styles.gifSection, { marginTop: verticalView ? GIF_VERTICAL_MARGIN / 4 + insets.top / 2 : null, paddingHorizontal: verticalView ? "5%" : "10%", flex: verticalView ? null : 1 / 2 }]}>
+            <View style={[styles.gifSection, { marginTop: verticalView ? GIF_VERTICAL_MARGIN / 12 : null, paddingHorizontal: verticalView ? "5%" : "10%", flex: verticalView ? null : 1 / 2 }]}>
                 <View style={[styles.gifContainer, { height: GIF_SCALED_HEIGHT, width: GIF_SCALED_HEIGHT * gifAspectRatio, borderRadius: GIF_SCALED_HEIGHT / 25 }]}>
                     <Image source={gifPath} style={styles.gif} resizeMode='contain' onLoadEnd={() => { setImageLoading(false) }} />
                     {imageLoading && <View style={styles.loadingIndicatorContainer}><ActivityIndicator size='large' color={colors.font} /></View>}

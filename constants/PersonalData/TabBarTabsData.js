@@ -1,4 +1,4 @@
-import { Entypo, MaterialIcons } from '@expo/vector-icons';
+import { Entypo, MaterialIcons,MaterialCommunityIcons } from '@expo/vector-icons';
 import React from 'react';
 import { Image, StyleSheet } from 'react-native';
 import DefaultText from '../../components/DefaultText';
@@ -15,16 +15,16 @@ import { TabConfig } from '../../models/tabConfig';
 // getTabBarTabsData should return only TabConfig objects
 // TabConfig object should contain:
 // Text styling object that is supplied to Text component, which is displayed when a given tab is active
-// Component displayed as icon of a given tab, it should be a image rectangle whose height is standardImageSize or icon whose height is standardIconSize - it can be dynamically changed.
+// Component displayed as icon of a given tab, it should be a image rectangle whose height is standardImageSize or icon whose size is standardIconSize - it can be dynamically changed.
 // Number that describes what should be the width of each tab when it's active
 // (optional) Text that is displayed when a given tab is active, if not provided the text will be the same as case label used in switch (project title).
 
-export const getTabBarTabsData = (label, isFocused, colors) => {
+export const getTabBarTabsData = (title, isFocused, colors) => {
 
     const standardIconSize = normalizeIconSize(48)
     const standardImageSize = normalizeWidth(TAB_BAR_HEIGHT - 15)
 
-    switch (label) {
+    switch (title) {
         case HOME_SCREEN_TITLE:
             return new TabConfig(
                 {
@@ -112,6 +112,15 @@ export const getTabBarTabsData = (label, isFocused, colors) => {
                         width: standardImageSize,
                         height: standardImageSize}]}
                         />,
+                normalizeWidth(TAB_WIDTH)
+            )
+        default:
+            return new TabConfig(
+                {
+                    fontFamily: 'sofia-bold',
+                    color: colors.font
+                },
+                <MaterialCommunityIcons name="checkbox-blank" size={standardIconSize} color={isFocused ? colors.font : colors.gray} />,
                 normalizeWidth(TAB_WIDTH)
             )
     }

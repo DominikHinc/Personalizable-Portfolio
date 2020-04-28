@@ -3,7 +3,7 @@
 // Array that is present here should contain only ProjectDetail objects
 // ProjectDetail object should contain:
 // Title of given section
-// Gif/Webp/other type of image - can be in form of local image by passing require statement or in form of url by passing {uri:"https://example.url"}
+// Gif/Webp/other type of image - can be in form of local image by passing require('..example/path') or in form of url by passing {uri:"https://example.url"}
 // Content text displayed under a given title
 import { ProjectDetail } from "../../../models/projectDetail"
 
@@ -15,9 +15,9 @@ export const GrocerEatsDetails = [
         'Cooking is one of my hobbies, but the thing I hate the most about it is shopping for ingredients. When I asked my friends about their opinion, I got a similar response from them. That’s why I decided to create an app that will help improve cooking experience, by trivializing the most annoying part about it.'
     ),
     new ProjectDetail(
-        "Time in development",
+        "Development Time",
         {uri:"https://lh3.googleusercontent.com/S_YymeF08gDmpPIGjoCyxYVVPZlrXMFOteL0VzDoPmNMiMBvcydlOqf4fXDuG2jMujm04SljnnIyoMFcfe7geGnoZSMFKrOvt6mXpi87RxuxN0xDUeaGXVHKVK6FF1sKe3OlaC2EiSx3VvZwe9PouXqL5SaieXMUthYSPBhcsdsioAsKWshrBod5emC6rwOr7y9c0f8z0UUpvxiH7tloFdZ2ypY4APyXyvzjZw_0fDUhV02g7K2p4jXyXZ3P-sS8dFfXiPY6VHTcZeFVXLBoziY9UUR06J4QyiWZDdFdUU9ATiq9f8F1FwJTkf9z4Oz-NQs8DqJ5tr3_b1Tva8sGFFkeFtFivVbqE9fWY0D0iBVwFnh4GXyeww5l2nBnKS9Lp76GVAV89VK4q9HTwBrFB72N5B0Y4srZ_34CsUEHkyF8e4j1tcCwqqoi331ZAAOZjfBuO5S3QrWDb75u1NEQOIu48yhHM107jyJ34__C8VoxjXyI1ht6mDOkjirXtK6AvvjQBTNFJormHTEqdVm0snb_Q9D5vJf_c11NbRSZM2WLkM5toR0Mk96tCmQqlqRlj7T9abo2Fj-skxBhGMTa-0CC4U7OntFg3bN1i9uKdX75carSDW6tjMEb2KRTJT3tpC2_OnWM6VPLxZnuXx81FjoZsI9rMk7M_hSRGLP6F5AVwnlPXXBKDoNuNQraIOPRXnjvSkWq40rjUz3G37hMEgxsFkTZMOBdHMPHyWUcW3Q_vU8o-oFE=w357-h775-no"},
-        'Development time of this app was very intense. Because it collided with quarantine, I was able to work on this app for 13-14 hours every day for almost four weeks.'
+        'Development time of this app was very intensive. Because it collided with quarantine, I was able to work on this app for 13-14 hours every day for almost four weeks.'
     ),
     new ProjectDetail(
         "History",

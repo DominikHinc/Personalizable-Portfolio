@@ -16,7 +16,7 @@ export const BounceBackDetails = [
         'I have always wanted to create a game, but due to my lack of drawing skills I had to create something that would base mainly on geometrical shapes. The rule-set presented by \”Don\’t touch the spikes\” seemed perfect for me, so I decided to replicate this experience and improve it with my own ideas.'
     ),
     new ProjectDetail(
-        "Time in development",
+        "Development Time",
         {uri: "https://lh3.googleusercontent.com/Bl5Ex-aSFWgkA6Mhzh45cnssGw87MqdERAkTTZENgeluriRXj2cLVToeNZGymF8SHX5ztyKgt8tNIOKsY8k6qVXxoTgwwPzr3DMMECqItECb5kHhFBPo-XYMLQfKlg3XCBbARwtInReBlLEwlnpwFMpSHrVxTTq7ZTUmUzbQZMSsBK1DIE9D8xeHkyEwranYNUe8gimvGW8vAwy7crMUh4utF7KPhBlbA6qj9bht9u4RA3u6r7ZB3omLBng02o3rO4SnOlR3nGIZ2VfjSU9sJZ1lrMCFKuM5JP-KXg-xHVJPV8V-2kcrcro2jIkGKamZglSb_V1EkxJcGg-WdKJS9IRacCkpsAz9v7JzvSqKsuOROZo2jEOH71JmBMTQgpX6tmTPsMAnKoW9-Z66K-hhGEjWx92_fcUcisVTxxqzSSeISP5N_k2GvvyeS5BTlA7pDgM28lX5SlJHX5VRRz-1uZxNKjCW48ZedLne-svUVi0UuOhCFcWF7xptfvHpQK06Bb0tIe7lHV8njf57jvRYmI6ieSSDqKkFc6bLK_YO174vJ9VXiu4GcyQew1XDdoYZnrRToLL-dkyfWnU1UrCxBUzLpmcj0gwoF6pNyt71-fEW46UklGG8xxkX1lIY4RY7CWAVLw_gsuqf2esZtuvccfttwd9UgKbQ0Ra7w_pS1GnZlCFif1tpQYLYMVLyiHxHArE1vlxufy5n-sgSfU2JdynMpUWAImgSnKVs0bDcwkgoYG60uTQ4Hw=w285-h616-no"},
         // require('../../../assets/Gifs/BounceBack/Plusfive.webp'),
         'It took around 3 months of working 3-4 hours a day to complete this game.'

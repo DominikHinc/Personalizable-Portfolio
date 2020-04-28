@@ -17,7 +17,7 @@ export const HealthAdvisorDetails = [
         'I think health is the most important thing in every person\’s life, that\’s why when I found GetGuidelines API I decided to create an application around it.'
     ),
     new ProjectDetail(
-        "Time in development",
+        "Development Time",
         // require('../../../assets/Gifs/HealthAdvisor/SecondPart.webp'),
         {uri: "https://lh3.googleusercontent.com/qZ_uGzrnVi011opM5f5BJOxHqlJisikBf2mkjvS6h1G8_HoyaUkSkDSpwfaGPhOXqR_3PjWrHXR8zU1XqJj3sp7ztG1IjCgv55hr5wmy3gHoVipHiuhQUWQIV8HvTCLT1MbWHFx4lHYPfaMAwcoa1l08jQu0lZ8EG1qn7V7vrtwkHUDLIFgN8Bm3iL6yPO2x-u3F3pRGpuAx6UqFFZuWYjoI5QwFSwdcm5xmTF_QWCAflRo7X-3TBqQ8VvBK1gbgEXYyUzQZVR0E6X3WaJ9XWOPNEWRNFfjN6WBPfbdcNy-RAE7OIaZPqDrZOwKUOjFyP-fQEl1pAfJ_lXZ96OJLimDzzlZuFURMfh1bQ9RjcFFcwwuAqKTzMXgwxiAfXl-kFJQpF4L81n7iId2DALz_AR-OUH7gb0MyGFbuFNaBlTLy2PZzHmQXwSi8myM3fcM6E8yuiSLSK9VmNi6JhVztTN9GzAES7L3INieZop1zNEkuxu5AGrY_S6tFvKxL8zr-ebe7koaLSWuO0ZA_aSp4fKEkepCT0HOM5Ix6dfTAE_zpWKqDGg_KaA0btP44r-CT2TQ1Lila2cD2Wvpi625Ve-mzeOHooG2T5EPG-2N3bQN6t0MONgseg6Sx8CNNZYiLzfo66ItkddhXSiXv0zhraj_ZcWrXMjz8zJB5y9tC0ONK1tfTMlCw1wLAgwbXL3C7VVu3q2FFsuHNUeWWQMXR24G4V6qg6g-rd2y9tr_NbvCWyR3VI5_X7w=w285-h616-no"},
         'It took around 3 weeks of working 4-5 hours a day to complete this app.'

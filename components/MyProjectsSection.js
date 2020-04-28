@@ -1,11 +1,12 @@
-import { Linking } from 'expo'
 import React, { useContext } from 'react'
-import { Image, Platform, StyleSheet, TouchableOpacity, View } from 'react-native'
+import { Image, StyleSheet, View } from 'react-native'
 import { headerSecondaryStyle, sectionHeaderStyle, standardText } from '../constants/FontStyles'
 import { projectsOverview } from '../constants/PersonalData/ProjectsOverview'
 import { ColorsContext } from '../helpers/ColorsContext'
 import { normalizeBorderRadiusSize, normalizeHeight, normalizeMarginSize, normalizePaddingSize, normalizeWidth } from '../helpers/normalize'
 import DefaultText from './DefaultText'
+import ProjectLinks from './ProjectLinks'
+import {Octicons, FontAwesome5, Ionicons, MaterialIcons, Entypo } from '@expo/vector-icons'
 
 // This component is used in HomeScreen
 // It utilizes data from ProjectsOverview.js file
@@ -39,24 +40,7 @@ const renderProject = (navigation) => {
                 {renderProjectRows(item.content)}
                 <View style={[styles.navigationContainer]}>
                     <DefaultText style={sectionHeaderStyle}>Go to:</DefaultText>
-                    <View style={styles.navigationButtonsContainer}>
-                        <View style={styles.navigationButton}>
-                            <TouchableOpacity style={{ flex: 1 }} onPress={() => { Platform.OS === 'web' ? window.open(item.buttonConfig.link) : Linking.openURL(item.buttonConfig.link) }}>
-                                <View>
-                                    <DefaultText style={{ ...standardText, color: colors.linkBlue }}>{item.buttonConfig.title}</DefaultText>
-                                </View>
-                            </TouchableOpacity>
-                        </View>
-                        <View style={styles.navigationButton}>
-                            <TouchableOpacity style={{ flex: 1 }} onPress={() => { navigation.navigate(item.title, { projectDetails: item.projectDetails }) }}>
-                                <View>
-                                    <DefaultText style={{ ...standardText, color: colors.linkBlue }}>Project's page</DefaultText>
-                                </View>
-                            </TouchableOpacity>
-                        </View>
-                    </View>
-
-
+                    <ProjectLinks buttons={[{title:"Project's page", icon:<Ionicons  name="md-list-box" size={45}/>, onPress:()=>navigation.navigate(item.title)},...item.buttons]}/>
                 </View>
 
             </View>

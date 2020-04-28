@@ -17,7 +17,7 @@ export const WordFishingDetails = [
         'The idea of this app came from my former IT teacher who wasn\’t able to find anything similar. After doing some research I came to the same conclusion and decided to team up with him to create such application.'
     ),
     new ProjectDetail(
-        "Time in development",
+        "Development Time",
         // ('../../../assets/Gifs/WordFishing/CustomList.webp'),
         {uri:"https://lh3.googleusercontent.com/6N1dwTEAhFm7zdTtcyasM4Hr99FKAAfzi54JZxouRtKW2VpJDvpAw__KSJI-mBgSjBrA9Zz4ygwgOZrji_QsU56bFzjk2UhAeiGFE6HYIKj1TnJAwFzBMDTuMd0Hwj16TGC7lfkjIkZ0EQKVfoPuzbl3UEULMnnFjjf-Sgv6mulZFCZl9Ap3pkAr4tDwumSWHy2brybnCSi1bBK8aLDwTvh4QXKhp9lhfnQ1yDB4EwPPmEg2MC6TzHLLYLlQm9H9hyEiEgpqD5-7fXlAmGcxjyMFG0EL2Uy6V2TG-lMB8WTv2MFzpAOI4DwOatO-GH8oeIJISyh1b9O8VFUaRDj-Leu0Bw6ewO9-iRaOCv5GGNYzuEyKIUdffYcVrNwkLcqmYuZnQHH8M-3Xsxd9G7W25UcFC0W9XnMnH_nRodV4hLP6QsvIUtTyrWhO67GxHBXmfzfwjzuFhDUu2fsMm84dJkBBcVYQRxNahlLYBuxWwNf-BzRdfmvWCbkrMJi6hXhex_wJAnQ6nzGBERHdKqJoVvglTfaqk5ZGPbrogrhEDZB-Gzv7CPTBs9iyXaNpMqtZ_Lokq-9SCLIvLD61KXzobB7yN50dWg3uRJB01QaPfbE_LIj4k_5Z-rJyXNP3fF9nBPQXdj79qRpHBoqpaJlHLp5F4J74vq74LdFHIY0Cm8Bx5HRxYZHzFx-8936wpNUrpOsk6-9AAlaMFEjdI7Wk1fZ-b2bpPHyjdyi9GABbFOeP-wyE6YC5Dw=w347-h751-no"},
         'From the first line of code to release it took around 9 months to complete. All this time wasn\’t dedicated just to coding, there was a lot of planning and discussing ideas involved.'
@@ -32,12 +32,12 @@ export const WordFishingDetails = [
         "What I knew before starting this project",
         // require('../../../assets/Gifs/WordFishing/Finish.webp'),
         {uri:"https://lh3.googleusercontent.com/cN2jKReFO6fzwDfBaYHjXgL3Wzz8qu4SFSO3Gm4zLPaib-lXckrsLa_OWWwgwSrgE6SC8R0fCPyFmYnHhKqB2RMi1J2TFcao3kAlhwv9LjuKfvPyTbPBpvjEyHyWWH_AnbkvA9lgXIY_YHGUbtLwbMly5F4_0oA33ukbqYBa8uZMlKA-7hr_xHDjuYtWiqDcFWUQnpXAauzwuOIS7EW_vcOOxJPrHl0VxHeEkEyPpBZO-Ufcaf95ZPZJAhBsQEfhKqLFfZHj7_akUTpVSExIQX2UCCM1SsY_utvZS5N96jrWlsbnoxcvDNrvrMo2-WWAoLQPF0mOAQ4S_SSAaF74R3d7WAqR_zE1-uS9zdnRCN-qlU4_yKp1uoBqa1W3yJJrbdQHbdwQpsgU05cuHLjX1x4VGo8w6ha_TMNkJr3VIRWy6Pot0rMxBK2ZK9qq2w4tYkio9p--GooQnVzfl9Hb2OIhk_zkuCcedX8bEGOvAmkVDPjjyxTTTz9UMV5nXYOg707t3euMWQIOelb0A1jT-2TfBK2q6kM7PhYLYFuc_uw-gfcfxND0fLxa59uSXZ4ebbooXxMJ0N2p4TyS6j4tugaemIuG4gjEHEeqcw8fw7neY2UtaJO3FiTEDn069G3dI7RrDcvQ1C3uxeJ1L13agmsTBBLR6zj1iCARGzy2BpC4MKSUJBms-yjqBfVcvnpuGOiQrWsfF9_TGmrMNdOPgGGjwHZ5P2wYn5PK1UiVQWXMMkLoM_kDIg=w347-h751-no"},
-        'Before developing this app, I was mainly focused on algorithms and small one screen games, so I didn\'t know much about mobile development. I also knew two programming languages - Java and C++.'
+        'I knew two programming languages - Java and C++. Additionally, I had experience in creating small one screen games and apps using LibGDX. I also knew quite a lot about algorithms.'
     ),
     new ProjectDetail(
         "What I learned from creating this project",
         // require('../../../assets/Gifs/WordFishing/Colors.webp'),
         {uri:"https://lh3.googleusercontent.com/MRso1bKUmiNFd1kjN1FajqbIfnOqHhWApL-_dOam1A_Ml7kZWdrVvr04XcoBJcSuNFum39bw8_nO_dII7ewgNOH4iWPvqbL6Gd93gbT6YLEX7tI4gUuMZ8wllnNNLl9pzLADazAnsXyeqf3YJC7naqR-bHVQBUowRY56KuezRwuRJ1eRHDzQ2J-LK_mdOW4f8s3itpzl22_04-dtTr7_71TELd-SL6FPgN7qLMrummWA_EczlKu3IcdhJYoKBfcFuGEuHFYl1JPdMGk9hOZeS9RTjuIbsj5yonJ1OvJNI_rktf_zvjKD23XXlLH52-aZoP5BhxbSZBa7iYXQZLOHWcsV-Q24_6zIRAtIue6mns5u1ZAaGSQCJsVUY1_eI0xoIDFxK4ootXmHFP2Q-JFKIPPgK1nzb8Lrnx4lzHsom1vS67hEt5U7GOq8TdnxG9if1gojJMxeRvtGdGG7_V89PFjns3Ayt2TRBNMd_X_BxUCOXkd222pYKIqdE4eLhsIUViauiCO3AFA_f9Dt-w2wXi2LvPSRfeWhr1wNYoH6Qo31UXrX2FuQ-hHXq3aMe0ZAtqUWSQEXs8BalLSRdsAKaYqZJf7PTooON5wrlndQwHEefO_DVIgCYZ9s6Uhvo4rlNVoVfEtgTpdUkIsrHERRR3fvW4toDTZHde89kvFFtJD1q9odSLNvCWOvezsyaFY0qfIBaGF92Xuc7kKC-532MABRq879bPj3VL9YxRhUffqhYUyTqIcifw=w347-h751-no"},
-        'This project truly opened a world of mobile development for me. I learned from it the basics and some more advanced stuff related to mobile development. Another important thing I learned was how to cooperate with a team bigger than myself and how to create something basing on somebody\'s else instructions and indications. I further improved my java programming skills and gained experience in working under pressure, when the release date was coming.'
+        'This project truly opened a world of mobile development for me. I learned from it the basics and some more advanced stuff related to mobile development. Another important thing I learned was how to cooperate with a team bigger than myself and how to create something based on someone else\’s instructions and indications. I further improved my java programming skills and gained experience in working under pressure, when the release date was coming.'
         )
 ]

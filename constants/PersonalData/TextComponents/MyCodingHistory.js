@@ -25,7 +25,8 @@ const MyCodingHistory = () => {
                 and how to think like a programmer.
             </DefaultText>
             <DefaultText style={{ ...standardText, ...styles.textLabel }}>
-                I was part of local coding group, that was primarily about algorithms. We discussed about them a lot, and we were constantly learning from each other.
+                I was part of local coding group, that was primarily about algorithms. We discussed about them a lot
+                , and we were constantly learning from each other.
             </DefaultText>
             <DefaultText style={{ ...standardText, ...styles.textLabel }}>
                 After experiencing first hand how much joy can coding bring, I started learning <DefaultText style={standardBoldText}>Java</DefaultText>.
@@ -38,12 +39,15 @@ const MyCodingHistory = () => {
                 (two of which - <DefaultText style={{...standardBoldText, color:colors.linkBlue}} onPress={()=>{openLink("https://play.google.com/store/apps/details?id=pl.dominikhinc.wordfishing")}}>WordFishing
                 </DefaultText> and <DefaultText style={{...standardBoldText, color:colors.linkBlue}} onPress={()=>{openLink("https://play.google.com/store/apps/details?id=pl.dominik.hinc.bounceback")}}>BounceBack</DefaultText> - are available on Google Play Store)
                 in <DefaultText style={standardBoldText}>Java</DefaultText>.
-
+            </DefaultText>
+            <DefaultText style={{ ...standardText, ...styles.textLabel }}>
+                When I was learning <DefaultText style={standardBoldText}>Java</DefaultText>, I started taking a real interest in <DefaultText style={standardBoldText}>Design Patterns</DefaultText> 
+                . I think it is very interesting, that at some level, most of the programming languages are similar and all of them have to face alike problems.
             </DefaultText>
             <DefaultText style={{ ...standardText, ...styles.textLabel }}>
                 My latest discovery that absorbed me completely is <DefaultText style={standardBoldText}>JavaScript</DefaultText>.
                 Because <DefaultText style={standardBoldText}>JavaScript</DefaultText> is so different from two languages mentioned earlier, the process of learning it was very refreshing and enjoyable.
-                As I got to know it better I have decided that I want to use my previous experience and continue working with mobile platforms, but now using <DefaultText style={standardBoldText}>JavaScript</DefaultText>.
+                As I got to know it better, I have decided that I want to use my previous experience and continue working with mobile platforms, but now using <DefaultText style={standardBoldText}>JavaScript</DefaultText>.
             </DefaultText>
             <DefaultText style={{ ...standardText, ...styles.textLabel }}>
                 Thus, I started learning <DefaultText style={standardBoldText}>React</DefaultText>, to in the end learn <DefaultText style={standardBoldText}>React Native</DefaultText>.
@@ -52,10 +56,10 @@ const MyCodingHistory = () => {
                 After time I spent writing in it I can easily say it's my favorite way of coding I have ever tried.
                 I have created many projects using <DefaultText style={standardBoldText}>React Native </DefaultText> 
                 (two of which - 
-                <DefaultText style={{...standardBoldText, color:colors.linkBlue}} onPress={()=>{openLink("https://play.google.com/store/apps/details?id=pl.dominik.hinc.grocereats")}}>GrocerEats
+                <DefaultText style={{...standardBoldText, color:colors.linkBlue}} onPress={()=>{openLink("https://play.google.com/store/apps/details?id=pl.dominik.hinc.grocereats")}}> GrocerEats
                 </DefaultText> and <DefaultText style={{...standardBoldText, color:colors.linkBlue}} onPress={()=>{openLink("https://play.google.com/store/apps/details?id=pl.dominik.hinc.heath_advisor")}}>Health Advisor</DefaultText> - are available on Google Play Store).
             </DefaultText>
-            <DefaultText style={{ ...standardText, ...styles.textLabel }}>Around the time I learned how to code in React Native I had opportunity to work with people that are working in software industry. 
+            <DefaultText style={{ ...standardText, ...styles.textLabel }}>Around the time I learned how to code in React Native I had opportunity to work with people that are working in the software industry. 
             Although the project we were creating had to be abandoned, I was able to gain experience on how to work with programs like <DefaultText style={standardBoldText}>Jira</DefaultText>
              , <DefaultText style={standardBoldText}>Zeplin</DefaultText> and <DefaultText style={standardBoldText}>Slack</DefaultText>.</DefaultText>
             <DefaultText style={{ ...standardText, ...styles.textLabel }}>

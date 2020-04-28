@@ -12,7 +12,7 @@ const AboutMe = () => {
         <View>
             <DefaultText style={headerMainStyle}>About Me</DefaultText>
             <DefaultText style={standardText}>
-                I'm a passionate self taught developer, who seeks for more knowledge everyday.
+                I'm a passionate self-taught developer, who seeks for more knowledge everyday.
             </DefaultText>
             <DefaultText style={standardText}>
                 For the past 4 years, I have been working with code almost every day.
