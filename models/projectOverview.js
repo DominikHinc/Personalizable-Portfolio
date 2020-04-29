@@ -1,6 +1,6 @@
 // This is a model used in ProjectsOverview.js file
 
-class ProjectOverview {
+export class ProjectOverview {
     constructor(title, image, projectDetails, buttons, content, specialLabel){
         this.title = title
         this.image = image
@@ -13,4 +13,4 @@ class ProjectOverview {
 }
 
 
-export default ProjectOverview
+  

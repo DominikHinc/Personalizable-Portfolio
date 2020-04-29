@@ -1,7 +1,7 @@
 
-import { AntDesign, MaterialIcons, MaterialCommunityIcons } from '@expo/vector-icons';
-import React from 'react';
+import { AntDesign, MaterialCommunityIcons } from '@expo/vector-icons';
 import { IconButtonConfig } from '../../models/iconButtonConfig';
+import React from 'react';
 
 // This file describes the properties of Image located at the top of the HomeScreen and all things that overlay it.
 // homeScreenConfig should contain:

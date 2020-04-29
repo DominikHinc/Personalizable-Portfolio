@@ -1,10 +1,10 @@
 import React, { useContext } from 'react'
-import { View, StyleSheet } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 import DefaultText from '../../../components/DefaultText'
-import { headerMainStyle, standardBoldText, standardText } from '../../FontStyles'
-import { normalizeMarginSize } from '../../../helpers/normalize'
 import { ColorsContext } from '../../../helpers/ColorsContext'
+import { normalizeMarginSize } from '../../../helpers/normalize'
 import { openLink } from '../../../helpers/OpenLink'
+import { headerMainStyle, standardBoldText, standardText } from '../../FontStyles'
 
 
 // This component is placed at the bottom of Presentation Component.
@@ -15,7 +15,7 @@ import { openLink } from '../../../helpers/OpenLink'
 const MyCodingHistory = () => {
     const {colors} = useContext(ColorsContext)
     return (
-        <View>
+        <View >
             <DefaultText style={{ ...headerMainStyle, marginTop: normalizeMarginSize(35) }}>My coding history</DefaultText>
             <DefaultText style={{ ...standardText, ...styles.textLabel }}>
                 Over the years I have worked with many different technologies.
@@ -25,7 +25,7 @@ const MyCodingHistory = () => {
                 and how to think like a programmer.
             </DefaultText>
             <DefaultText style={{ ...standardText, ...styles.textLabel }}>
-                I was part of local coding group, that was primarily about algorithms. We discussed about them a lot
+                I was part of a local coding group, that was primarily about algorithms. We discussed about them a lot
                 , and we were constantly learning from each other.
             </DefaultText>
             <DefaultText style={{ ...standardText, ...styles.textLabel }}>
@@ -71,7 +71,7 @@ const MyCodingHistory = () => {
 }
 const styles = StyleSheet.create({
     textLabel: {
-        marginVertical: normalizeMarginSize(10)
+        
     },
 
 })

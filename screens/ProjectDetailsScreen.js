@@ -40,7 +40,7 @@ const ProjectDetailsScreen = ({ route, navigation }) => {
                 
                 <View style={[styles.linksContainer, {position:verticalView ? null : 'absolute', zIndex:verticalView ? null : 2, paddingTop:normalizePaddingSize(10),
                 right:verticalView ? null : 0, width:verticalView ? null : '50%'}]}>
-                    <DefaultText style={headerSecondaryStyle}>Links to:</DefaultText>
+                    <DefaultText style={headerSecondaryStyle}>Available on:</DefaultText>
                     <ProjectLinks buttons={project.buttons} />
                 </View>
 

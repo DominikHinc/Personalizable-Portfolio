@@ -2,8 +2,8 @@ import { GrocerEatsDetails } from './ProjectsDetails/GrocerEats';
 import { WordFishingDetails } from './ProjectsDetails/WordFishing';
 import { HealthAdvisorDetails } from './ProjectsDetails/HealthAdvisor';
 import { BounceBackDetails } from './ProjectsDetails/BounceBack';
-import ProjectOverview from '../../models/projectOverview';
-import {MaterialCommunityIcons,AntDesign } from '@expo/vector-icons'
+import { ProjectOverview } from '../../models/projectOverview';
+import { MaterialCommunityIcons, AntDesign } from '@expo/vector-icons'
 import React from 'react'
 import { IconButtonConfig } from '../../models/iconButtonConfig';
 
@@ -121,7 +121,7 @@ export const projectsOverview = [
             <MaterialCommunityIcons name="google-play" size={45} />,
             "https://play.google.com/store/apps/details?id=pl.dominik.hinc.heath_advisor",
             'Play Store',
-        ),new IconButtonConfig(
+        ), new IconButtonConfig(
             <AntDesign name="github" size={45} />,
             "https://github.com/DominikHinc/Health-Advisor",
             'GitHub',
@@ -141,11 +141,11 @@ export const projectsOverview = [
             },
             {
                 title: "Technologies used:",
-                text: "Expo"
+                text: "Expo, Redux"
             },
             {
                 title: "Libraries used:",
-                text: "redux, react-redux, react-reanimated, react-navigation, validate.js",
+                text: "redux, react-redux, react-navigation, validate.js",
             },
             {
                 title: "Other:",
@@ -161,7 +161,7 @@ export const projectsOverview = [
             <MaterialCommunityIcons name="google-play" size={45} />,
             "https://play.google.com/store/apps/details?id=pl.dominik.hinc.bounceback",
             'Play Store',
-        ),new IconButtonConfig(
+        ), new IconButtonConfig(
             <AntDesign name="github" size={45} />,
             "https://github.com/DominikHinc/BounceBack",
             'GitHub',

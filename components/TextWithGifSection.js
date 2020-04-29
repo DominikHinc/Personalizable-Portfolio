@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { ActivityIndicator, Dimensions, Image, Platform, StyleSheet, View } from 'react-native'
-import { useSafeArea } from 'react-native-safe-area-context'
 import { headerMainStyle, standardText } from '../constants/FontStyles'
 import { TAB_BAR_HEIGHT } from '../constants/TAB_BAR'
 import { ColorsContext } from '../helpers/ColorsContext'
@@ -14,7 +13,6 @@ import DefaultText from './DefaultText'
 
 const TextWithGifSection = ({ gifPath, text, title, reverseOrder }) => {
     const { colors } = useContext(ColorsContext)
-    const insets = useSafeArea();
     const [imageLoading, setImageLoading] = useState(true)
 
     const [gifAspectRatio, setGifAspectRatio] = useState(1)
