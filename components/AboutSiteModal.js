@@ -7,6 +7,7 @@ import { ColorsContext } from '../helpers/ColorsContext';
 import { normalizeBorderRadiusSize, normalizeHeight, normalizePaddingSize } from '../helpers/normalize';
 import { openLink } from '../helpers/OpenLink';
 import DefaultText from './DefaultText';
+
 const AboutSiteModal = ({ isActive, setActive }) => {
 
     const getModalContent = () => {

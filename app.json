@@ -24,7 +24,7 @@
     "ios": {
       "supportsTablet": true
     },
-    "description": "",
-    "githubUrl": "https://github.com/DominikHinc/Portfolio"
+    "description": "Portfolio website/application that scales dynamically to look the same on every device.",
+    "githubUrl": "https://github.com/DominikHinc/Personalizable-Portfolio"
   }
 }

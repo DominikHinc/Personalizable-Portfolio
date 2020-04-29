@@ -1,3 +1,4 @@
+import { Ionicons } from '@expo/vector-icons'
 import React, { useContext } from 'react'
 import { Image, StyleSheet, View } from 'react-native'
 import { headerSecondaryStyle, sectionHeaderStyle, standardText } from '../constants/FontStyles'
@@ -6,7 +7,6 @@ import { ColorsContext } from '../helpers/ColorsContext'
 import { normalizeBorderRadiusSize, normalizeHeight, normalizeMarginSize, normalizePaddingSize, normalizeWidth } from '../helpers/normalize'
 import DefaultText from './DefaultText'
 import ProjectLinks from './ProjectLinks'
-import {Octicons, FontAwesome5, Ionicons, MaterialIcons, Entypo } from '@expo/vector-icons'
 
 // This component is used in HomeScreen
 // It utilizes data from ProjectsOverview.js file

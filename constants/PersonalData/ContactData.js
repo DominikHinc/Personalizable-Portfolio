@@ -1,4 +1,4 @@
-import { AntDesign, MaterialIcons, MaterialCommunityIcons } from '@expo/vector-icons';
+import { AntDesign, MaterialIcons, Entypo } from '@expo/vector-icons';
 import React from 'react';
 import { Contact } from "../../models/contact";
 
@@ -14,6 +14,6 @@ import { Contact } from "../../models/contact";
 export const contactData = [
     new Contact("contact.dominikhinc@gmail.com", <MaterialIcons name="mail" size={45} />, "mailto: contact.dominikhinc@gmail.com"),
     new Contact("github.com/DominikHinc", <AntDesign name="github" size={45} />, "https://github.com/DominikHinc"),
-    new Contact("Google Play", <MaterialCommunityIcons name="google-play" size={45} /> , "https://play.google.com/store/apps/developer?id=3TOR+Studio&hl=en_US")
+    new Contact("Google Play", <Entypo name="google-play" size={45} /> , "https://play.google.com/store/apps/developer?id=3TOR+Studio&hl=en_US")
 
 ]
