@@ -42,7 +42,12 @@ export const projectsOverview = [
         new IconButtonConfig(
             <AntDesign name="github" size={45} />,
             "https://github.com/DominikHinc/GrocerEats",
-            'GitHub',
+            'GitHub (Expo)',
+        ),
+        new IconButtonConfig(
+            <AntDesign name="github" size={45} />,
+            "https://github.com/DominikHinc/GrocerEats-Without-Expo",
+            'GitHub (No Expo)',
         )],
         [
             {
@@ -63,7 +68,7 @@ export const projectsOverview = [
             },
             {
                 title: "Libraries used:",
-                text: "redux, react-redux, redux-thunk, expo-sqlite, react-reanimated, react-navigation",
+                text: "redux, react-redux, redux-thunk, react-native-sqlite-storage, expo-sqlite, react-reanimated, react-navigation",
             },
             {
                 title: "Other:",

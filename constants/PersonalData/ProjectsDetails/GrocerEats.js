@@ -22,7 +22,7 @@ export const GrocerEatsDetails = [
     new ProjectDetail(
         "History",
         {uri:"https://lh3.googleusercontent.com/ErXGy39TG8fi3jH9gLNERWabH4QgKBSNynpM0bzo_prYZ03xufxOXL_bUqrtPOkZ85q7fSoUSbmAUVPt0jsoRZxVB1d7I6reE-BoL3pznUv4jJMsHYmBIYws7yK6hhIXkFjKIq_b0eCyB7yvWYD1RTKNnxqpT_EGil2MILSW1tyWvAKQxNgBvwppRlE3s4X46OTfB5b_J5cOGWWONQIqs-E84xjYviYyL9b-iHHyDuy7ZhCPAxYOO5XIe1FzGP_C9TwRaUR0124lWMLh_fI2jxvXSZ3bgCcn5AwB9VljU7L0jIIp1ApzZbVxK_junJ3QR4EvqSEmivn5yqColqbiOYF8vGyDeufcMZ01yGsqf1mSn-w2OtL3fzoQIGkwDpXSmZszEEl-xksvCU54JqBH54mIbos_OjBoj_L9B-ijS0_Md9-xmknXyipcfOfac5kwxU4U_c_Z9DOGBPQM_YrEIyTlQq0e51Zow1X4-8CmFNSQx5Avq2ysTA_j7NN46asBM1lfGvXB2QzMj0zNQQZdydBk7HatZuqu-7orkPGva0LPTatgltakBpGBqGTd4Pamvpi5hODMcee3lTRyCEKAV4XgWyxqFkv0hNIB2SbnX6sIS5ObU6rXM0t6gY7hfQ_RVeuWTkdjvHEKYBKDlrjAi7uCksIJsSUm40qpvxNF9_0dnDW_cilSo5wMScS2FDIMgz4GUFQBalRb0QSdH_INe1NDFgvFTgX2FLtmx6k9T0MT33RGuaKJ=w357-h775-no"},
-        'Development process of this app was very straight forward. I had a plan and a lot of free time to implement it. Beside few testing sessions I had with my friends, most of my time was dedicated to coding and learning how to further improve the user experience.'
+        'Development process of this app was very straight forward. I had a plan and a lot of free time to implement it. Beside few testing sessions I had with my friends, most of my time was dedicated to coding and learning how to further improve the user experience. A month after the release I recreated this project from scratch without using Expo.'
     ),
     new ProjectDetail(
         "What I knew before starting this project",
