@@ -18,7 +18,7 @@ export const mySkills = [
     new MySkillsColumn(
         "General Programming:",
         [
-            "Version control",
+            "Git Version Control",
             'REST API',
             "Design Patterns"
         ]
@@ -49,8 +49,9 @@ export const mySkills = [
     new MySkillsColumn(
         "Technologies:",
         [
-            'Expo',
+            'React Native CLI',
             'Redux',
+            'Expo',
         ]
     ),
 

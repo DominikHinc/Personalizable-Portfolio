@@ -64,7 +64,7 @@ export const projectsOverview = [
             },
             {
                 title: "Technologies used:",
-                text: "Expo, Redux"
+                text: "Expo, Redux, React Native CLI"
             },
             {
                 title: "Libraries used:",
@@ -72,7 +72,7 @@ export const projectsOverview = [
             },
             {
                 title: "Other:",
-                text: "Version control, react-native-debugger, REST API"
+                text: "Git Version Control, react-native-debugger, REST API"
             }
         ],
         "Latest"
@@ -114,7 +114,7 @@ export const projectsOverview = [
             },
             {
                 title: "Other:",
-                text: "Version control, Android Push Notifications, Local mobile storage management"
+                text: "Git Version Control, Android Push Notifications, Local mobile storage management"
             }
         ],
         "Popular"
@@ -155,7 +155,7 @@ export const projectsOverview = [
             },
             {
                 title: "Other:",
-                text: "Version control, react-native-debugger, REST API"
+                text: "Git Version Control, react-native-debugger, REST API"
             }
         ],
     ),
@@ -195,7 +195,7 @@ export const projectsOverview = [
             },
             {
                 title: "Other:",
-                text: "Version control"
+                text: "Git Version Control"
             }
         ],
     ),

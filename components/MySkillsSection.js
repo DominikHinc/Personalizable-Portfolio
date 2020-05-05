@@ -25,7 +25,7 @@ const MySkillsSection = () => {
     }
 
     return (
-        <View style={[styles.mainSkillsContainer, {paddingHorizontal: normalizePaddingSize(50)}]}>
+        <View style={[styles.mainSkillsContainer, {paddingHorizontal: normalizePaddingSize(46)}]}>
             <DefaultText style={{ ...headerMainStyle, marginTop: normalizeMarginSize(50) }}>My skills</DefaultText>
             <View style={styles.innerSkillsContainer}>
                 {renderSkillsColumn()}

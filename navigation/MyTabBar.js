@@ -52,7 +52,7 @@ const MyTabBar = ({ state, descriptors, navigation, position }) => {
 
                         );
                     })}
-                    <View style={[styles.darkModeButtonContainer, { minWidth: normalizeWidth(TAB_BAR_HEIGHT / 1.5 + 40) }]}>
+                    <View style={[styles.darkModeButtonContainer, { minWidth: normalizeWidth(TAB_BAR_HEIGHT / 1.5 + 40) }]} >
                         <TouchableOpacity onPress={() => { setIsAboutSiteModalActive(true) }} >
                             <Entypo name="info" size={normalizeIconSize(TAB_BAR_HEIGHT / 2)} style={[styles.darkModeIcon, { marginHorizontal: normalizeMarginSize(30) }]} color={colors.font} />
                         </TouchableOpacity>
