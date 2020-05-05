@@ -16,7 +16,7 @@ const MyCodingHistory = () => {
     const {colors} = useContext(ColorsContext)
     return (
         <View >
-            <DefaultText style={{ ...headerMainStyle, marginTop: normalizeMarginSize(35) }}>My coding history</DefaultText>
+            <DefaultText style={{ ...headerMainStyle, marginBottom:normalizeMarginSize(15)}}>My coding history</DefaultText>
             <DefaultText style={{ ...standardText, ...styles.textLabel }}>
                 Over the years I have worked with many different technologies.
             </DefaultText>
@@ -53,13 +53,13 @@ const MyCodingHistory = () => {
                 Thus, I started learning <DefaultText style={standardBoldText}>React</DefaultText>, to in the end learn <DefaultText style={standardBoldText}>React Native</DefaultText>.
             </DefaultText>
             <DefaultText style={{ ...standardText, ...styles.textLabel }}>
-                After time I spent writing in it I can easily say it's my favorite way of coding I have ever tried.
+                I really enjoy working with those two Frameworks.
                 I have created many projects using <DefaultText style={standardBoldText}>React Native </DefaultText> 
                 (two of which - 
                 <DefaultText style={{...standardBoldText, color:colors.linkBlue}} onPress={()=>{openLink("https://play.google.com/store/apps/details?id=pl.dominik.hinc.grocereats")}}> GrocerEats
                 </DefaultText> and <DefaultText style={{...standardBoldText, color:colors.linkBlue}} onPress={()=>{openLink("https://play.google.com/store/apps/details?id=pl.dominik.hinc.heath_advisor")}}>Health Advisor</DefaultText> - are available on Google Play Store).
             </DefaultText>
-            <DefaultText style={{ ...standardText, ...styles.textLabel }}>Around the time I learned how to code in React Native I had opportunity to work with people that are working in the software industry. 
+            <DefaultText style={{ ...standardText, ...styles.textLabel }}>Around the time I learned how to code in <DefaultText style={standardBoldText}>React Native </DefaultText> I had opportunity to work with people that are working in the software industry. 
             Although the project we were creating had to be abandoned, I was able to gain experience on how to work with programs like <DefaultText style={standardBoldText}>Jira</DefaultText>
              , <DefaultText style={standardBoldText}>Zeplin</DefaultText> and <DefaultText style={standardBoldText}>Slack</DefaultText>.</DefaultText>
             <DefaultText style={{ ...standardText, ...styles.textLabel }}>

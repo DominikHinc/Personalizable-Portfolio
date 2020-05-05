@@ -1,7 +1,7 @@
 import { Ionicons } from '@expo/vector-icons'
 import React, { useContext } from 'react'
 import { Image, StyleSheet, View } from 'react-native'
-import { headerSecondaryStyle, sectionHeaderStyle, standardText } from '../constants/FontStyles'
+import { headerSecondaryStyle, sectionHeaderStyle, standardText, headerMainStyle } from '../constants/FontStyles'
 import { projectsOverview } from '../constants/PersonalData/ProjectsOverview'
 import { ColorsContext } from '../helpers/ColorsContext'
 import { normalizeBorderRadiusSize, normalizeHeight, normalizeMarginSize, normalizePaddingSize, normalizeWidth } from '../helpers/normalize'
@@ -13,7 +13,7 @@ import ProjectLinks from './ProjectLinks'
 
 const renderProjectRows = (item) => {
     return item.map(row => {
-        return <View key={row.title} style={[styles.shortDescriptionContainer, styles.section, { paddingVertical: normalizePaddingSize(20) }]}>
+        return <View key={row.title} style={[styles.shortDescriptionContainer, styles.section, { paddingVertical: normalizePaddingSize(10) }]}>
             <DefaultText style={sectionHeaderStyle}>{row.title}</DefaultText>
             <DefaultText style={standardText}>{row.text}</DefaultText>
         </View>
@@ -34,7 +34,7 @@ const renderProject = (navigation) => {
                 <View style={[styles.projectImageContainer, { height: normalizeHeight(200), }]}>
                     <Image style={[styles.projectImage, { height: normalizeHeight(200) }]} source={item.image} resizeMode="contain" />
                 </View>
-                <View style={[styles.titleContainer, styles.section, { paddingVertical: normalizePaddingSize(20) }]}>
+                <View style={[styles.titleContainer, styles.section, { paddingVertical: normalizePaddingSize(10) }]}>
                     <DefaultText style={headerSecondaryStyle}>{item.title}</DefaultText>
                 </View>
                 {renderProjectRows(item.content)}
@@ -52,7 +52,7 @@ const MyProjectsSection = ({ navigation }) => {
     return (
         <View style={styles.mainContainer}>
             <View style={styles.projectsSectionTitleContainer}>
-                <DefaultText style={headerSecondaryStyle}>My Projects:</DefaultText>
+                <DefaultText style={headerMainStyle}>My Projects</DefaultText>
             </View>
             <View style={styles.projectsTable}>
                 {renderProject(navigation)}
@@ -79,11 +79,11 @@ const styles = StyleSheet.create({
     },
     tabMainContainer: {
         width: "80%",
-
         marginHorizontal: '10%',
         marginVertical: '5%',
         alignItems: 'center',
-        overflow: 'hidden'
+        overflow: 'hidden',
+   
     },
     specialLabelContainer: {
         position: 'absolute',

@@ -67,12 +67,8 @@ const HomeScreen = (props) => {
 
                 <View style={[styles.screenUseableContainer, { backgroundColor: colors.background }]}>
 
-                    <View style={[styles.projectsSectionContainer, { paddingTop: normalizePaddingSize(20) }]}>
-                        <MyProjectsSection navigation={props.navigation} />
-                    </View>
-
-                    <View style={styles.aboutMeSectionContainer}>
-                        <Presentation />
+                    <View style={[styles.presentationContainer, { paddingTop: normalizePaddingSize(20) }]}>
+                        <Presentation navigation={props.navigation}  />
                     </View>
 
                 </View>
@@ -117,7 +113,7 @@ const styles = StyleSheet.create({
         flex: 1,
 
     },
-    projectsSectionContainer: {
+    presentationContainer: {
         flex: 1,
     },
 

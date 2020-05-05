@@ -41,7 +41,7 @@ export const mySkills = [
             'react-navigation',
             'react-reanimated',
             'react-native-web',
-            'expo-sqlite',
+            'react-native-sqlite-storage',
             'validate.js'
         ]
     ),
