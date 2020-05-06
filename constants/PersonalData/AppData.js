@@ -6,3 +6,4 @@ import { Platform } from "react-native"
 export const linkToExpo = "https://expo.io/@osobanr7/portfolio-dominik-hinc"
 export const linkToWebsite = "https://dominikhinc.pl/"
 export const footerText = `${Platform.OS === 'web' ? "Site" : "App"} created by Dominik Hinc`
+export const alwaysDisplayHomeAndContactLabel = true;

@@ -5,6 +5,8 @@ import { getTabBarTabsData } from '../constants/PersonalData/TabBarTabsData';
 import { TAB_BAR_HEIGHT } from '../constants/TAB_BAR';
 import { ColorsContext } from '../helpers/ColorsContext';
 import { normalizeHeight, normalizeMarginSize } from '../helpers/normalize';
+import { HOME_SCREEN_TITLE, CONTACT_SCREEN_TITLE } from '../constants/PersonalData/ProjectsOverview';
+import { alwaysDisplayHomeAndContactLabel } from '../constants/PersonalData/AppData';
 
 // This component is used in MyTabBar.js file
 // Returns custom animated tab, for every screen
@@ -22,7 +24,10 @@ const MyTabBarTab = ({ label, isFocused, options, onPress }) => {
 
     const startAnimation = () => {
         Animated.spring(animatedValue, {
-            toValue: isFocused ? 1 : 0,
+            toValue: alwaysDisplayHomeAndContactLabel ? 
+                        label === HOME_SCREEN_TITLE || label === CONTACT_SCREEN_TITLE ?
+                                 1 : isFocused ? 1 : 0 
+                        : isFocused ? 1 : 0,
 
             overshootClamping: true,
             bounciness: 12
@@ -58,7 +63,7 @@ const MyTabBarTab = ({ label, isFocused, options, onPress }) => {
                 </Animated.View>
 
                 <Animated.View style={[{ opacity: textOpacity, marginLeft: normalizeMarginSize(10), width: textWidth }]}>
-                    <DefaultText numberOfLines={1} style={{ fontSize: 22, ...tabProperties.textProperties, color: tabProperties.textProperties.color }}>
+                    <DefaultText numberOfLines={1} style={{ fontSize: 22, ...tabProperties.textProperties, color: isFocused ? tabProperties.textProperties.color : colors.gray }}>
                         {tabProperties.title !== undefined ? tabProperties.title : label}
                     </DefaultText>
                 </Animated.View>

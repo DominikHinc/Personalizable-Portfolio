@@ -12,7 +12,8 @@ export const mySkills = [
             'JavaScript ES6/ES7/ES8',
             'Java',
             'C++',
-            "SQLite and SQL"
+            "SQLite and SQL",
+            "HTML/CSS"
         ]
     ),
     new MySkillsColumn(
