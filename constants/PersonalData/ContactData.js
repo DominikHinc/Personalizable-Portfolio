@@ -14,6 +14,6 @@ import { Contact } from "../../models/contact";
 export const contactData = [
     new Contact("contact.dominikhinc@gmail.com", <MaterialIcons name="mail" size={45} />, "mailto: contact.dominikhinc@gmail.com"),
     new Contact("github.com/DominikHinc", <AntDesign name="github" size={45} />, "https://github.com/DominikHinc"),
-    new Contact("Google Play", <Entypo name="google-play" size={45} /> , "https://play.google.com/store/apps/developer?id=3TOR+Studio&hl=en_US")
-
+    new Contact("LinkedIn", <AntDesign name="linkedin-square" size={45} /> , "https://www.linkedin.com/in/dominik-hinc-84b3461a9/"),
+    new Contact("Google Play", <Entypo name="google-play" size={45} /> , "https://play.google.com/store/apps/developer?id=3TOR+Studio&hl=en_US"),
 ]
