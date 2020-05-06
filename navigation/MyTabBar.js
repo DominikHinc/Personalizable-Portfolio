@@ -50,8 +50,8 @@ const MyTabBar = ({ state, descriptors, navigation, position }) => {
                         };
 
                         return (
-                            <View style={[styles.tabContainer]}>
-                                <MyTabBarTab key={label} label={label} isFocused={isFocused} onPress={onPress} options={options} />
+                            <View key={label} style={[styles.tabContainer]}>
+                                <MyTabBarTab label={label} isFocused={isFocused} onPress={onPress} options={options} />
                                 {label === CONTACT_SCREEN_TITLE && <View style={[styles.myAppsTextContainer, {marginRight:normalizeMarginSize(10)}]}><DefaultText style={{...sectionHeaderStyle, color:colors.gray}}>{'My\nApps:'}</DefaultText></View>}
                             </View>
                         );

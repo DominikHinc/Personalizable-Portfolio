@@ -46,8 +46,8 @@ export const projectsOverview = [
         ),
         new IconButtonConfig(
             <AntDesign name="github" size={45} />,
-            "https://github.com/DominikHinc/GrocerEats-Without-Expo",
-            'GitHub (No Expo)',
+            "https://github.com/DominikHinc/GrocerEats-React-Native",
+            'GitHub (RN CLI)',
         )],
         [
             {
