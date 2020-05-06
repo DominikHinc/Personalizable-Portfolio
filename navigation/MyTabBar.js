@@ -8,6 +8,9 @@ import { TAB_BAR_HEIGHT } from '../constants/TAB_BAR';
 import { ColorsContext } from '../helpers/ColorsContext';
 import { normalizeHeight, normalizeIconSize, normalizeMarginSize, normalizeWidth } from '../helpers/normalize';
 import MyTabBarTab from './MyTabBarTab';
+import { CONTACT_SCREEN_TITLE } from '../constants/PersonalData/ProjectsOverview';
+import DefaultText from '../components/DefaultText';
+import { sectionHeaderStyle } from '../constants/FontStyles';
 
 // Custom tab bar, changes the position from default bottom to top.
 
@@ -47,9 +50,10 @@ const MyTabBar = ({ state, descriptors, navigation, position }) => {
                         };
 
                         return (
-
-                            <MyTabBarTab key={label} label={label} isFocused={isFocused} onPress={onPress} options={options} />
-
+                            <View style={[styles.tabContainer]}>
+                                <MyTabBarTab key={label} label={label} isFocused={isFocused} onPress={onPress} options={options} />
+                                {label === CONTACT_SCREEN_TITLE && <View style={[styles.myAppsTextContainer, {marginRight:normalizeMarginSize(10)}]}><DefaultText style={{...sectionHeaderStyle, color:colors.gray}}>{'My\nApps:'}</DefaultText></View>}
+                            </View>
                         );
                     })}
                     <View style={[styles.darkModeButtonContainer, { minWidth: normalizeWidth(TAB_BAR_HEIGHT / 1.5 + 40) }]} >
@@ -91,6 +95,13 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
 
     },
+    tabContainer:{
+        flexDirection:'row',
+        alignItems:'center'
+    },
+    myAppsTextContainer:{
+    
+    },
     darkModeButtonContainer: {
         flex: 1,
         flexDirection: 'row',
@@ -100,8 +111,8 @@ const styles = StyleSheet.create({
     darkModeIcon: {
 
     },
-    modalContainer:{
-        position:'absolute'
+    modalContainer: {
+        position: 'absolute'
     }
 })
 
