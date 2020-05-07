@@ -52,7 +52,7 @@ export const projectsOverview = [
         [
             {
                 title: "Short description:",
-                text: "GrocerEats provides easy access to Spoonacular API meal recipes and integrates it with simple to use grocery list.",
+                text: "GrocerEats provides easy access to a library of over 340 000 meal recipes and integrates it with simple to use grocery list.",
             },
             {
                 title: "Languages used:",
